@@ -1,11 +1,14 @@
 {
     "id": "ubuntu",
-    "displayName": "Ubuntu",
+    "name": "Ubuntu",
     "description": "A simple Ubuntu container with Git and other common utilities installed.",
     "categories": [
         "Core",
         "Other"
     ],
+    "image": {
+        "manifest": "https://mcr.microsoft.com/v2/devcontainers/base/tags/list"
+    },
     "architectures": [],
     "type": "singleContainer",
     "options": {

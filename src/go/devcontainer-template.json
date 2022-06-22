@@ -1,0 +1,38 @@
+{
+    "id": "go",
+    "name": "Go",
+    "description": "Develop Go based applications. Includes appropriate runtime args, Go, common tools, extensions, and dependencies.",
+    "categories": ["Core", "Languages"],
+    "image": {
+        "manifest": "https://mcr.microsoft.com/v2/devcontainers/go/tags/list"
+    },
+    "type": "singleContainer",
+    "options": {
+        "VARIANT": {
+            "type": "string",
+            "proposals": [
+                "1",
+                "1.18",
+                "1.17",
+                "1-bullseye",
+                "1.18-bullseye",
+                "1.17-bullseye",
+                "1-buster",
+                "1.18-buster",
+                "1.17-buster"
+            ],
+            "default": "1-bullseye"
+        },
+        "NODE_VERSION": {
+            "type": "string",
+            "proposals": [
+                "none",
+                "lts/*",
+                "18",
+                "16",
+                "14"
+            ],
+            "default": "none"
+        }
+    }
+}

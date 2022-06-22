@@ -1,4 +1,5 @@
 {
+    // https://containers.dev/implementors/json_reference
     "name": "Ubuntu",
     "build": {
         "dockerfile": "Dockerfile",
