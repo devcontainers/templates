@@ -1,0 +1,14 @@
+{
+    "customizations": {
+      "codespaces": {
+        "repositories": {
+          "devcontainers/action": {
+            "permissions": {
+              "contents": "write",
+              "workflows": "write"
+            }
+          }
+        }
+      }
+    }
+  }
