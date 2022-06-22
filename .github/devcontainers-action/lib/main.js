@@ -37,40 +37,38 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(require("@actions/core"));
-const generateFeaturesDocs_1 = require("./generateFeaturesDocs");
+const generateDocs_1 = require("./generateDocs");
 const utils_1 = require("./utils");
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         core.debug('Reading input parameters...');
         // Read inputs
         const shouldPublishFeatures = core.getInput('publish-features').toLowerCase() === 'true';
-        const shouldPublishTemplate = core.getInput('publish-templates').toLowerCase() === 'true';
+        const shouldPublishTemplates = core.getInput('publish-templates').toLowerCase() === 'true';
         const shouldGenerateDocumentation = core.getInput('generate-docs').toLowerCase() === 'true';
+        const featuresBasePath = core.getInput('base-path-to-features');
+        const templatesBasePath = core.getInput('base-path-to-templates');
         let featuresMetadata = undefined;
         let templatesMetadata = undefined;
+        // -- Package Release Artifacts
         if (shouldPublishFeatures) {
             core.info('Publishing features...');
-            const featuresBasePath = core.getInput('base-path-to-features');
             featuresMetadata = yield packageFeatures(featuresBasePath);
         }
-        if (shouldPublishTemplate) {
+        if (shouldPublishTemplates) {
             core.info('Publishing template...');
-            const basePathToDefinitions = core.getInput('base-path-to-templates');
-            templatesMetadata = undefined; // TODO
-            yield packageTemplates(basePathToDefinitions);
+            templatesMetadata = yield packageTemplates(templatesBasePath);
         }
-        if (shouldGenerateDocumentation) {
-            core.info('Generating documentation...');
-            const featuresBasePath = core.getInput('base-path-to-features');
-            if (featuresBasePath) {
-                yield (0, generateFeaturesDocs_1.generateFeaturesDocumentation)(featuresBasePath);
-            }
-            else {
-                core.error("'base-path-to-features' input is required to generate documentation");
-            }
-            // TODO: base-path-to-templates
+        // -- Generate Documentation
+        if (shouldGenerateDocumentation && featuresBasePath) {
+            core.info('Generating documentation for features...');
+            yield (0, generateDocs_1.generateFeaturesDocumentation)(featuresBasePath);
         }
-        // TODO: Programatically add feature/template fino with relevant metadata for UX clients.
+        if (shouldGenerateDocumentation && templatesBasePath) {
+            core.info('Generating documentation for templates...');
+            yield (0, generateDocs_1.generateTemplateDocumentation)(templatesBasePath);
+        }
+        // -- Programatically add feature/template metadata to collections file.
         core.info('Generating metadata file: devcontainer-collection.json');
         yield (0, utils_1.addCollectionsMetadataFile)(featuresMetadata, templatesMetadata);
     });
@@ -94,14 +92,17 @@ function packageFeatures(basePath) {
 function packageTemplates(basePath) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            core.info(`Archiving all templated in ${basePath}`);
-            yield (0, utils_1.getTemplatesAndPackage)(basePath);
+            core.info(`Archiving all templates in ${basePath}`);
+            const metadata = yield (0, utils_1.getTemplatesAndPackage)(basePath);
             core.info('Packaging templates has finished.');
+            return metadata;
         }
         catch (error) {
-            if (error instanceof Error)
+            if (error instanceof Error) {
                 core.setFailed(error.message);
+            }
         }
+        return;
     });
 }
 run();

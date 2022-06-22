@@ -95,13 +95,13 @@ function getFeaturesAndPackage(basePath) {
         let metadatas = [];
         yield Promise.all(featureDirs.map((f) => __awaiter(this, void 0, void 0, function* () {
             core.info(`feature ==> ${f}`);
-            if (f !== '.' && f !== '..') {
+            if (!f.startsWith('.')) {
                 const featureFolder = path_1.default.join(basePath, f);
                 const archiveName = `${f}.tgz`;
-                yield tarDirectory(`${basePath}/${f}`, archiveName);
+                yield tarDirectory(featureFolder, archiveName);
                 const featureJsonPath = path_1.default.join(featureFolder, 'devcontainer-feature.json');
                 if (!fs.existsSync(featureJsonPath)) {
-                    core.error(`Feature ${f} is missing a devcontainer-feature.json`);
+                    core.error(`Feature '${f}' is missing a devcontainer-feature.json`);
                     core.setFailed('All features must have a devcontainer-feature.json');
                     return;
                 }
@@ -119,23 +119,29 @@ function getFeaturesAndPackage(basePath) {
 exports.getFeaturesAndPackage = getFeaturesAndPackage;
 function getTemplatesAndPackage(basePath) {
     return __awaiter(this, void 0, void 0, function* () {
-        let archives = [];
-        fs.readdir(basePath, (err, files) => {
-            if (err) {
-                core.error(err.message);
-                core.setFailed(`failed to get list of templates: ${err.message}`);
-                return;
-            }
-            files.forEach(file => {
-                core.info(`template ==> ${file}`);
-                if (file !== '.' && file !== '..') {
-                    const archiveName = `devcontainer-definition-${file}.tgz`;
-                    tarDirectory(`${basePath}/${file}`, archiveName);
-                    archives.push(archiveName);
+        const templateDirs = fs.readdirSync(basePath);
+        let metadatas = [];
+        yield Promise.all(templateDirs.map((t) => __awaiter(this, void 0, void 0, function* () {
+            core.info(`template ==> ${t}`);
+            if (!t.startsWith('.')) {
+                const templateFolder = path_1.default.join(basePath, t);
+                const archiveName = `devcontainer-template-${t}.tgz`;
+                yield tarDirectory(templateFolder, archiveName);
+                const templateJsonPath = path_1.default.join(templateFolder, 'devcontainer-template.json');
+                if (!fs.existsSync(templateJsonPath)) {
+                    core.error(`Template '${t}' is missing a devcontainer-template.json`);
+                    core.setFailed('All templates must have a devcontainer-template.json');
+                    return;
                 }
-            });
-        });
-        return archives;
+                const templateMetadata = JSON.parse(fs.readFileSync(templateJsonPath, 'utf8'));
+                metadatas.push(templateMetadata);
+            }
+        })));
+        if (metadatas.length === 0) {
+            core.setFailed('No templates found');
+            return;
+        }
+        return metadatas;
     });
 }
 exports.getTemplatesAndPackage = getTemplatesAndPackage;

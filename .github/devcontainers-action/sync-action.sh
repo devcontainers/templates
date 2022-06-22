@@ -2,7 +2,7 @@
 
 # Temporary!
 
-pushd /workspaces/features/.github/devcontainers-action
+pushd /workspaces/templates/.github/devcontainers-action
 
 rm ./action.yml
 rm -rf ./dist
