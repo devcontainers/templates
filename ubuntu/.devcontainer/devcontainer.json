@@ -1,0 +1,25 @@
+{
+    "name": "Ubuntu",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "VARIANT": "focal"
+        }
+    },
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "uname -a",
+
+    // Comment out to connect as root instead. More info at https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
+
+    // Add 'features' to this template. More info at https://github.com/devcontainers/features.
+    // "features": {
+    //     "devcontainers/features/docker-in-docker": {
+    //         "version": "latest"
+    //     }
+    // }
+}

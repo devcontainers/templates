@@ -1,0 +1,25 @@
+{
+    "id": "ubuntu",
+    "displayName": "Ubuntu",
+    "description": "A simple Ubuntu container with Git and other common utilities installed.",
+    "categories": [
+        "Core",
+        "Other"
+    ],
+    "architectures": [],
+    "type": "singleContainer",
+    "options": {
+        "VARIANT": {
+            "type": "string",
+            "proposals": [
+                "jammy",
+                "ubuntu-22.04",
+                "focal",
+                "ubuntu-20.04",
+                "bionic",
+                "ubuntu-18.04"
+            ],
+            "default": "ubuntu-20.04"
+        }
+    }
+}
