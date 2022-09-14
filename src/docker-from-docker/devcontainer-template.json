@@ -1,0 +1,15 @@
+{
+    "id": "docker-from-docker",
+    "version": "1.0.0",
+    "name": "Docker from Docker",
+    "description": "Access your host's Docker install from inside a dev container. Installs Docker extension in the container along with needed CLIs.",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base",
+    "type": "dockerfile",
+    "features": [
+        "ghcr.io/devcontainers/features/common-utils:1",
+        "ghcr.io/devcontainers/features/docker-from-docker:1"
+    ],
+    "platforms": [
+        "Any"
+    ]
+}

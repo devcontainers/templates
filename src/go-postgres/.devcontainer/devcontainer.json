@@ -2,6 +2,9 @@
 	"name": "Go & PostgreSQL",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {}
+	},
 	"workspaceFolder": "/workspace",
 
 	// Configure tool-specific properties.

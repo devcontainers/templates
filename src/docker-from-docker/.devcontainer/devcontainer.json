@@ -1,6 +1,18 @@
 {
 	"name": "Docker from Docker",
-	"dockerFile": "Dockerfile",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:1": {
+			"uid": "1000",
+			"gid": "1000",
+			"upgradePackages": "false",
+			"nonFreePackages": "true"
+        },
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {}
+	},
+
 	"runArgs": ["--init"],
 	"mounts": [ "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind" ],
 	"overrideCommand": false,
@@ -8,6 +20,9 @@
 	// Use this environment variable if you need to bind mount your local source code into a new container.
 	"remoteEnv": {
 		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+	"containerEnv": {
+		"DOCKER_BUILDKIT": "1"
 	},
 
 	// Configure tool-specific properties.

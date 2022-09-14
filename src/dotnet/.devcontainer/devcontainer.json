@@ -1,14 +1,8 @@
 {
 	"name": "C# (.NET)",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": { 
-			// Update 'VARIANT' to pick a .NET Core version: 3.1, 6.0
-			// Append -bullseye or -focal to pin to an OS version.
-			"VARIANT": "6.0-bullseye",
-			// Options
-			"NODE_VERSION": "lts/*"
-		}
+	"image": "mcr.microsoft.com/vscode/devcontainers/dotnet:0-6.0-bullseye",
+	"features": {
+        "ghcr.io/devcontainers/features/node:1": {}
 	},
 
 	// Configure tool-specific properties.

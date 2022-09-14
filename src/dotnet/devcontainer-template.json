@@ -1,0 +1,16 @@
+{
+    "id": "dotnet",
+    "version": "1.0.0",
+    "name": "C(.NET)",
+    "description": "Develop C# and .NET based applications. Includes all needed SDKs, extensions, and dependencies.",
+    "image": "mcr.microsoft.com/vscode/devcontainers/dotnet",
+    "features": [
+        "ghcr.io/devcontainers/features/node:1"
+    ],
+    "type": "image",
+    "platforms": [
+        ".NET",
+        ".NET Core",
+        "C#"
+    ]
+}
