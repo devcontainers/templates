@@ -5,9 +5,20 @@
     "description": "Use and develop Go + Postgres applications. Includes appropriate runtime args, Go, common tools, extensions, and dependencies.",
     "type": "dockerCompose",
     "image": "mcr.microsoft.com/vscode/devcontainers/go",
-    "features": [
-        "ghcr.io/devcontainers/features/node:1"
-    ],
+    "options": {
+        "nodeVersion": {
+            "type": "string",
+            "proposals": [
+                "lts",
+                "16",
+                "14",
+                "10",
+                "none"
+            ],
+            "default": "16",
+            "description": "Specify version of node, or 'none' to skip node installation."
+        }
+    },
     "platforms": [
         ".NET",
         ".NET Core",
