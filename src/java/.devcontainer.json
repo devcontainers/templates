@@ -1,0 +1,14 @@
+{
+	"name": "Java",
+	"image": "mcr.microsoft.com/devcontainers/java:${templateOption:imageVariant}",
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "none",
+			"installMaven": "${templateOption:installMaven}",
+			"installGradle": "${templateOption:installGradle}"
+		},
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "${templateOption:nodeVersion}"
+		}
+	}
+}

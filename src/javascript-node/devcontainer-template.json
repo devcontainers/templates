@@ -1,0 +1,35 @@
+{
+    "id": "javascript-node",
+    "version": "1.0.0",
+    "name": "Node.js & JavaScript",
+    "description": "Develop Node.js based applications. Includes Node.js, eslint, nvm, and yarn.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "image",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Node.js version (use -bullseye variants on local arm64/Apple Silicon):",
+            "proposals": [
+                "18",
+                "16",
+                "14",
+                "18-bullseye",
+                "16-bullseye",
+                "14-bullseye",
+                "18-buster",
+                "16-buster",
+                "14-buster"
+            ],
+            "default": "16-bullseye",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        }
+    },
+    "platforms": [
+        "Node.js",
+        "JavaScript"
+    ]
+}

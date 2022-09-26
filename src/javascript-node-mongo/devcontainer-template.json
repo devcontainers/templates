@@ -1,0 +1,36 @@
+{
+    "id": "javascript-node-mongo",
+    "version": "1.0.0",
+    "name": "Node.js & Mongo DB",
+    "description": "Develop applications in Node.js and Mongo DB. Includes Node.js, eslint, and yarn in a container linked to a Mongo DB.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "dockerCompose",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Node.js version (use -bullseye variants on local arm64/Apple Silicon):",
+            "proposals": [
+                "18",
+                "16",
+                "14",
+                "18-bullseye",
+                "16-bullseye",
+                "14-bullseye",
+                "18-buster",
+                "16-buster",
+                "14-buster"
+            ],
+            "default": "16-bullseye",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        }
+    },
+    "platforms": [
+        "Node.js",
+        "JavaScript",
+        "Mongo DB"
+    ]
+}

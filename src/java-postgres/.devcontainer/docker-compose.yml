@@ -9,17 +9,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-      args:
-        # Update 'VARIANT' to pick an version of Java: 11, 17.
-        # Append -bullseye or -buster to pin to an OS version.
-        # Use -bullseye variants on local arm64/Apple Silicon.
-        VARIANT: 17-bullseye
-        # Options
-        INSTALL_MAVEN: "false"
-        MAVEN_VERSION: ""
-        INSTALL_GRADLE: "false"
-        GRADLE_VERSION: ""
-        NODE_VERSION: "lts/*"
     environment:
       # NOTE: POSTGRES_DB/USER/PASSWORD should match values in db container
         POSTGRES_PASSWORD: postgres

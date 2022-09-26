@@ -1,6 +1,5 @@
 FROM mcr.microsoft.com/devcontainers/dotnet:0-${templateOption:imageVariant}
 
-# [Choice] Node.js version: none, lts/*, 18, 16, 14
 ARG NODE_VERSION="${templateOption:nodeVersion}"
 RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
