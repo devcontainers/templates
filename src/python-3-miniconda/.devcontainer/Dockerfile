@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/vscode/devcontainers/miniconda:0-3
+FROM mcr.microsoft.com/devcontainers/miniconda:0-3
 
 # [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
 ARG NODE_VERSION="none"

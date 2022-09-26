@@ -1,0 +1,50 @@
+{
+    "id": "go",
+    "version": "1.0.0",
+    "name": "Go",
+    "description": "Develop Go based applications. Includes appropriate runtime args, Go, common tools, extensions, and dependencies.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/go",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "image",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Go version (use -bullseye variants on local arm64/Apple Silicon):",
+            "proposals": [
+                "1",
+                "1.19",
+                "1.18",
+                "1-bullseye",
+                "1.19-bullseye",
+                "1.18-bullseye",
+                "1-buster",
+                "1.19-buster",
+                "1.18-buster"
+            ],
+            "default": "1-bullseye",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        },
+        "nodeVersion": {
+            "type": "string",
+            "description": "Node.js version:",
+            "proposals": [
+                "none",
+                "lts",
+                "latest",
+                "18",
+                "16",
+                "14"
+            ],
+            "default": "none",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        }
+    },
+    "platforms": [
+        "Go"
+    ]
+}

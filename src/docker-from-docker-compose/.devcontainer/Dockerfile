@@ -1,14 +1,14 @@
 # Note: You can use any Debian/Ubuntu based image you want. 
-FROM mcr.microsoft.com/vscode/devcontainers/base:bullseye
+FROM mcr.microsoft.com/devcontainers/base:bullseye
 
-# [Option] Install zsh
-ARG INSTALL_ZSH="true"
-# [Option] Upgrade OS packages to their latest versions
-ARG UPGRADE_PACKAGES="false"
-# [Option] Enable non-root Docker access in container
-ARG ENABLE_NONROOT_DOCKER="true"
-# [Option] Use the OSS Moby CLI instead of the licensed Docker CLI
-ARG USE_MOBY="true"
+# Install zsh
+ARG INSTALL_ZSH="${templateOption:installOhMyZsh}"
+# Upgrade OS packages to their latest versions
+ARG UPGRADE_PACKAGES="${templateOption:upgradePackages}"
+# Enable non-root Docker access in container
+ARG ENABLE_NONROOT_DOCKER="${templateOption:enableNonRootDocker}"
+# Use the OSS Moby CLI instead of the licensed Docker CLI
+ARG USE_MOBY="${templateOption:moby}"
 
 # Enable new "BUILDKIT" mode for Docker CLI
 ENV DOCKER_BUILDKIT=1

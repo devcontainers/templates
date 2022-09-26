@@ -1,0 +1,49 @@
+{
+    "id": "dotnet",
+    "version": "1.0.0",
+    "name": "C# (.NET)",
+    "description": "Develop C# and .NET based applications. Includes all needed SDKs, extensions, and dependencies.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "image",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": ".NET version:",
+            "proposals": [
+                "6.0",
+                "3.1",
+                "6.0-bullseye",
+                "3.1-bullseye",
+                "6.0-focal",
+                "3.1-focal"
+            ],
+            "default": "6.0-bullseye",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        },
+        "nodeVersion": {
+            "type": "string",
+            "description": "Node.js version:",
+            "proposals": [
+                "none",
+                "lts",
+                "latest",
+                "18",
+                "16",
+                "14"
+            ],
+            "default": "none",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        }
+    },
+    "platforms": [
+        ".NET",
+        ".NET Core",
+        "C#"
+    ]
+}

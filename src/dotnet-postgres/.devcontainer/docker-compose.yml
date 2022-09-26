@@ -5,11 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        # Update 'VARIANT' to pick a version of .NET: 3.1, 6.0
-        VARIANT: "6.0"
-        # Optional version of Node.js
-        NODE_VERSION: "lts/*"
 
     volumes:
       - ..:/workspace:cached

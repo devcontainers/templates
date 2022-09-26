@@ -1,0 +1,29 @@
+{
+    "id": "alpine",
+    "version": "1.0.0",
+    "name": "Alpine",
+    "description": "Simple Alpine container with Git installed.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/alpine",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "image",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Alpine version:",
+            "proposals": [
+                "3.16",
+                "3.15",
+                "3.14",
+                "3.13"
+            ],
+            "default": "3.16",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        }
+    },
+    "platforms": [
+        "Any"
+    ]
+}

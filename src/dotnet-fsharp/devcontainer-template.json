@@ -1,0 +1,33 @@
+{
+    "id": "dotnet-fsharp",
+    "version": "1.0.0",
+    "name": "F# (.NET)",
+    "description": "Develop F# and .NET based applications. Includes all needed SDKs, extensions, and dependencies.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet-fsharp",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "image",
+    "options": {
+        "nodeVersion": {
+            "type": "string",
+            "description": "Node.js version:",
+            "proposals": [
+                "none",
+                "lts",
+                "latest",
+                "18",
+                "16",
+                "14"
+            ],
+            "default": "lts",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        }
+    },
+    "platforms": [
+        ".NET",
+        ".NET Core",
+        "F#"
+    ]
+}
