@@ -29,13 +29,13 @@
             "description": "Node.js version:",
             "proposals": [
                 "none",
-                "lts",
-                "latest",
-                "18",
+                "lts/*",
                 "16",
-                "14"
+                "14",
+                "12",
+                "10"
             ],
-            "default": "lts",
+            "default": "lts/*",
             "replaceIn": [
                 ".devcontainer/Dockerfile"
             ]

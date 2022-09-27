@@ -1,25 +1,15 @@
 version: '3.8'
 
-volumes:
-  postgres-data:
-
 services:
   app:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
     env_file:
-        # Ensure that the variables in .env match the same variables in devcontainer.json
         - .env
-    # Security Opt and cap_add for C++ based debuggers to work.
-    # See `runArgs`: https://github.com/Microsoft/vscode-docs/blob/main/docs/remote/devcontainerjson-reference.md
-    # security_opt:
-    #   - seccomp:unconfined
-    # cap_add:
-    #   - SYS_PTRACE
 
     volumes:
-      - ..:/workspace:cached
+      - ..:/workspace:cached  
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
@@ -30,17 +20,19 @@ services:
     # Uncomment the next line to use a non-root user for all processes.
     # user: vscode
 
-    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
-    image: postgres:14.1
+    image: postgres:latest
     restart: unless-stopped
     volumes:
       - postgres-data:/var/lib/postgresql/data
     env_file:
-        # Ensure that the variables in .env match the same variables in devcontainer.json
         - .env
 
     # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+volumes:
+  postgres-data:

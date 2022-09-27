@@ -1,6 +1,4 @@
-# [Choice] Debian OS version (use bullseye on local arm64/Apple Silicon): buster, bullseye
-ARG VARIANT="bullseye"
-FROM mcr.microsoft.com/devcontainers/rust:1-${VARIANT}
+FROM mcr.microsoft.com/devcontainers/rust:1-${templateOption:imageVariant}
 
 # Include lld linker to improve build times either by using environment variable
 # RUSTFLAGS="-C link-arg=-fuse-ld=lld" or with Cargo's configuration file (i.e see .cargo/config.toml).

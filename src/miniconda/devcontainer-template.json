@@ -1,9 +1,9 @@
 {
-    "id": "anaconda",
+    "id": "miniconda",
     "version": "1.0.0",
-    "name": "Anaconda (Python 3)",
-    "description": "Develop Anaconda applications in Python3. Installs dependencies from your environment.yml file and the Python extension.",
-    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/anaconda",
+    "name": "Miniconda (Python 3)",
+    "description": "Develop Miniconda applications in Python 3. Installs dependencies from your environment.yml file and the Python extension.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/miniconda",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
     "type": "dockerfile",
@@ -25,8 +25,5 @@
             ]
         }
     },
-    "platforms": [
-        "Python",
-        "Anaconda"
-    ]
+    "platforms": ["Python", "Anaconda", "Miniconda"]
 }

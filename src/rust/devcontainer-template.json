@@ -1,0 +1,27 @@
+{
+    "id": "rust",
+    "version": "1.0.0",
+    "name": "Rust",
+    "description": "Develop Rust based applications. Includes appropriate runtime args and everything you need to get up and running.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/rust",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "image",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Debian OS version (use bullseye on local arm64/Apple Silicon):",
+            "proposals": [
+                "buster",
+                "bullseye"
+            ],
+            "default": "buster",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        }
+    },
+    "platforms": [
+        "Rust"
+    ]
+}

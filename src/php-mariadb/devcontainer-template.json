@@ -1,7 +1,7 @@
 {
     "id": "php-mariadb",
     "version": "1.0.0",
-    "name": "PHP & MariaDB ",
+    "name": "PHP & MariaDB",
     "description": "Develop PHP applications with MariaDB (MySQL Compatible).",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php-mariadb",
     "publisher": "Dev Container Spec Maintainers",
@@ -40,13 +40,13 @@
             "description": "Node.js version:",
             "proposals": [
                 "none",
-                "lts",
-                "latest",
-                "18",
+                "lts/*",
                 "16",
-                "14"
+                "14",
+                "12",
+                "10"
             ],
-            "default": "lts",
+            "default": "lts/*",
             "replaceIn": [
                 ".devcontainer/Dockerfile"
             ]
