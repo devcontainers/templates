@@ -8,9 +8,9 @@
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
     "type": "image",
     "options": {
-        "installOhMyZsh": {
+        "installZsh": {
             "type": "boolean",
-            "description": "Install Oh My Zsh!?",
+            "description": "Install ZSH!?",
             "default": "true",
             "replaceIn": [
                 ".devcontainer.json"

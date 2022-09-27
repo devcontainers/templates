@@ -1,0 +1,59 @@
+{
+    "id": "php-mariadb",
+    "version": "1.0.0",
+    "name": "PHP & MariaDB ",
+    "description": "Develop PHP applications with MariaDB (MySQL Compatible).",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php-mariadb",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "dockerCompose",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "PHP version (use -bullseye variants on local arm64/Apple Silicon):",
+            "proposals": [
+                "8",
+                "8.1",
+                "8.0",
+                "7",
+                "7.4",
+                "7.3",
+                "8-bullseye",
+                "8.1-bullseye",
+                "8.0-bullseye",
+                "7-bullseye",
+                "7.4-bullseye",
+                "7.3-bullseye",
+                "8-buster",
+                "8.1-buster",
+                "8.0-buster",
+                "7-buster",
+                "7.4-buster"
+            ],
+            "default": "8-bullseye",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        },
+        "nodeVersion": {
+            "type": "string",
+            "description": "Node.js version:",
+            "proposals": [
+                "none",
+                "lts",
+                "latest",
+                "18",
+                "16",
+                "14"
+            ],
+            "default": "lts",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        }
+    },
+    "platforms": [
+        "PHP",
+        "MariaDB (MySQL Compatible)"
+    ]
+}

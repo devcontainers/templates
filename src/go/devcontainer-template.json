@@ -38,7 +38,7 @@
                 "16",
                 "14"
             ],
-            "default": "none",
+            "default": "lts",
             "replaceIn": [
                 ".devcontainer.json"
             ]

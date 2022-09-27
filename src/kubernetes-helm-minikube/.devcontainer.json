@@ -1,5 +1,5 @@
 {
-	"name": "Kubernetes - Local Configuration",
+	"name": "Kubernetes - Minikube-in-Docker",
 	"image": "mcr.microsoft.com/devcontainers/base:0-bullseye",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:1": {
@@ -11,7 +11,7 @@
 			"installOhMyZsh": "true",
 			"nonFreePackages": "true"
 		},
-		"ghcr.io/devcontainers/features/docker-from-docker:1": {
+		"ghcr.io/devcontainers/features/docker-in-docker:1": {
 			"enableNonRootDocker": "true",
 			"username": "vscode",
 			"moby": "true"
@@ -19,33 +19,23 @@
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
 			"version": "latest",
 			"helm": "latest",
-			"minikube": "none"
-		},
-		"./local-features/copy-kube-config": {
-			"username": "vscode"
+			"minikube": "latest"
 		}
 	},
 
 	"overrideFeatureInstallOrder": [
 		"ghcr.io/devcontainers/features/common-utils",
 		"ghcr.io/devcontainers/features/docker-from-docker",
-		"ghcr.io/devcontainers/features/kubectl-helm-minikube",
-		"./local-features/copy-kube-config"
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube"
 	],
 
 	"postStartCommand": "/usr/local/share/docker-init.sh sleep infinity",
 
-	"overrideCommand": false,
-
-	"remoteEnv": {
-		"SYNC_LOCALHOST_KUBECONFIG": "true"
-	},
-
 	"mounts": [
-		"source=${env:HOME}${env:USERPROFILE}/.kube,target=/usr/local/share/kube-localhost,type=bind"
-		// Uncomment the next line to also sync certs in your .minikube folder
-		// "source=${env:HOME}${env:USERPROFILE}/.minikube,target=/usr/local/share/minikube-localhost,type=bind"
+		"source=minikube-var-lib-docker,target=/var/lib/docker,type=volume"
 	],
+
+	"overrideCommand": false,
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
@@ -53,9 +43,9 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "kubectl version",
 
-	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust.
-	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	// Use 'postStartCommand' to run commands after the container is created like starting minikube.
+	// "postStartCommand": "nohup bash -c 'minikube start &' > minikube.log 2>&1",
 
-	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	// Minikube does not like running as root, so use a non-root user.
 	"remoteUser": "vscode"
 }
