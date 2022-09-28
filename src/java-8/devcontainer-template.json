@@ -2,7 +2,7 @@
     "id": "java-8",
     "version": "1.0.0",
     "name": "Java 8",
-    "description":  "Develop Java applications. Includes the JDK 8 (and 11) and Java extensions.",
+    "description": "Develop Java applications. Includes the JDK 8 (and 11) and Java extensions.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java-8",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
@@ -12,7 +12,8 @@
             "type": "string",
             "description": "Debian OS version (use bullseye on local arm64/Apple Silicon):",
             "proposals": [
-                "buster", "bullseye"
+                "buster",
+                "bullseye"
             ],
             "default": "buster",
             "replaceIn": [

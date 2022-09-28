@@ -25,5 +25,9 @@
             ]
         }
     },
-    "platforms": ["Python", "Anaconda", "Miniconda"]
+    "platforms": [
+        "Python",
+        "Anaconda",
+        "Miniconda"
+    ]
 }
