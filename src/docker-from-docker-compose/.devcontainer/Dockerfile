@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/devcontainers/base:bullseye
 
 # Install zsh
-ARG INSTALL_ZSH="${templateOption:installOhMyZsh}"
+ARG INSTALL_ZSH="${templateOption:installZsh}"
 # Upgrade OS packages to their latest versions
 ARG UPGRADE_PACKAGES="${templateOption:upgradePackages}"
 # Enable non-root Docker access in container
