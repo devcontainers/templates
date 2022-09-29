@@ -1,10 +1,6 @@
 {
 	"name": "Alpine",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick an Alpine version: 3.13, 3.14, 3.15, 3.16
-		"args": { "VARIANT": "3.16" }
-	},
+	"image": "mcr.microsoft.com/devcontainers/base:0-alpine-${templateOption:imageVariant}",
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
