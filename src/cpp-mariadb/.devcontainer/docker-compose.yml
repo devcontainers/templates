@@ -8,10 +8,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        # Update 'VARIANT' to pick a version of CPP
-        # See the README for more information on available versions.
-        VARIANT: debian-11
     env_file:
       - .env
 

@@ -1,0 +1,43 @@
+{
+    "id": "cpp",
+    "version": "1.0.0",
+    "name": "C++",
+    "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "dockerfile",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon):",
+            "proposals": [
+                "debian-11",
+                "debian-10",
+                "ubuntu-22.04",
+                "ubuntu-20.04",
+                "ubuntu-18.04"
+            ],
+            "default": "debian-11",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        },
+        "reinstallCmakeVersionFromSource": {
+            "type": "string",
+            "description": "Install CMake version different from what base image has already installed.",
+            "proposals": [
+                "none",
+                "3.21.5",
+                "3.22.2"
+            ],
+            "default": "none",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        }
+    },
+    "platforms": [
+        "C++"
+    ]
+}
