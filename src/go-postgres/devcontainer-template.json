@@ -1,0 +1,50 @@
+{
+    "id": "go-postgres",
+    "version": "1.0.0",
+    "name": "Go & PostgreSQL",
+    "description": "Use and develop Go + Postgres applications. Includes appropriate runtime args, Go, common tools, extensions, and dependencies.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/go-postgres",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "dockerCompose",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Go version (use -bullseye variants on local arm64/Apple Silicon):",
+            "proposals": [
+                "1",
+                "1.19",
+                "1.18",
+                "1-bullseye",
+                "1.19-bullseye",
+                "1.18-bullseye",
+                "1-buster",
+                "1.19-buster",
+                "1.18-buster"
+            ],
+            "default": "1-bullseye",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        },
+        "nodeVersion": {
+            "type": "string",
+            "description": "Node.js version:",
+            "proposals": [
+                "none",
+                "lts/*",
+                "16",
+                "14",
+                "12",
+                "10"
+            ],
+            "default": "lts/*",
+            "replaceIn": [
+                ".devcontainer/Dockerfile"
+            ]
+        }
+    },
+    "platforms": [
+        "Go"
+    ]
+}

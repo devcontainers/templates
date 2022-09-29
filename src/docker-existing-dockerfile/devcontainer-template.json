@@ -1,0 +1,13 @@
+{
+    "id": "docker-existing-dockerfile",
+    "version": "1.0.0",
+    "name": "Existing Dockerfile",
+    "description": "Sample illustrating reuse of an existing Dockefile.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "dockerfile",
+    "platforms": [
+        "Any"
+    ]
+}

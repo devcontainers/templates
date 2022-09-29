@@ -1,14 +1,10 @@
 {
 	"name": "Jekyll",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			// Update 'VARIANT' to pick a Debian OS version: bullseye, buster
-			// Use bullseye when on local arm64/Apple Silicon.
-			"VARIANT": "bullseye",
-			// Enable Node.js: pick the latest LTS version
-			"NODE_VERSION": "lts/*"
-		}	
+	"image": "mcr.microsoft.com/devcontainers/jekyll:0-${templateOption:imageVariant}",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "${templateOption:nodeVersion}"
+		}
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

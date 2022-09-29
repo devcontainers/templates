@@ -1,0 +1,51 @@
+{
+	"name": "Kubernetes - Minikube-in-Docker",
+	"image": "mcr.microsoft.com/devcontainers/base:0-bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:1": {
+			"installZsh": "true",
+			"username": "vscode",
+			"uid": "1000",
+			"gid": "1000",
+			"upgradePackages": "false",
+			"installOhMyZsh": "true",
+			"nonFreePackages": "true"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:1": {
+			"enableNonRootDocker": "true",
+			"username": "vscode",
+			"moby": "true"
+		},
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"version": "latest",
+			"helm": "latest",
+			"minikube": "latest"
+		}
+	},
+
+	"overrideFeatureInstallOrder": [
+		"ghcr.io/devcontainers/features/common-utils",
+		"ghcr.io/devcontainers/features/docker-from-docker",
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube"
+	],
+
+	"postStartCommand": "/usr/local/share/docker-init.sh sleep infinity",
+
+	"mounts": [
+		"source=minikube-var-lib-docker,target=/var/lib/docker,type=volume"
+	],
+
+	"overrideCommand": false,
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "kubectl version",
+
+	// Use 'postStartCommand' to run commands after the container is created like starting minikube.
+	// "postStartCommand": "nohup bash -c 'minikube start &' > minikube.log 2>&1",
+
+	// Minikube does not like running as root, so use a non-root user.
+	"remoteUser": "vscode"
+}

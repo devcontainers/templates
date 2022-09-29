@@ -1,0 +1,21 @@
+{
+	"name": "Docker in Docker",
+	"image": "mcr.microsoft.com/devcontainers/base:buster",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:1": {
+			"installZsh": "${templateOption:installZsh}",
+			"upgradePackages": "${templateOption:upgradePackages}",
+			"uid": "1000",
+			"gid": "1000",
+			"installOhMyZsh": "true",
+			"nonFreePackages": "true"
+		},
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {
+			"version": "${templateOption:dockerVersion}",
+			"enableNonRootDocker": "${templateOption:enableNonRootDocker}",
+			"moby": "${templateOption:moby}"
+		}
+	},
+
+	"postStartCommand": "/usr/local/share/docker-init.sh sleep infinity"
+}

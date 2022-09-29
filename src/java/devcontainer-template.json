@@ -1,0 +1,63 @@
+{
+    "id": "java",
+    "version": "1.0.0",
+    "name": "Java",
+    "description": "Develop Java applications. Includes the JDK and Java extensions.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "type": "image",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Java version (use -bullseye variants on local arm64/Apple Silicon):",
+            "proposals": [
+                "11",
+                "17",
+                "11-bullseye",
+                "17-bullseye",
+                "11-buster",
+                "17-buster"
+            ],
+            "default": "11-bullseye",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        },
+        "installMaven": {
+            "type": "boolean",
+            "description": "Install Maven, a management tool for Java",
+            "default": "false",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        },
+        "installGradle": {
+            "type": "boolean",
+            "description": "Install Gradle, a build automation tool for multi-language software development",
+            "default": "false",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        },
+        "nodeVersion": {
+            "type": "string",
+            "description": "Node.js version:",
+            "proposals": [
+                "none",
+                "lts",
+                "latest",
+                "18",
+                "16",
+                "14"
+            ],
+            "default": "lts",
+            "replaceIn": [
+                ".devcontainer.json"
+            ]
+        }
+    },
+    "platforms": [
+        "Java"
+    ]
+}
