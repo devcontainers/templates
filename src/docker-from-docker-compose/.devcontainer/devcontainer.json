@@ -2,7 +2,7 @@
 	"name": "Docker from Docker Compose",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-	"workspaceFolder": "/workspace",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
 	// Use this environment variable if you need to bind mount your local source code into a new container.
 	"remoteEnv": {

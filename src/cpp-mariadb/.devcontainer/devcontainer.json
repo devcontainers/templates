@@ -2,7 +2,7 @@
 	"name": "C++ and MariaDB",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-	"workspaceFolder": "/workspace",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// This is the recommended way to access the container from the host
