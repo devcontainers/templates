@@ -3,7 +3,7 @@
 	"name": "Ruby on Rails & Postgres",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-		"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// This can be used to network with other containers or the host.
