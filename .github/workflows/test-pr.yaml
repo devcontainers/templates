@@ -1,0 +1,32 @@
+name: "PR - Test Updated Templates"
+on:
+  pull_request:
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      templates: ${{ steps.filter.outputs.changes }}
+    steps:
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            alpine: ./**/alpine/**
+            anaconda: ./**/anaconda/**
+
+  test:
+    needs: [detect-changes]
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        templates: ${{ fromJSON(needs.detect-changes.outputs.templates) }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: "Install latest devcontainer CLI"
+        run: npm install -g @devcontainers/cli
+
+      - name: "Generating tests for '${{ matrix.templates }}'"
+        run: echo "${{ matrix.templates }}"
