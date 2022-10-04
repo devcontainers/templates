@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/rust-postgres",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "dockerCompose",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -15,10 +14,7 @@
                 "buster",
                 "bullseye"
             ],
-            "default": "bullseye",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "bullseye"
         }
     },
     "platforms": [

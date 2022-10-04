@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/alpine",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "image",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -17,10 +16,7 @@
                 "3.14",
                 "3.13"
             ],
-            "default": "3.16",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "3.16"
         }
     },
     "platforms": [

@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "image",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -19,26 +18,17 @@
                 "11-buster",
                 "17-buster"
             ],
-            "default": "11-bullseye",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "11-bullseye"
         },
         "installMaven": {
             "type": "boolean",
             "description": "Install Maven, a management tool for Java",
-            "default": "false",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "false"
         },
         "installGradle": {
             "type": "boolean",
             "description": "Install Gradle, a build automation tool for multi-language software development",
-            "default": "false",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "false"
         },
         "nodeVersion": {
             "type": "string",
@@ -51,10 +41,7 @@
                 "16",
                 "14"
             ],
-            "default": "lts",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "lts"
         }
     },
     "platforms": [

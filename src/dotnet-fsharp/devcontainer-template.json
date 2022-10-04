@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet-fsharp",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "image",
     "options": {
         "nodeVersion": {
             "type": "string",
@@ -19,10 +18,7 @@
                 "16",
                 "14"
             ],
-            "default": "lts",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "lts"
         }
     },
     "platforms": [

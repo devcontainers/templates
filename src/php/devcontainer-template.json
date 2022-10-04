@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "image",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -30,10 +29,7 @@
                 "7-buster",
                 "7.4-buster"
             ],
-            "default": "8.1-apache-bullseye",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "8.1-apache-bullseye"
         },
         "nodeVersion": {
             "type": "string",
@@ -46,10 +42,7 @@
                 "16",
                 "14"
             ],
-            "default": "lts",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "lts"
         }
     },
     "platforms": [

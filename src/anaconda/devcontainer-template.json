@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/anaconda",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "dockerfile",
     "options": {
         "nodeVersion": {
             "type": "string",
@@ -19,10 +18,7 @@
                 "12",
                 "10"
             ],
-            "default": "lts/*",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "lts/*"
         }
     },
     "platforms": [

@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java-postgres",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "dockerCompose",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -19,26 +18,17 @@
                 "11-buster",
                 "17-buster"
             ],
-            "default": "17-bullseye",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "17-bullseye"
         },
         "installMaven": {
             "type": "boolean",
             "description": "Install Maven, a management tool for Java",
-            "default": "false",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "false"
         },
         "installGradle": {
             "type": "boolean",
             "description": "Install Gradle, a build automation tool for multi-language software development",
-            "default": "false",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "false"
         },
         "nodeVersion": {
             "type": "string",
@@ -51,10 +41,7 @@
                 "12",
                 "10"
             ],
-            "default": "lts/*",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "lts/*"
         }
     },
     "platforms": [
