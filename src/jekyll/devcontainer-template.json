@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/jekyll",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "image",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -15,10 +14,7 @@
                 "bullseye",
                 "buster"
             ],
-            "default": "bullseye",
-            "replaceIn": [
-                ".devcontainer/devcontainer.json"
-            ]
+            "default": "bullseye"
         },
         "nodeVersion": {
             "type": "string",
@@ -31,10 +27,7 @@
                 "16",
                 "14"
             ],
-            "default": "lts",
-            "replaceIn": [
-                ".devcontainer/devcontainer.json"
-            ]
+            "default": "lts"
         }
     },
     "platforms": [

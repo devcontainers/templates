@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/postgres",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "dockerCompose",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -31,10 +30,7 @@
                 "3.7-buster",
                 "3.6-buster"
             ],
-            "default": "3-bullseye",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "3-bullseye"
         },
         "nodeVersion": {
             "type": "string",
@@ -47,10 +43,7 @@
                 "12",
                 "10"
             ],
-            "default": "lts/*",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "lts/*"
         }
     },
     "platforms": [

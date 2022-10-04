@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/rust",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "image",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -15,10 +14,7 @@
                 "buster",
                 "bullseye"
             ],
-            "default": "buster",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "buster"
         }
     },
     "platforms": [

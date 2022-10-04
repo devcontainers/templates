@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "dockerCompose",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -22,10 +21,7 @@
                 "16-buster",
                 "14-buster"
             ],
-            "default": "16-bullseye",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "16-bullseye"
         }
     },
     "platforms": [

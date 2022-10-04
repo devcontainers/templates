@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/debian",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "image",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -15,10 +14,7 @@
                 "bullseye",
                 "buster"
             ],
-            "default": "bullseye",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "bullseye"
         }
     },
     "platforms": [

@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/go",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "image",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -22,10 +21,7 @@
                 "1.19-buster",
                 "1.18-buster"
             ],
-            "default": "1-bullseye",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "1-bullseye"
         },
         "nodeVersion": {
             "type": "string",
@@ -38,10 +34,7 @@
                 "16",
                 "14"
             ],
-            "default": "lts",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "lts"
         }
     },
     "platforms": [

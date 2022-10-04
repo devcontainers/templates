@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet-postgres",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "dockerCompose",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -19,10 +18,7 @@
                 "6.0-focal",
                 "3.1-focal"
             ],
-            "default": "6.0",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "6.0"
         },
         "nodeVersion": {
             "type": "string",
@@ -35,10 +31,7 @@
                 "12",
                 "10"
             ],
-            "default": "lts/*",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "lts/*"
         }
     },
     "platforms": [

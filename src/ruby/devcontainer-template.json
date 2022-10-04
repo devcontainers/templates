@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ruby",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "image",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -28,10 +27,7 @@
                 "2-buster",
                 "2.7-buster"
             ],
-            "default": "3-bullseye",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "3-bullseye"
         },
         "nodeVersion": {
             "type": "string",
@@ -44,10 +40,7 @@
                 "16",
                 "14"
             ],
-            "default": "lts",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "lts"
         }
     },
     "platforms": [

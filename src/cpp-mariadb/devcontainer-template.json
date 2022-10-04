@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp-mariadb",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "dockerCompose",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -18,10 +17,7 @@
                 "ubuntu-20.04",
                 "ubuntu-18.04"
             ],
-            "default": "debian-11",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "debian-11"
         },
         "reinstallCmakeVersionFromSource": {
             "type": "string",
@@ -31,10 +27,7 @@
                 "3.21.5",
                 "3.22.2"
             ],
-            "default": "none",
-            "replaceIn": [
-                ".devcontainer/Dockerfile"
-            ]
+            "default": "none"
         }
     },
     "platforms": [

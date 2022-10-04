@@ -6,7 +6,6 @@
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/python",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
-    "type": "image",
     "options": {
         "imageVariant": {
             "type": "string",
@@ -31,10 +30,7 @@
                 "3.7-buster",
                 "3.6-buster"
             ],
-            "default": "3.10-bullseye",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "3.10-bullseye"
         },
         "nodeVersion": {
             "type": "string",
@@ -47,10 +43,7 @@
                 "16",
                 "14"
             ],
-            "default": "lts",
-            "replaceIn": [
-                ".devcontainer.json"
-            ]
+            "default": "lts"
         }
     },
     "platforms": [
