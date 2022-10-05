@@ -108,7 +108,8 @@ jobs:
 
           dest_dir="src/${template_id}/test-project"
           mkdir -p ${dest_dir}
-          cp -R ${src_dir}/* ${dest_dir}
+          shopt -s dotglob
+          cp -Rps ${src_dir}/* ${dest_dir}
           cp test/test-utils/test-utils.sh ${dest_dir}
 
           echo "Building dev container"
