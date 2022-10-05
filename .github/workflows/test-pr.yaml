@@ -18,8 +18,6 @@ jobs:
       cpp: ./**/cpp/**
       cpp-mariadb: ./**/cpp-mariadb/**
       debian: ./**/debian/**
-      docker-existing-docker-compose: ./**/docker-existing-docker-compose/**
-      docker-existing-docker-compose: ./**/docker-existing-docker-compose/**
       docker-from-docker: ./**/docker-from-docker/**
       docker-from-docker-compose: ./**/docker-from-docker-compose/**
       docker-in-docker: ./**/docker-in-docker/**
