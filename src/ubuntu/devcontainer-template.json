@@ -11,11 +11,11 @@
             "type": "string",
             "description": "Ubuntu version (use ubuntu-22.04 or ubuntu-18.04 on local arm64/Apple Silicon):",
             "proposals": [
-                "ubuntu-22.04",
-                "ubuntu-20.04",
-                "ubuntu-18.04"
+                "jammy",
+                "focal",
+                "bionic"
             ],
-            "default": "ubuntu-22.04"
+            "default": "focal"
         }
     },
     "platforms": [

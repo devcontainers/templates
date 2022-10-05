@@ -25,7 +25,7 @@
 
 	"overrideFeatureInstallOrder": [
 		"ghcr.io/devcontainers/features/common-utils",
-		"ghcr.io/devcontainers/features/docker-from-docker",
+		"ghcr.io/devcontainers/features/docker-in-docker",
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube"
 	],
 

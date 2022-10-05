@@ -3,8 +3,12 @@ cd $(dirname "$0")
 
 source test-utils.sh vscode
 
+# Run common tests
 checkCommon
-check "rust" rust --version
+
+# Image specific tests
+check "rust" rustc --version
+check "cargo" cargo --version
 
 # Report result
 reportResults
