@@ -92,24 +92,24 @@ jobs:
 
   - name: Run Smoke Test
     run: |
-    template_id="${{ matrix.templates }}"
-    src_dir="test/${template_id}"
+      template_id="${{ matrix.templates }}"
+      src_dir="test/${template_id}"
 
-    if [ ! -d "$(pwd)/${src_dir}" ] ; then  
-      echo "Template '${{ matrix.templates }}' is missing a test folder"
-      exit 1
-    fi
+      if [ ! -d "$(pwd)/${src_dir}" ] ; then  
+        echo "Template '${{ matrix.templates }}' is missing a test folder"
+        exit 1
+      fi
 
-    dest_dir="src/${template_id}/test-project"
-    mkdir -p ${dest_dir}
-    cp -R ${src_dir}/* ${dest_dir}
+      dest_dir="src/${template_id}/test-project"
+      mkdir -p ${dest_dir}
+      cp -R ${src_dir}/* ${dest_dir}
 
-    echo "Building dev container"
-    id_label="test-container=${template_id}"
-    devcontainer up --id-label ${id_label} --workspace-folder "src/${template_id}/"
+      echo "Building dev container"
+      id_label="test-container=${template_id}"
+      devcontainer up --id-label ${id_label} --workspace-folder "src/${template_id}/"
 
-    echo "Running Smoke Test"
-    devcontainer exec --workspace-folder "src/${template_id}/" --id-label ${id_label} /bin/sh -c 'set -e && if [ -f "test-project/test.sh" ]; then cd test-project && if [ "$(id -u)" = "0" ]; then chmod +x test.sh; else sudo chmod +x test.sh; fi && ./test.sh; else ls -a; fi'
+      echo "Running Smoke Test"
+      devcontainer exec --workspace-folder "src/${template_id}/" --id-label ${id_label} /bin/sh -c 'set -e && if [ -f "test-project/test.sh" ]; then cd test-project && if [ "$(id -u)" = "0" ]; then chmod +x test.sh; else sudo chmod +x test.sh; fi && ./test.sh; else ls -a; fi'
 
-    # Clean up
-    docker rm -f $(docker container ls -f "label=${id_label}" -q)
+      # Clean up
+      docker rm -f $(docker container ls -f "label=${id_label}" -q)
