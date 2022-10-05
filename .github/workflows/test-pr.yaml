@@ -111,6 +111,28 @@ jobs:
     id_label="test-container=${template_id}"
     devcontainer up --id-label ${id_label} --workspace-folder "src/${template_id}/"
 
+    # Fake out existence of extensions, VS Code Server
+    echo "(*) Stubbing out extensions and VS Code Server..."
+    dev_container_relative_path="src/${template_id}"
+    dev_container_json_name=".devcontainer.json"
+
+    if [ -d "$(pwd)/${dev_container_relative_path}/.devcontainer" ] ; then  
+      dev_container_relative_path="${dev_container_relative_path}/.devcontainer"
+      dev_container_json_name="devcontainer.json"
+    fi
+
+    mkdir -p "/tmp/${dev_container_relative_path}"
+    cp -f "$(pwd)/${dev_container_relative_path}/${dev_container_json_name}" "/tmp/${dev_container_relative_path}/"
+    dev_container_tmp="/tmp/${dev_container_relative_path}/${dev_container_json_name}"
+    sed -i'.bak' -e "s/\\/\\/.*/ /g" "${dev_container_tmp}"
+    extensions="$(jq '.extensions' --compact-output "${dev_container_tmp}" | tr -d '[' | tr -d ']' | tr ',' '\n' 2>/dev/null || echo -n '')"
+
+    devcontainer exec --workspace-folder "src/${template_id}/" --id-label ${id_label} /bin/sh -c "\
+        mkdir -p \$HOME/.vscode-server/bin \$HOME/.vscode-server/extensions \
+        && cd \$HOME/.vscode-server/extensions \
+        && if [ \"${extensions}\" != '' ]; then echo \"${extensions}\" | xargs -n 1 mkdir -p; fi \
+        && find \$HOME/.vscode-server/ -type d"
+
     echo "Running Smoke Test"
     devcontainer exec --workspace-folder "src/${template_id}/" --id-label ${id_label} /bin/sh -c 'set -e && if [ -f "test-project/test.sh" ]; then cd test-project && if [ "$(id -u)" = "0" ]; then chmod +x test.sh; else sudo chmod +x test.sh; fi && ./test.sh; else ls -a; fi'
 
