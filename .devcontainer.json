@@ -1,14 +1,23 @@
 {
-    "customizations": {
-      "codespaces": {
-        "repositories": {
-          "devcontainers/action": {
-            "permissions": {
-              "contents": "write",
-              "workflows": "write"
-            }
-          }
-        }
-      }
-    }
-  }
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"mads-hartmann.bash-ide-vscode",
+				"dbaeumer.vscode-eslint"
+			]
+		},
+		"codespaces": {
+			"repositories": {
+				"devcontainers/features": {
+					"permissions": "write-all"
+				}
+			}
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:1": {}
+	},
+	"postCreateCommand": "npm install -g @devcontainers/cli",
+	"remoteUser": "node"
+}
