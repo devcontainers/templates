@@ -9,7 +9,7 @@ checkCommon
 # Help determine distro
 . /etc/os-release 
 
-# Run definition specific tests
+# Run template specific tests
 checkExtension "ms-vscode.cpptools"
 checkExtension "ms-vscode.cmake-tools"
 checkExtension "ms-vscode.cpptools-extension-pack"

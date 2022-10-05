@@ -10,7 +10,7 @@ fixTestProjectFolderPrivs
 # Run common tests
 checkCommon
 
-# Definition specific tests
+# template specific tests
 checkExtension "ms-dotnettools.csharp"
 checkExtension "ms-mssql.mssql"
 check "dotnet" dotnet --info

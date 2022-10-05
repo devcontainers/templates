@@ -6,7 +6,7 @@ source test-utils.sh vscode
 # Run common tests
 checkCommon
 
-# Definition specific tests
+# template specific tests
 checkExtension "ms-python.python"
 checkExtension "ms-python.vscode-pylance"
 check "python" python --version

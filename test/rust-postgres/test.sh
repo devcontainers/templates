@@ -6,7 +6,7 @@ source test-utils.sh vscode
 # Run common tests
 checkCommon
 
-# Definition specific tests
+# template specific tests
 checkExtension "vadimcn.vscode-lldb"
 checkExtension "mutantdino.resourcemonitor"
 checkExtension "rust-lang.rust-analyzer"

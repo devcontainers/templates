@@ -6,7 +6,7 @@ source test-utils.sh vscode
 # Run common tests
 checkCommon
 
-# Definition specific tests
+# template specific tests
 checkExtension "ms-dotnettools.csharp"
 checkExtension "ionide.ionide-fsharp"
 check "dotnet" dotnet --info

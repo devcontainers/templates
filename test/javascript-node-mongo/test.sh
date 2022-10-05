@@ -10,7 +10,7 @@ fixTestProjectFolderPrivs
 # Run common tests
 checkCommon
 
-# Definition specific tests
+# template specific tests
 checkExtension "dbaeumer.vscode-eslint"
 check "node" node --version
 sudo rm -f yarn.lock

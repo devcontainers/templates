@@ -13,7 +13,7 @@ mv maven-wrapper-maven-wrapper-0.5.5/mvnw mvnw
 mv maven-wrapper-maven-wrapper-0.5.5/.mvn .mvn
 rm -rf mv maven-wrapper-maven-wrapper-0.5.5
 
-# Definition specific tests
+# template specific tests
 checkExtension "vscjava.vscode-java-pack"
 check "java" java -version
 check "build-and-test-jar" ./mvnw -q package
