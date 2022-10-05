@@ -15,7 +15,5 @@
 			"enableNonRootDocker": "${templateOption:enableNonRootDocker}",
 			"moby": "${templateOption:moby}"
 		}
-	},
-
-	"postStartCommand": "/usr/local/share/docker-init.sh sleep infinity"
+	}
 }
