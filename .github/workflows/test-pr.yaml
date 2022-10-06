@@ -34,7 +34,6 @@ jobs:
             javascript-node-mongo: ./**/javascript-node-mongo/**
             javascript-node-postgres: ./**/javascript-node-postgres/**
             jekyll: ./**/jekyll/**
-            kubernetes-helm: ./**/kubernetes-helm/**
             kubernetes-helm-minikube: ./**/kubernetes-helm-minikube/**
             markdown: ./**/markdown/**
             miniconda: ./**/miniconda/**
