@@ -78,13 +78,13 @@ jobs:
           if [ "${optionProp}" != "" ] && [ "${optionProp}" != "null" ] ; then  
             options=( $(jq -r '.options | keys[]' devcontainer-template.json) )
 
-            if [ "${options[0]}" != "" ] && [ "${options[0]}" != "null" ] ; then  
+            if [ "${options[0]}" != "" ] && [ "${options[0]}" != "null" ] ; then
               for option in "${options[@]}"
               do
                 option_key="\${templateOption:$option}"
                 option_value=$(jq -r ".options | .${option} | .default" devcontainer-template.json)
 
-                if [ "${option_value}" = "" ] || [ "${option_value}" = "null" ] ; then  
+                if [ "${option_value}" = "" ] || [ "${option_value}" = "null" ] ; then
                   echo "Template '${{ matrix.templates }}' is missing a default value for option '${option}'"
                   exit 1
                 fi
