@@ -2,7 +2,7 @@
 	"name": "F# (.NET)",
 	"image": "mcr.microsoft.com/devcontainers/dotnet:0-6.0-bullseye",
 	"features": {
-		"./local-features/node": {
+		"ghcr.io/devcontainers/features/node:1": {
 			"version": "${templateOption:nodeVersion}"
 		}
 	},
