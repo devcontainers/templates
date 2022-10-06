@@ -5,6 +5,5 @@
 		"ghcr.io/devcontainers/features/node:1": {
 			"version": "${templateOption:nodeVersion}"
 		}
-	},
-	"remoteUser": "vscode"
+	}
 }
