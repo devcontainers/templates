@@ -12,3 +12,9 @@ Access your host's Docker install from inside a dev container. Installs Docker e
 | dockerVersion | Select or enter a Docker/Moby CLI version. (Availability can vary by OS version.) | string | latest |
 | moby | Install OSS Moby build instead of Docker CE | boolean | true |
 | enableNonRootDocker | Enable non-root Docker access in container? | boolean | true |
+
+
+
+---
+
+_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/devcontainers/templates/blob/main/src/docker-from-docker/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
