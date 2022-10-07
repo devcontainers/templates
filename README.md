@@ -15,7 +15,7 @@ This repository contains a set of **dev container templates** which are source f
 
 ⚠️ Development container 'templates' are a
 [**proposed**](https://github.com/devcontainers/spec/blob/main/proposals/devcontainer-templates.md) addition to the
-[development container specification](https://containers.dev/implementors/spec/). **Please note that 'templates' are in
+[development container specification](https://containers.dev/implementors/spec/). **Please note that templates are in
 preview and subject to breaking changes**.
 
 Once the [**proposed**](https://github.com/devcontainers/spec/blob/main/proposals/devcontainer-templates.md)
