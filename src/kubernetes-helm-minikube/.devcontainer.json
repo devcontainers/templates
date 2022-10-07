@@ -25,17 +25,9 @@
 
 	"overrideFeatureInstallOrder": [
 		"ghcr.io/devcontainers/features/common-utils",
-		"ghcr.io/devcontainers/features/docker-from-docker",
+		"ghcr.io/devcontainers/features/docker-in-docker",
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube"
 	],
-
-	"postStartCommand": "/usr/local/share/docker-init.sh sleep infinity",
-
-	"mounts": [
-		"source=minikube-var-lib-docker,target=/var/lib/docker,type=volume"
-	],
-
-	"overrideCommand": false,
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

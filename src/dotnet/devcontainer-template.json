@@ -31,7 +31,7 @@
                 "16",
                 "14"
             ],
-            "default": "none"
+            "default": "lts"
         }
     },
     "platforms": [

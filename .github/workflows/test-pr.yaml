@@ -34,7 +34,6 @@ jobs:
             javascript-node-mongo: ./**/javascript-node-mongo/**
             javascript-node-postgres: ./**/javascript-node-postgres/**
             jekyll: ./**/jekyll/**
-            kubernetes-helm: ./**/kubernetes-helm/**
             kubernetes-helm-minikube: ./**/kubernetes-helm-minikube/**
             markdown: ./**/markdown/**
             miniconda: ./**/miniconda/**
@@ -72,22 +71,30 @@ jobs:
         run: |
           set -e
           cd src/${{ matrix.templates }}
-          options=( $(jq -r '.options | keys[]' devcontainer-template.json) )
 
-          if [ "${options[0]}" != "" ] && [ "${options[0]}" != "null" ] ; then  
-            for option in "${options[@]}"
-            do
-              option_key="\${templateOption:$option}"
-              option_value=$(jq -r ".options | .${option} | .default" devcontainer-template.json)
+          # Configure templates only if `devcontainer-template.json` contains the `options` property.
+          optionProp=( $(jq -r '.options' devcontainer-template.json) )
 
-              if [ "${option_value}" = "" ] || [ "${option_value}" = "null" ] ; then  
-                echo "Template '${{ matrix.templates }}' is missing a default value for option '${option}'"
-                exit 1
-              fi
+          if [ "${optionProp}" != "" ] && [ "${optionProp}" != "null" ] ; then  
+            options=( $(jq -r '.options | keys[]' devcontainer-template.json) )
 
-              option_value_escaped=$(sed -e 's/[]\/$*.^[]/\\&/g' <<<"${option_value}")
-              find ./ -type f -print0 | xargs -0 sed -i "s/${option_key}/${option_value_escaped}/g"
-            done
+            if [ "${options[0]}" != "" ] && [ "${options[0]}" != "null" ] ; then
+              echo "(!) Configuring template options within 'src/${{ matrix.templates }}' folder"
+              for option in "${options[@]}"
+              do
+                option_key="\${templateOption:$option}"
+                option_value=$(jq -r ".options | .${option} | .default" devcontainer-template.json)
+
+                if [ "${option_value}" = "" ] || [ "${option_value}" = "null" ] ; then
+                  echo "Template '${{ matrix.templates }}' is missing a default value for option '${option}'"
+                  exit 1
+                fi
+
+                echo "(!) Replacing '${option_key}' with '${option_value}'"
+                option_value_escaped=$(sed -e 's/[]\/$*.^[]/\\&/g' <<<"${option_value}")
+                find ./ -type f -print0 | xargs -0 sed -i "s/${option_key}/${option_value_escaped}/g"
+              done
+            fi
           fi
 
       - name: Run Smoke Test
@@ -102,11 +109,40 @@ jobs:
 
           dest_dir="src/${template_id}/test-project"
           mkdir -p ${dest_dir}
-          cp -R ${src_dir}/* ${dest_dir}
+          shopt -s dotglob
+          cp -Rp ${src_dir}/* ${dest_dir}
+          cp test/test-utils/test-utils.sh ${dest_dir}
 
           echo "Building dev container"
           id_label="test-container=${template_id}"
           devcontainer up --id-label ${id_label} --workspace-folder "src/${template_id}/"
+
+          # Fake out existence of extensions, VS Code Server to validate extensions
+          echo "(*) Stubbing out extensions and VS Code Server..."
+
+          # Configuring path for 'devcontainer.json' 
+          dev_container_relative_path="src/${template_id}"
+          dev_container_json_name=".devcontainer.json"
+
+          if [ -d "$(pwd)/${dev_container_relative_path}/.devcontainer" ] ; then  
+            dev_container_relative_path="${dev_container_relative_path}/.devcontainer"
+            dev_container_json_name="devcontainer.json"
+          fi
+
+          mkdir -p "/tmp/${dev_container_relative_path}"
+          cp -f "$(pwd)/${dev_container_relative_path}/${dev_container_json_name}" "/tmp/${dev_container_relative_path}/"
+          dev_container_tmp="/tmp/${dev_container_relative_path}/${dev_container_json_name}"
+          sed -i'.bak' -e "s/\\/\\/.*/ /g" "${dev_container_tmp}"
+
+          # Fetching extensions list defined in 'devcontainer.json'
+          extensions="$(jq '.extensions' --compact-output "${dev_container_tmp}" | tr -d '[' | tr -d ']' | tr ',' '\n' 2>/dev/null || echo -n '')"
+
+          # Stubbing extensions list for the tests validation with checkExtension() 
+          devcontainer exec --workspace-folder "src/${template_id}/" --id-label ${id_label} /bin/sh -c "\
+              mkdir -p \$HOME/.vscode-server/bin \$HOME/.vscode-server/extensions \
+              && cd \$HOME/.vscode-server/extensions \
+              && if [ \"${extensions}\" != '' ]; then echo \"${extensions}\" | xargs -n 1 mkdir -p; fi \
+              && find \$HOME/.vscode-server/ -type d"
 
           echo "Running Smoke Test"
           devcontainer exec --workspace-folder "src/${template_id}/" --id-label ${id_label} /bin/sh -c 'set -e && if [ -f "test-project/test.sh" ]; then cd test-project && if [ "$(id -u)" = "0" ]; then chmod +x test.sh; else sudo chmod +x test.sh; fi && ./test.sh; else ls -a; fi'
