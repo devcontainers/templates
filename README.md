@@ -34,7 +34,7 @@ specification is accepted, implementation details will be published at
 
 The [template distribution specification](https://github.com/devcontainers/spec/blob/main/proposals/devcontainer-templates-distribution.md) outlines a pattern for community members and organizations to self-author templates in repositories they control.
 
-[GitHub Action](https://github.com/devcontainers/action) is available to help bootstrap self-authored templates.
+A [GitHub Action](https://github.com/devcontainers/action) is available to help bootstrap self-authored templates.
 
 We are eager to hear your feedback on self-authoring!  Please provide comments and feedback on [spec issue #70](https://github.com/devcontainers/spec/issues/70).
 
