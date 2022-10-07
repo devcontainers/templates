@@ -9,3 +9,9 @@ Use and develop Go + Postgres applications. Includes appropriate runtime args, G
 |-----|-----|-----|-----|
 | imageVariant | Go version (use -bullseye variants on local arm64/Apple Silicon): | string | 1-bullseye |
 | nodeVersion | Node.js version: | string | lts/* |
+
+
+
+---
+
+_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/devcontainers/templates/blob/main/src/go-postgres/devcontainer-template.json).  Add additional notes to a `NOTES.md`._

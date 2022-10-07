@@ -8,4 +8,10 @@ Develop C# and .NET based applications. Includes all needed SDKs, extensions, an
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | imageVariant | .NET version: | string | 6.0-bullseye |
-| nodeVersion | Node.js version: | string | none |
+| nodeVersion | Node.js version: | string | lts |
+
+
+
+---
+
+_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/devcontainers/templates/blob/main/src/dotnet/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
