@@ -6,13 +6,6 @@
 				"mads-hartmann.bash-ide-vscode",
 				"dbaeumer.vscode-eslint"
 			]
-		},
-		"codespaces": {
-			"repositories": {
-				"devcontainers/features": {
-					"permissions": "write-all"
-				}
-			}
 		}
 	},
 	"features": {

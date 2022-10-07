@@ -116,8 +116,10 @@ jobs:
           id_label="test-container=${template_id}"
           devcontainer up --id-label ${id_label} --workspace-folder "src/${template_id}/"
 
-          # Fake out existence of extensions, VS Code Server
+          # Fake out existence of extensions, VS Code Server to validate extensions
           echo "(*) Stubbing out extensions and VS Code Server..."
+
+          # Configuring path for 'devcontainer.json' 
           dev_container_relative_path="src/${template_id}"
           dev_container_json_name=".devcontainer.json"
 
@@ -130,8 +132,11 @@ jobs:
           cp -f "$(pwd)/${dev_container_relative_path}/${dev_container_json_name}" "/tmp/${dev_container_relative_path}/"
           dev_container_tmp="/tmp/${dev_container_relative_path}/${dev_container_json_name}"
           sed -i'.bak' -e "s/\\/\\/.*/ /g" "${dev_container_tmp}"
+
+          # Fetching extensions list defined in 'devcontainer.json'
           extensions="$(jq '.extensions' --compact-output "${dev_container_tmp}" | tr -d '[' | tr -d ']' | tr ',' '\n' 2>/dev/null || echo -n '')"
 
+          # Stubbing extensions list for the tests validation with checkExtension() 
           devcontainer exec --workspace-folder "src/${template_id}/" --id-label ${id_label} /bin/sh -c "\
               mkdir -p \$HOME/.vscode-server/bin \$HOME/.vscode-server/extensions \
               && cd \$HOME/.vscode-server/extensions \
