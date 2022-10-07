@@ -11,7 +11,7 @@ A simple set of dev container 'templates' to help get you up and running with a 
 
 A **development container** is a running [Docker](https://www.docker.com) container with a well-defined tool/runtime stack and its prerequisites. It allows you to use a container as a full-featured development environment which can be used to run an application, to separate tools, libraries, or runtimes needed for working with a codebase, and to aid in continuous integration and testing.
 
-This repository contains a set of **dev container templates** which are source files packaged together that encode configuration for a complete development environment. A 'template' can be used in a new or existing project, and a [supporting tool](https://containers.dev/supporting) will use the configuration from the Template to build a development container.
+This repository contains a set of **dev container templates** which are source files packaged together that encode configuration for a complete development environment. A template can be used in a new or existing project, and a [supporting tool](https://containers.dev/supporting) will use the configuration from the template to build a development container.
 
 ⚠️ Development container 'templates' are a
 [**proposed**](https://github.com/devcontainers/spec/blob/main/proposals/devcontainer-templates.md) addition to the
