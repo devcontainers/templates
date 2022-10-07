@@ -89,6 +89,7 @@ jobs:
                   exit 1
                 fi
 
+                echo "Replacing '${option_key}' with '${option_value}' in all files in '$(pwd)' folder"
                 option_value_escaped=$(sed -e 's/[]\/$*.^[]/\\&/g' <<<"${option_value}")
                 find ./ -type f -print0 | xargs -0 sed -i "s/${option_key}/${option_value_escaped}/g"
               done
