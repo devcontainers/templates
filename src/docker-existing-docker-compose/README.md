@@ -3,8 +3,6 @@
 
 Sample illustrating how to extend an existing Docker Compose file for use in a dev container.
 
-## Options
-
 
 
 
