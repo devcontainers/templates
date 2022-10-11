@@ -3,8 +3,6 @@
 
 Sample illustrating reuse of an existing Dockefile.
 
-## Options
-
 
 
 
