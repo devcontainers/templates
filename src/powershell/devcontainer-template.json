@@ -5,7 +5,7 @@
     "description": "Develop PowerShell scripts without installing anything locally.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/powershell",
     "publisher": "Dev Container Spec Maintainers",
-    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
     "platforms": [
         "PowerShell"
     ]

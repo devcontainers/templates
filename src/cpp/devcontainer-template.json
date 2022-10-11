@@ -5,7 +5,7 @@
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp",
     "publisher": "Dev Container Spec Maintainers",
-    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
     "options": {
         "imageVariant": {
             "type": "string",

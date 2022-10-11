@@ -5,7 +5,7 @@
     "description": "Develop applications in Node.js and PostgreSQL. Includes Node.js, eslint, and yarn in a container linked to a Postgres DB container",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-postgres",
     "publisher": "Dev Container Spec Maintainers",
-    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
     "options": {
         "imageVariant": {
             "type": "string",

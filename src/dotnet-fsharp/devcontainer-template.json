@@ -5,7 +5,7 @@
     "description": "Develop F# and .NET based applications. Includes all needed SDKs, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet-fsharp",
     "publisher": "Dev Container Spec Maintainers",
-    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
     "options": {
         "nodeVersion": {
             "type": "string",

@@ -5,7 +5,7 @@
     "description": "Use or extend the new Ubuntu-based default, large, multi-language universal container for GitHub Codespaces.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/universal",
     "publisher": "Dev Container Spec Maintainers",
-    "licenseURL": "https://github.com/devcontainers/templates/LICENSE",
+    "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
     "platforms": [
         "Python",
         "Node.js",
