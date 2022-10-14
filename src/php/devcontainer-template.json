@@ -1,6 +1,6 @@
 {
     "id": "php",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "PHP",
     "description": "Develop PHP based applications. Includes needed tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php",
@@ -29,7 +29,7 @@
                 "7-buster",
                 "7.4-buster"
             ],
-            "default": "8.1-apache-bullseye"
+            "default": "8.1-bullseye"
         },
         "nodeVersion": {
             "type": "string",

@@ -1,6 +1,6 @@
 {
     "id": "powershell",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "Powershell",
     "description": "Develop PowerShell scripts without installing anything locally.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/powershell",
