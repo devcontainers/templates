@@ -1,6 +1,6 @@
 {
 	"name": "Kubernetes - Local Configuration",
-	"image": "mcr.microsoft.com/devcontainers/base:0-bullseye",
+	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:1": {
 			"installZsh": "true",
