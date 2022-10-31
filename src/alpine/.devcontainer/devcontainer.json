@@ -1,6 +1,6 @@
 {
 	"name": "Alpine",
-	"image": "mcr.microsoft.com/devcontainers/base:0-alpine-${templateOption:imageVariant}",
+	"image": "mcr.microsoft.com/devcontainers/base:alpine-${templateOption:imageVariant}",
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
