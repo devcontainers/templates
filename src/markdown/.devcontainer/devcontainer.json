@@ -1,6 +1,6 @@
 {
 	"name": "Markdown Editing",
-	"image": "mcr.microsoft.com/devcontainers/base:0-bullseye",
+	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
 
 	// Configure tool-specific properties.
 	"customizations": {

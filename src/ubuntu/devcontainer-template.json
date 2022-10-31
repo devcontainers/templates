@@ -15,7 +15,7 @@
                 "focal",
                 "bionic"
             ],
-            "default": "focal"
+            "default": "jammy"
         }
     },
     "platforms": [
