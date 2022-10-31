@@ -1,16 +1,25 @@
 {
 	"name": "Debian",
-	"image": "mcr.microsoft.com/devcontainers/base:${templateOption:imageVariant}",
+	"image": "mcr.microsoft.com/devcontainers/base:${templateOption:imageVariant}"
+
+	// Features to add to the dev container. More info: https://containers.dev/implementors/features.
+	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
-	// "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+	// "mounts": [
+    //     {
+    //         "source": "/var/run/docker.sock",
+    //         "target": "/var/run/docker-host.sock",
+    //         "type": "bind"
+    //     }
+    // ]
 
-	// Uncomment when using a ptrace-based debugger like C++, Go, and Rust
-	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
+	// Configure tool-specific properties.
+	// "customizations": {},
 
-	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
