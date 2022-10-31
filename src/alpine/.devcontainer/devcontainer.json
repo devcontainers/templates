@@ -3,7 +3,7 @@
 	"image": "mcr.microsoft.com/devcontainers/base:alpine-${templateOption:imageVariant}"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {}
+	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
@@ -12,7 +12,7 @@
 	// "postCreateCommand": "uname -a",
 
 	// Configure tool-specific properties.
-	// "customizations": {}
+	// "customizations": {},
 
 	// Comment out to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
