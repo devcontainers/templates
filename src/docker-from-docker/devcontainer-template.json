@@ -1,6 +1,6 @@
 {
     "id": "docker-from-docker",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "Docker from Docker",
     "description": "Access your host's Docker install from inside a dev container. Installs Docker extension in the container along with needed CLIs.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/docker-from-docker",
