@@ -27,7 +27,7 @@
 		"ghcr.io/devcontainers/features/common-utils",
 		"ghcr.io/devcontainers/features/docker-in-docker",
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube"
-	],
+	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
@@ -38,6 +38,9 @@
 	// Use 'postStartCommand' to run commands after the container is created like starting minikube.
 	// "postStartCommand": "nohup bash -c 'minikube start &' > minikube.log 2>&1",
 
-	// Minikube does not like running as root, so use a non-root user.
-	"remoteUser": "vscode"
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
