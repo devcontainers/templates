@@ -1,7 +1,7 @@
 
-# Miniconda (Python 3) (miniconda-postgres)
+# Miniconda & PostgreSQL (Python 3) (miniconda-postgres)
 
-Develop Miniconda applications in Python 3. Installs dependencies from your environment.yml file and the Python extension.
+Develop Miniconda & PostgreSQL applications in Python 3. Installs dependencies from your environment.yml file and the Python extension.
 
 ## Options
 
