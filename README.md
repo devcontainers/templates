@@ -14,13 +14,9 @@ A **development container** is a running [Docker](https://www.docker.com) contai
 This repository contains a set of **dev container templates** which are source files packaged together that encode configuration for a complete development environment. A template can be used in a new or existing project, and a [supporting tool](https://containers.dev/supporting) will use the configuration from the template to build a development container.
 
 ⚠️ Development container 'templates' are a
-[**proposed**](https://github.com/devcontainers/spec/blob/main/proposals/devcontainer-templates.md) addition to the
-[development container specification](https://containers.dev/implementors/spec/). **Please note that templates are in
+[**proposed**](https://containers.dev/implementors/templates/) addition to the
+[Dev Container Template specification](https://containers.dev/implementors/spec/). **Please note that templates are in
 preview and subject to breaking changes**.
-
-Once the [**proposed**](https://github.com/devcontainers/spec/blob/main/proposals/devcontainer-templates.md)
-specification is accepted, implementation details will be published at
-[https://containers.dev](https://containers.dev/).
 
 ## Contents
  
@@ -32,9 +28,9 @@ specification is accepted, implementation details will be published at
 
 ### Creating your own collection of templates
 
-The [template distribution specification](https://github.com/devcontainers/spec/blob/main/proposals/devcontainer-templates-distribution.md) outlines a pattern for community members and organizations to self-author templates in repositories they control.
+The [Dev Container Template specification](https://containers.dev/implementors/templates-distribution/#distribution) outlines a pattern for community members and organizations to self-author templates in repositories they control.
 
-A [GitHub Action](https://github.com/devcontainers/action) is available to help bootstrap self-authored templates.
+A starter repository [devcontainers/template-starter](https://github.com/devcontainers/template-starter) and [GitHub Action](https://github.com/devcontainers/action) is available to help bootstrap self-authored templates.
 
 We are eager to hear your feedback on self-authoring!  Please provide comments and feedback on [spec issue #71](https://github.com/devcontainers/spec/issues/71).
 
