@@ -1,7 +1,7 @@
 
 # Anaconda (Python 3) & PostgreSQL (anaconda-postgres)
 
-Develop Anaconda applications in Python3. Installs dependencies from your environment.yml file and the Python extension.
+Develop Anaconda & PostgreSQL applications in Python3. Installs dependencies from your environment.yml file and the Python extension.
 
 ## Options
 
