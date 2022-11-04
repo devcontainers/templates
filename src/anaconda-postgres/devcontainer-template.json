@@ -2,7 +2,7 @@
     "id": "anaconda-postgres",
     "version": "1.0.0",
     "name": "Anaconda (Python 3) & PostgreSQL",
-    "description": "Develop Anaconda applications in Python3. Installs dependencies from your environment.yml file and the Python extension.",
+    "description": "Develop Anaconda & PostgreSQL applications in Python3. Installs dependencies from your environment.yml file and the Python extension.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/anaconda-postgres",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
