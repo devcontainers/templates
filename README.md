@@ -25,7 +25,7 @@ This repository contains a set of **Dev Container Templates** which are source f
 
 The [Dev Container Template specification](https://containers.dev/implementors/templates-distribution/#distribution) outlines a pattern for community members and organizations to self-author templates in repositories they control.
 
-A starter repository [devcontainers/template-starter](https://github.com/devcontainers/template-starter) and [GitHub Action](https://github.com/devcontainers/action) is available to help bootstrap self-authored templates.
+A starter repository [devcontainers/template-starter](https://github.com/devcontainers/template-starter) and [GitHub Action](https://github.com/devcontainers/action) are available to help bootstrap self-authored Templates.
 
 We are eager to hear your feedback on self-authoring!  Please provide comments and feedback on [spec issue #71](https://github.com/devcontainers/spec/issues/71).
 
