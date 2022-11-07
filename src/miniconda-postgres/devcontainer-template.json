@@ -1,8 +1,9 @@
 {
     "id": "miniconda-postgres",
     "version": "1.0.1",
-    "name": "Miniconda (Python 3)",
-    "description": "Develop Miniconda applications in Python 3. Installs dependencies from your environment.yml file and the Python extension.",
+    "version": "1.0.0",
+    "name": "Miniconda & PostgreSQL (Python 3)",
+    "description": "Develop Miniconda & PostgreSQL applications in Python 3. Installs dependencies from your environment.yml file and the Python extension.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/miniconda-postgres",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
