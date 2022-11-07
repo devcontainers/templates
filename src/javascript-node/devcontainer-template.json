@@ -1,6 +1,6 @@
 {
     "id": "javascript-node",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "Node.js & JavaScript",
     "description": "Develop Node.js based applications. Includes Node.js, eslint, nvm, and yarn.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node",
