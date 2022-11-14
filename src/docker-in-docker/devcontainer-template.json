@@ -34,7 +34,7 @@
         },
         "enableNonRootDocker": {
             "type": "boolean",
-            "description": "Enable non-root Docker access in container?",
+            "description": "Enable non-root user to access Docker in container?",
             "default": "true"
         }
     },
