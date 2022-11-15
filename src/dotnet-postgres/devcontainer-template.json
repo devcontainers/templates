@@ -1,6 +1,6 @@
 {
     "id": "dotnet-postgres",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "name": "C# (.NET) and PostgreSQL (Community)",
     "description": "Develop C# and .NET Core based applications. Includes all needed SDKs, extensions, dependencies and a PostgreSQL container for parallel database development. Adds an additional PostgreSQL container to the C# (.NET Core) container definition.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet-postgres",
@@ -11,14 +11,18 @@
             "type": "string",
             "description": ".NET version:",
             "proposals": [
+                "7.0",
                 "6.0",
                 "3.1",
+                "7.0-bullseye",
                 "6.0-bullseye",
                 "3.1-bullseye",
+                "7.0-jammy",
+                "6.0-jammy",
                 "6.0-focal",
                 "3.1-focal"
             ],
-            "default": "6.0"
+            "default": "7.0"
         },
         "nodeVersion": {
             "type": "string",
