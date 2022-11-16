@@ -33,7 +33,7 @@
                 "3.7-buster",
                 "3.6-buster"
             ],
-            "default": "3.10-bullseye"
+            "default": "3.11"
         },
         "nodeVersion": {
             "type": "string",
