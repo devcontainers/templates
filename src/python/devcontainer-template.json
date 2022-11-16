@@ -12,6 +12,7 @@
             "description": "Python version (use -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
                 "3",
+                "3.11",
                 "3.10",
                 "3.9",
                 "3.8",
