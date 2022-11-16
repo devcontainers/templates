@@ -1,6 +1,6 @@
 {
     "id": "postgres",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "Python 3 & PostgreSQL",
     "description": "Develop applications with Python 3 and PostgreSQL. Includes a Python application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/postgres",

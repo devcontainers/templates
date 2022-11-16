@@ -1,6 +1,6 @@
 {
     "id": "cpp-mariadb",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "C++ & MariaDB",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp-mariadb",
