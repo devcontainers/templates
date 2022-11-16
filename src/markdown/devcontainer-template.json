@@ -1,6 +1,6 @@
 {
     "id": "markdown",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "Markdown",
     "description": "A simple container for editing markdown.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/markdown",

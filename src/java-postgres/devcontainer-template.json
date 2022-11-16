@@ -1,6 +1,6 @@
 {
     "id": "java-postgres",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "Java & PostgreSQL",
     "description": "Develop applications with Java and PostgreSQL. Includes a Java application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java-postgres",

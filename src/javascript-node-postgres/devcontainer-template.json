@@ -1,6 +1,6 @@
 {
     "id": "javascript-node-postgres",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "Node.js & PostgreSQL",
     "description": "Develop applications in Node.js and PostgreSQL. Includes Node.js, eslint, and yarn in a container linked to a Postgres DB container",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-postgres",
