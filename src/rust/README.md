@@ -7,7 +7,7 @@ Develop Rust based applications. Includes appropriate runtime args and everythin
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Debian OS version (use bullseye on local arm64/Apple Silicon): | string | buster |
+| imageVariant | Debian OS version (use bullseye on local arm64/Apple Silicon): | string | bullseye |
 
 
 
