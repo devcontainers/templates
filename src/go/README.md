@@ -8,7 +8,6 @@ Develop Go based applications. Includes appropriate runtime args, Go, common too
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | imageVariant | Go version (use -bullseye variants on local arm64/Apple Silicon): | string | 1-bullseye |
-| nodeVersion | Node.js version: | string | lts |
 
 
 

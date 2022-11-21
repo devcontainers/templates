@@ -8,7 +8,6 @@ Use and develop Go + Postgres applications. Includes appropriate runtime args, G
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | imageVariant | Go version (use -bullseye variants on local arm64/Apple Silicon): | string | 1-bullseye |
-| nodeVersion | Node.js version: | string | lts/* |
 
 ### Adding another service
 

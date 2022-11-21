@@ -8,7 +8,6 @@ Develop Ruby based applications. includes everything you need to get up and runn
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | imageVariant | Ruby version (use -bullseye variants on local arm64/Apple Silicon): | string | 3-bullseye |
-| nodeVersion | Node.js version: | string | lts |
 
 
 

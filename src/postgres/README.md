@@ -8,7 +8,6 @@ Develop applications with Python 3 and PostgreSQL. Includes a Python application
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | imageVariant | Python version (use -bullseye variants on local arm64/Apple Silicon): | string | 3.11 |
-| nodeVersion | Node.js version: | string | lts/* |
 
 ### Adding another service
 

@@ -3,11 +3,7 @@
 
 Develop Miniconda applications in Python 3. Installs dependencies from your environment.yml file and the Python extension.
 
-## Options
 
-| Options Id | Description | Type | Default Value |
-|-----|-----|-----|-----|
-| nodeVersion | Node.js version: | string | lts/* |
 
 ### Using Conda
 This dev container and its associated image includes [the `conda` package manager](https://aka.ms/vscode-remote/conda/about). Additional packages installed using Conda will be downloaded from Anaconda or another repository if you configure one. To reconfigure Conda in this container to access an alternative repository, please see information on [configuring Conda channels here](https://aka.ms/vscode-remote/conda/channel-setup).
