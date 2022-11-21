@@ -1,6 +1,6 @@
 {
     "id": "postgres",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "name": "Python 3 & PostgreSQL",
     "description": "Develop applications with Python 3 and PostgreSQL. Includes a Python application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/postgres",
@@ -34,19 +34,6 @@
                 "3.6-buster"
             ],
             "default": "3.11"
-        },
-        "nodeVersion": {
-            "type": "string",
-            "description": "Node.js version:",
-            "proposals": [
-                "none",
-                "lts/*",
-                "16",
-                "14",
-                "12",
-                "10"
-            ],
-            "default": "lts/*"
         }
     },
     "platforms": [

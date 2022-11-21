@@ -6,9 +6,6 @@
 			"version": "none",
 			"installMaven": "${templateOption:installMaven}",
 			"installGradle": "${templateOption:installGradle}"
-		},
-		"ghcr.io/devcontainers/features/node:1": {
-			"version": "${templateOption:nodeVersion}"
 		}
 	},
 

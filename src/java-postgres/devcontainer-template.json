@@ -1,6 +1,6 @@
 {
     "id": "java-postgres",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "name": "Java & PostgreSQL",
     "description": "Develop applications with Java and PostgreSQL. Includes a Java application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java-postgres",
@@ -29,19 +29,6 @@
             "type": "boolean",
             "description": "Install Gradle, a build automation tool for multi-language software development",
             "default": "false"
-        },
-        "nodeVersion": {
-            "type": "string",
-            "description": "Node.js version:",
-            "proposals": [
-                "none",
-                "lts/*",
-                "16",
-                "14",
-                "12",
-                "10"
-            ],
-            "default": "lts/*"
         }
     },
     "platforms": [

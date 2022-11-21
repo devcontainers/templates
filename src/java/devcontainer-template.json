@@ -1,6 +1,6 @@
 {
     "id": "java",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "name": "Java",
     "description": "Develop Java applications. Includes the JDK and Java extensions.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java",
@@ -29,19 +29,6 @@
             "type": "boolean",
             "description": "Install Gradle, a build automation tool for multi-language software development",
             "default": "false"
-        },
-        "nodeVersion": {
-            "type": "string",
-            "description": "Node.js version:",
-            "proposals": [
-                "none",
-                "lts",
-                "latest",
-                "18",
-                "16",
-                "14"
-            ],
-            "default": "lts"
         }
     },
     "platforms": [

@@ -1,11 +1,9 @@
 {
 	"name": "Python 3",
 	"image": "mcr.microsoft.com/devcontainers/python:${templateOption:imageVariant}",
-	"features": {
-		"ghcr.io/devcontainers/features/node:1": {
-			"version": "${templateOption:nodeVersion}"
-		}
-	}
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

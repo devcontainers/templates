@@ -1,8 +1,5 @@
 FROM mcr.microsoft.com/devcontainers/dotnet:${templateOption:imageVariant}
 
-ARG NODE_VERSION="${templateOption:nodeVersion}"
-RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
-
 # Install SQL Tools: SQLPackage and sqlcmd
 COPY mssql/installSQLtools.sh installSQLtools.sh
 RUN bash ./installSQLtools.sh \
