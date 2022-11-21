@@ -8,7 +8,6 @@ Develop Python 3 applications.
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | imageVariant | Python version (use -bullseye variants on local arm64/Apple Silicon): | string | 3.11 |
-| nodeVersion | Node.js version: | string | lts |
 
 
 

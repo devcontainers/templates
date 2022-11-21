@@ -8,7 +8,6 @@ Develop C# and .NET based applications. Includes all needed SDKs, extensions, an
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
 | imageVariant | .NET version: | string | 7.0 |
-| nodeVersion | Node.js version: | string | lts |
 
 
 
