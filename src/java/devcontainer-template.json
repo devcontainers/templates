@@ -1,6 +1,6 @@
 {
     "id": "java",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "name": "Java",
     "description": "Develop Java applications. Includes the JDK and Java extensions.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java",
@@ -18,7 +18,7 @@
                 "11-buster",
                 "17-buster"
             ],
-            "default": "11-bullseye"
+            "default": "17"
         },
         "installMaven": {
             "type": "boolean",
