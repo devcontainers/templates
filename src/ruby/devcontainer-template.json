@@ -1,6 +1,6 @@
 {
     "id": "ruby",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "name": "Ruby",
     "description": "Develop Ruby based applications. includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ruby",
@@ -28,19 +28,6 @@
                 "2.7-buster"
             ],
             "default": "3-bullseye"
-        },
-        "nodeVersion": {
-            "type": "string",
-            "description": "Node.js version:",
-            "proposals": [
-                "none",
-                "lts",
-                "latest",
-                "18",
-                "16",
-                "14"
-            ],
-            "default": "lts"
         }
     },
     "platforms": [

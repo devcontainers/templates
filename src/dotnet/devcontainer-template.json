@@ -1,6 +1,6 @@
 {
     "id": "dotnet",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "name": "C# (.NET)",
     "description": "Develop C# and .NET based applications. Includes all needed SDKs, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet",
@@ -23,19 +23,6 @@
                 "3.1-focal"
             ],
             "default": "7.0"
-        },
-        "nodeVersion": {
-            "type": "string",
-            "description": "Node.js version:",
-            "proposals": [
-                "none",
-                "lts",
-                "latest",
-                "18",
-                "16",
-                "14"
-            ],
-            "default": "lts"
         }
     },
     "platforms": [

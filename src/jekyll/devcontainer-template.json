@@ -1,6 +1,6 @@
 {
     "id": "jekyll",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "name": "Jekyll",
     "description": "Develop static sites with Jekyll, includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/jekyll",
@@ -15,19 +15,6 @@
                 "buster"
             ],
             "default": "bullseye"
-        },
-        "nodeVersion": {
-            "type": "string",
-            "description": "Node.js version:",
-            "proposals": [
-                "none",
-                "lts",
-                "latest",
-                "18",
-                "16",
-                "14"
-            ],
-            "default": "lts"
         }
     },
     "platforms": [

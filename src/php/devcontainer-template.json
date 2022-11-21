@@ -1,6 +1,6 @@
 {
     "id": "php",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "name": "PHP",
     "description": "Develop PHP based applications. Includes needed tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php",
@@ -30,19 +30,6 @@
                 "7.4-buster"
             ],
             "default": "8.1-bullseye"
-        },
-        "nodeVersion": {
-            "type": "string",
-            "description": "Node.js version:",
-            "proposals": [
-                "none",
-                "lts",
-                "latest",
-                "18",
-                "16",
-                "14"
-            ],
-            "default": "lts"
         }
     },
     "platforms": [

@@ -1,11 +1,9 @@
 {
 	"name": "PHP",
 	"image": "mcr.microsoft.com/devcontainers/php:${templateOption:imageVariant}",
-	"features": {
-		"ghcr.io/devcontainers/features/node:1": {
-			"version": "${templateOption:nodeVersion}"
-		}
-	},
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
 
 	// Configure tool-specific properties.
 	"customizations": {

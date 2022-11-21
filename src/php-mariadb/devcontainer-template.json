@@ -1,6 +1,6 @@
 {
     "id": "php-mariadb",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "name": "PHP & MariaDB",
     "description": "Develop PHP applications with MariaDB (MySQL Compatible).",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php-mariadb",
@@ -30,19 +30,6 @@
                 "7.4-buster"
             ],
             "default": "8-bullseye"
-        },
-        "nodeVersion": {
-            "type": "string",
-            "description": "Node.js version:",
-            "proposals": [
-                "none",
-                "lts/*",
-                "16",
-                "14",
-                "12",
-                "10"
-            ],
-            "default": "lts/*"
         }
     },
     "platforms": [

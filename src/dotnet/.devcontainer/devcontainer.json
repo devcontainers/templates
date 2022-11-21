@@ -1,11 +1,9 @@
 {
 	"name": "C# (.NET)",
-	"image": "mcr.microsoft.com/devcontainers/dotnet:0-${templateOption:imageVariant}",
-	"features": {
-		"ghcr.io/devcontainers/features/node:1": {
-			"version": "${templateOption:nodeVersion}"
-		}
-	}
+	"image": "mcr.microsoft.com/devcontainers/dotnet:0-${templateOption:imageVariant}"
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [5000, 5001],

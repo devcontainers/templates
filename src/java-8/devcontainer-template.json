@@ -1,6 +1,6 @@
 {
     "id": "java-8",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "name": "Java 8",
     "description": "Develop Java applications. Includes the JDK 8 (and 11) and Java extensions.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java-8",
@@ -25,19 +25,6 @@
             "type": "boolean",
             "description": "Install Gradle, a build automation tool for multi-language software development",
             "default": "false"
-        },
-        "nodeVersion": {
-            "type": "string",
-            "description": "Node.js version:",
-            "proposals": [
-                "none",
-                "lts",
-                "latest",
-                "18",
-                "16",
-                "14"
-            ],
-            "default": "lts"
         }
     },
     "platforms": [
