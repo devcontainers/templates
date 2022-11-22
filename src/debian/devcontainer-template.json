@@ -1,6 +1,6 @@
 {
     "id": "debian",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "name": "Debian",
     "description": "Simple Debian container with Git installed.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/debian",

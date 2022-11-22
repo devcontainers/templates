@@ -1,6 +1,6 @@
 {
     "id": "php",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "name": "PHP",
     "description": "Develop PHP based applications. Includes needed tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php",
