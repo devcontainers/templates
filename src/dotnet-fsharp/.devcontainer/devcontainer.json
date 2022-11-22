@@ -1,3 +1,5 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet-fsharp
 {
 	"name": "F# (.NET)",
 	"image": "mcr.microsoft.com/devcontainers/dotnet:0-6.0-bullseye",
