@@ -278,7 +278,7 @@ tee /usr/local/share/docker-init.sh > /dev/null \
 
 set -e
 
-SOCAT_PATH_BASE=/tmp/vscr-docker-from-docker
+SOCAT_PATH_BASE=/tmp/vscr-docker-outside-of-docker
 SOCAT_LOG=\${SOCAT_PATH_BASE}.log
 SOCAT_PID=\${SOCAT_PATH_BASE}.pid
 
