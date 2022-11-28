@@ -18,8 +18,8 @@ jobs:
             cpp: ./**/cpp/**
             cpp-mariadb: ./**/cpp-mariadb/**
             debian: ./**/debian/**
-            docker-from-docker: ./**/docker-from-docker/**
-            docker-from-docker-compose: ./**/docker-from-docker-compose/**
+            docker-outside-of-docker: ./**/docker-outside-of-docker/**
+            docker-outside-of-docker-compose: ./**/docker-outside-of-docker-compose/**
             docker-in-docker: ./**/docker-in-docker/**
             dotnet: ./**/dotnet/**
             dotnet-fsharp: ./**/dotnet-fsharp/**
