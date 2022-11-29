@@ -11,6 +11,22 @@
 		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
 	},
 
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:1": {
+			"installZsh": "${templateOption:installZsh}",
+			"upgradePackages": "${templateOption:upgradePackages}",
+			"uid": "1000",
+			"gid": "1000",
+			"installOhMyZsh": "true",
+			"nonFreePackages": "true"
+		},
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {
+			"version": "${templateOption:dockerVersion}",
+			"enableNonRootDocker": "${templateOption:enableNonRootDocker}",
+			"moby": "${templateOption:moby}"
+		}
+	},
+
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
