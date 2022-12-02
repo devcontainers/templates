@@ -13,7 +13,7 @@
 			"installOhMyZsh": "true",
 			"nonFreePackages": "true"
 		},
-		"ghcr.io/devcontainers/features/docker-in-docker:1": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"enableNonRootDocker": "true",
 			"username": "vscode",
 			"moby": "true"
