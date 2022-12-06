@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/rust
 {
 	"name": "Rust",
-	"image": "mcr.microsoft.com/devcontainers/rust:1-${templateOption:imageVariant}"
+	"image": "mcr.microsoft.com/devcontainers/rust:0-1-${templateOption:imageVariant}"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

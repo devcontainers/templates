@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/php
 {
 	"name": "PHP",
-	"image": "mcr.microsoft.com/devcontainers/php:${templateOption:imageVariant}",
+	"image": "mcr.microsoft.com/devcontainers/php:0-${templateOption:imageVariant}",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
