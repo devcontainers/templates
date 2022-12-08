@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/ruby:${templateOption:imageVariant}
+FROM mcr.microsoft.com/devcontainers/ruby:0-${templateOption:imageVariant}
 
 # Install Rails
 RUN gem install rails webdrivers 
