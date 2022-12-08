@@ -12,7 +12,7 @@
 			"installOhMyZsh": "true",
 			"nonFreePackages": "true"
 		},
-		"ghcr.io/devcontainers/features/docker-from-docker:1": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"version": "${templateOption:dockerVersion}",
 			"enableNonRootDocker": "${templateOption:enableNonRootDocker}",
 			"moby": "${templateOption:moby}"
