@@ -21,7 +21,7 @@
                 "16-buster",
                 "14-buster"
             ],
-            "default": "16-bullseye"
+            "default": "18-bullseye"
         }
     },
     "platforms": [
