@@ -7,7 +7,7 @@ Develop applications in Node.js and Mongo DB. Includes Node.js, eslint, and yarn
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Node.js version (use -bullseye variants on local arm64/Apple Silicon): | string | 16-bullseye |
+| imageVariant | Node.js version (use -bullseye variants on local arm64/Apple Silicon): | string | 18 |
 
 ## Using this template
 
