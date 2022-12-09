@@ -1,6 +1,6 @@
 {
     "id": "javascript-node-mongo",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "name": "Node.js & Mongo DB",
     "description": "Develop applications in Node.js and Mongo DB. Includes Node.js, eslint, and yarn in a container linked to a Mongo DB.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo",
@@ -21,7 +21,7 @@
                 "16-buster",
                 "14-buster"
             ],
-            "default": "16-bullseye"
+            "default": "18"
         }
     },
     "platforms": [

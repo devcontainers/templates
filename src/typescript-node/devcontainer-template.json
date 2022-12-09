@@ -1,6 +1,6 @@
 {
     "id": "typescript-node",
-    "version": "1.0.5",
+    "version": "1.1.0",
     "name": "Node.js & TypeScript",
     "description": "Develop Node.js based applications in TypeScript. Includes Node.js, eslint, nvm, yarn, and the TypeScript compiler.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/typescript-node",
@@ -21,7 +21,7 @@
                 "16-buster",
                 "14-buster"
             ],
-            "default": "16-bullseye"
+            "default": "18"
         }
     },
     "platforms": [
