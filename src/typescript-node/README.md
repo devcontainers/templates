@@ -7,7 +7,7 @@ Develop Node.js based applications in TypeScript. Includes Node.js, eslint, nvm,
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Node.js version (use -bullseye variants on local arm64/Apple Silicon): | string | 16-bullseye |
+| imageVariant | Node.js version (use -bullseye variants on local arm64/Apple Silicon): | string | 18 |
 
 
 
