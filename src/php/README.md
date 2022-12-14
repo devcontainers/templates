@@ -7,7 +7,7 @@ Develop PHP based applications. Includes needed tools, extensions, and dependenc
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | PHP version (use -bullseye variants on local arm64/Apple Silicon): | string | 8.1-bullseye |
+| imageVariant | PHP version (use -bullseye variants on local arm64/Apple Silicon): | string | 8.2 |
 
 ### Starting / stopping Apache
 
