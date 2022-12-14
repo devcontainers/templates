@@ -1,6 +1,6 @@
 {
     "id": "alpine",
-    "version": "1.0.5",
+    "version": "1.1.0",
     "name": "Alpine",
     "description": "Simple Alpine container with Git installed.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/alpine",
@@ -11,11 +11,12 @@
             "type": "string",
             "description": "Alpine version:",
             "proposals": [
+                "3.17",
                 "3.16",
                 "3.15",
                 "3.14"
             ],
-            "default": "3.16"
+            "default": "3.17"
         }
     },
     "platforms": [
