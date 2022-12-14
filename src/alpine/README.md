@@ -7,7 +7,7 @@ Simple Alpine container with Git installed.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Alpine version: | string | 3.16 |
+| imageVariant | Alpine version: | string | 3.17 |
 
 
 
