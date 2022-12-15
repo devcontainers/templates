@@ -28,7 +28,6 @@ jobs:
             go: ./**/go/**
             go-postgres: ./**/go-postgres/**
             java: ./**/java/**
-            java-8: ./**/java-8/**
             java-postgres: ./**/java-postgres/**
             javascript-node: ./**/javascript-node/**
             javascript-node-mongo: ./**/javascript-node-mongo/**
