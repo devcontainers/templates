@@ -12,32 +12,13 @@
 	},
 
 	"features": {
-		"ghcr.io/devcontainers/features/common-utils:1": {
-			"installZsh": "${templateOption:installZsh}",
-			"upgradePackages": "${templateOption:upgradePackages}",
-			"uid": "1000",
-			"gid": "1000",
-			"installOhMyZsh": "true",
-			"nonFreePackages": "true"
-		},
 		"ghcr.io/devcontainers/features/docker-from-docker:1": {
 			"version": "${templateOption:dockerVersion}",
 			"enableNonRootDocker": "${templateOption:enableNonRootDocker}",
 			"moby": "${templateOption:moby}"
 		}
-	},
-
-	// Configure tool-specific properties.
-	"customizations": {
-		// Configure properties specific to VS Code.
-		"vscode": {		
-			// Add the IDs of extensions you want installed when the container is created.
-			"extensions": [
-				"ms-azuretools.vscode-docker"
-			]
-		}
 	}
-
+	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 

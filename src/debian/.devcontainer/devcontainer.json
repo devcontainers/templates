@@ -2,6 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
 	"name": "Debian",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/base:${templateOption:imageVariant}"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -9,15 +10,6 @@
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
-	// Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
-	// "mounts": [
-    //     {
-    //         "source": "/var/run/docker.sock",
-    //         "target": "/var/run/docker-host.sock",
-    //         "type": "bind"
-    //     }
-    // ]
 
 	// Configure tool-specific properties.
 	// "customizations": {},

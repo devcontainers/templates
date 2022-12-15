@@ -2,6 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/dotnet-fsharp
 {
 	"name": "F# (.NET)",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/dotnet:0-6.0-bullseye",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.

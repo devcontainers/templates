@@ -2,20 +2,12 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm
 {
 	"name": "Kubernetes - Local Configuration",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
+
 	"features": {
-		"ghcr.io/devcontainers/features/common-utils:1": {
-			"installZsh": "true",
-			"username": "vscode",
-			"uid": "1000",
-			"gid": "1000",
-			"upgradePackages": "false",
-			"installOhMyZsh": "true",
-			"nonFreePackages": "true"
-		},
 		"ghcr.io/devcontainers/features/docker-from-docker:1": {
 			"enableNonRootDocker": "true",
-			"username": "vscode",
 			"moby": "true"
 		},
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
@@ -23,17 +15,9 @@
 			"helm": "latest",
 			"minikube": "none"
 		},
-		"./local-features/copy-kube-config": {
-			"username": "vscode"
-		}
+		"./local-features/copy-kube-config": {}
 	},
 
-	"overrideFeatureInstallOrder": [
-		"ghcr.io/devcontainers/features/common-utils",
-		"ghcr.io/devcontainers/features/docker-from-docker",
-		"ghcr.io/devcontainers/features/kubectl-helm-minikube",
-		"./local-features/copy-kube-config"
-	],
 	"remoteEnv": {
 		"SYNC_LOCALHOST_KUBECONFIG": "true"
 	},

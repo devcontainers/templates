@@ -2,7 +2,9 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
 	"name": "Java",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/java:0-${templateOption:imageVariant}",
+
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
 			"version": "none",

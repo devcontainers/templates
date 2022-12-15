@@ -2,20 +2,12 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm-minikube
 {
 	"name": "Kubernetes - Minikube-in-Docker",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
+
 	"features": {
-		"ghcr.io/devcontainers/features/common-utils:1": {
-			"installZsh": "true",
-			"username": "vscode",
-			"uid": "1000",
-			"gid": "1000",
-			"upgradePackages": "false",
-			"installOhMyZsh": "true",
-			"nonFreePackages": "true"
-		},
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"enableNonRootDocker": "true",
-			"username": "vscode",
 			"moby": "true"
 		},
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
@@ -23,14 +15,8 @@
 			"helm": "latest",
 			"minikube": "latest"
 		}
-	},
-
-	"overrideFeatureInstallOrder": [
-		"ghcr.io/devcontainers/features/common-utils",
-		"ghcr.io/devcontainers/features/docker-in-docker",
-		"ghcr.io/devcontainers/features/kubectl-helm-minikube"
-	]
-
+	}
+	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
