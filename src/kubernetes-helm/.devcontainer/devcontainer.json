@@ -22,7 +22,7 @@
 		"SYNC_LOCALHOST_KUBECONFIG": "true"
 	},
 
-	"initializeCommand": ".devcontainer/ensure-mount-sources",
+	"initializeCommand": "cd .devcontainer && bash ensure-mount-sources",
 	"mounts": [
 		{
 			"source": "${env:HOME}${env:USERPROFILE}/.kube",
