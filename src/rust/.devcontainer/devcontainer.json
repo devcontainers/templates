@@ -2,6 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/rust
 {
 	"name": "Rust",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/rust:0-1-${templateOption:imageVariant}"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.

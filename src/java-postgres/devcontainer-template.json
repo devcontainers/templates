@@ -1,6 +1,6 @@
 {
     "id": "java-postgres",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "name": "Java & PostgreSQL",
     "description": "Develop applications with Java and PostgreSQL. Includes a Java application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java-postgres",
@@ -11,14 +11,17 @@
             "type": "string",
             "description": "Java version (use -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
+                "8",
                 "11",
                 "17",
+                "8-bullseye",
                 "11-bullseye",
                 "17-bullseye",
+                "8-buster",
                 "11-buster",
                 "17-buster"
             ],
-            "default": "17-bullseye"
+            "default": "17"
         },
         "installMaven": {
             "type": "boolean",

@@ -4,8 +4,8 @@
 	"options": {
 		"username": {
 			"type": "string",
-			"default": "vscode",
-			"description": "Enter name of non-root user to configure or none to skip"
+			"default": "",
+			"description": "Enter name of non-root user to configure or blank to use remoteUser"
 		}
 	}
 }

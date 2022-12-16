@@ -1,5 +1,5 @@
 
-# C# (.NET) and PostgreSQL (Community) (dotnet-postgres)
+# C# (.NET) and PostgreSQL (dotnet-postgres)
 
 Develop C# and .NET Core based applications. Includes all needed SDKs, extensions, dependencies and a PostgreSQL container for parallel database development. Adds an additional PostgreSQL container to the C# (.NET Core) container definition.
 
