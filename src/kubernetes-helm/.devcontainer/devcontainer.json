@@ -22,19 +22,20 @@
 		"SYNC_LOCALHOST_KUBECONFIG": "true"
 	},
 
+	"initializeCommand": ".devcontainer/ensure-mount-sources",
 	"mounts": [
-        {
-            "source": "${env:HOME}${env:USERPROFILE}/.kube",
-            "target": "/usr/local/share/kube-localhost",
-            "type": "bind"
-        }
-		// Uncomment the next line to also sync certs in your .minikube folder
-		// {
-        //     "source": "${env:HOME}${env:USERPROFILE}/.minikube",
-        //     "target": "/usr/local/share/minikube-localhost",
-        //     "type": "bind"
-        // }
-    ]
+		{
+			"source": "${env:HOME}${env:USERPROFILE}/.kube",
+			"target": "/usr/local/share/kube-localhost",
+			"type": "bind"
+		},
+		// Optional mount to also sync certs in your .minikube folder
+		{
+			"source": "${env:HOME}${env:USERPROFILE}/.minikube",
+			"target": "/usr/local/share/minikube-localhost",
+			"type": "bind"
+		}
+	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
