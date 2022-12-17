@@ -15,9 +15,11 @@ git pull --ff-only
 
 > Note: Please review the [Vcpkg license details](https://github.com/microsoft/vcpkg#license) to better understand its own license and additional license information pertaining to library packages and supported ports.
 
-## Using the MariaDB Database
+### Using the MariaDB Database
 
-You can connect to MariaDB from an external tool when using VS Code by updating `.devcontainer/devcontainer.json` as follows:
+This template creates two containers, one for C++ and one for MariaDB. You will be connected to the C++ container, and from within that container the MariabDB container will be available on **`localhost`** port 3305. The MariaDB database has a default password of `mariadb` and you can update MariaDB parameters by updating the `.devcontainer/.env` file.
+
+You can connect to MariaDB from an external tool when connected to the Dev Container from a local tool by updating `.devcontainer/devcontainer.json` as follows:
 
 ```json
 "forwardPorts": [ "3306" ]
@@ -42,16 +44,12 @@ You can add other services to your `docker-compose.yml` file [as described in Do
 # Runs the service on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
 network_mode: service:[$SERVICENAME]
 ```
+### Using the forwardPorts property
 
-### Debugging Security
+By default, web frameworks and tools often only listen to localhost inside the container. As a result, we recommend using the `forwardPorts` property to make these ports available locally.
 
-To allow C++ based debuggers to run within the Docker Containers, the [docker-compose.yml](.devcontainer/docker-compose.yml) contains the following lines which can be uncommented::
-
-```yaml
-    security_opt:
-      - seccomp:unconfined
-    cap_add:
-      - SYS_PTRACE
+```json
+"forwardPorts": [9000]
 ```
 
-As these can create security vulnerabilities, it is advisable to not use this unless needed. This should only be used in a Debug or Dev container, not in Production.
+The `ports` property in `docker-compose.yml` [publishes](https://docs.docker.com/config/containers/container-networking/#published-ports) rather than forwards the port. This will not work in a cloud environment like Codespaces and applications need to listen to `*` or `0.0.0.0` for the application to be accessible externally. Fortunately the `forwardPorts` property does not have this limitation.
