@@ -11,13 +11,6 @@ services:
     env_file:
       - .env
 
-    # Security Opt and cap_add allow for C++ based debuggers to work. 
-    # See `runArgs`: https://github.com/Microsoft/vscode-docs/blob/main/docs/remote/devcontainerjson-reference.md
-    # security_opt:
-    #   - seccomp:unconfined
-    # cap_add:
-    #   - SYS_PTRACE
-
     volumes:
       - ../..:/workspaces:cached
 
@@ -26,9 +19,6 @@ services:
 
     # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
     network_mode: service:db
-
-    # Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-    # user: root
 
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
     # (Adding the "ports" property to this file will not forward from a Codespace.)
