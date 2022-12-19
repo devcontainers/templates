@@ -9,6 +9,23 @@ Develop applications with Python 3 and PostgreSQL. Includes a Python application
 |-----|-----|-----|-----|
 | imageVariant | Python version (use -bullseye variants on local arm64/Apple Silicon): | string | 3.11 |
 
+## Using this template
+
+This template creates two containers, one for Python and one for PostgreSQL. You will be connected to the Python container, and from within that container the PostgreSQL container will be available on **`localhost`** port 5432. The default database is named `postgres` with a user of `postgres` whose password is `postgres`, and if desired this may be changed in `.devcontainer/docker-compose.yml`. Data is stored in a volume named `postgres-data`.
+
+While the template itself works unmodified, it uses the `mcr.microsoft.com/devcontainers/python` image which includes `git`, a non-root `vscode` user with `sudo` access, and a set of common dependencies and Go tools for development.
+
+You also can connect to PostgreSQL from an external tool when connected to the Dev Contaner from a local tool by updating `.devcontainer/devcontainer.json` as follows:
+
+```json
+"forwardPorts": [ "5432" ]
+```
+
+Once the PostgreSQL container has port forwarding enabled, it will be accessible from the Host machine at `localhost:5432`. The [PostgreSQL Documentation](https://www.postgresql.org/docs/14/index.html) has:
+
+1. [An Installation Guide for PSQL](https://www.postgresql.org/docs/14/installation.html) a CLI tool to work with a PostgreSQL database.
+2. [Tips on populating data](https://www.postgresql.org/docs/14/populate.html) in the database. 
+
 ### Adding another service
 
 You can add other services to your `docker-compose.yml` file [as described in Docker's documentation](https://docs.docker.com/compose/compose-file/#service-configuration-reference). However, if you want anything running in this service to be available in the container on localhost, or want to forward the service locally, be sure to add this line to the service config:
@@ -30,52 +47,14 @@ See the [pipx documentation](https://pipxproject.github.io/pipx/docs/) for addit
 
 ### Using the forwardPorts property
 
-By default, frameworks like Flask only listens to localhost inside the container. As a result, we recommend using the `forwardPorts` property (available in v0.98.0+) to make these ports available locally.
+By default, web frameworks and tools often only listen to localhost inside the container. As a result, we recommend using the `forwardPorts` property to make these ports available locally.
 
 ```json
-"forwardPorts": [5000]
+"forwardPorts": [9000]
 ```
 
-The `ports` property in `docker-compose.yml` [publishes](https://docs.docker.com/config/containers/container-networking/#published-ports) rather than forwards the port, this will not work in a Codespace and applications need to listen to `*` or `0.0.0.0` for the application to be accessible externally. This conflicts with the defaults of some Python frameworks, but fortunately the `forwardPorts` property does not have this limitation.
+The `ports` property in `docker-compose.yml` [publishes](https://docs.docker.com/config/containers/container-networking/#published-ports) rather than forwards the port. This will not work in a cloud environment like Codespaces and applications need to listen to `*` or `0.0.0.0` for the application to be accessible externally. Fortunately the `forwardPorts` property does not have this limitation.
 
-### [Optional] Building your requirements into the container image
-
-If your requirements rarely change, you can include the contents of `requirements.txt` in the container by adding the following to your `Dockerfile`:
-
-```Dockerfile
-COPY requirements.txt /tmp/pip-tmp/
-RUN pip3 --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
-    && rm -rf /tmp/pip-tmp
-```
-
-Since `requirements.txt` is likely in the folder you opened rather than the `.devcontainer` folder, be sure to include `context: ..` under `build` in `docker-compose.yml`. This allows the Dockerfile to access everything in the opened folder instead of just the contents of the `.devcontainer` folder.
-
-### [Optional] Allowing the non-root vscode user to pip install globally without sudo
-
-You can opt into using the `vscode` non-root user in the container by adding `"remoteUser": "vscode"` to `devcontainer.json`. However, by default, this you will need to use `sudo` to perform global pip installs.
-
-```bash
-sudo pip install <your-package-here>
-```
-
-Or stick with user installs:
-
-```bash
-pip install --user <your-package-here>
-```
-
-If you prefer, you can add the following to your `Dockerfile` to cause global installs to go into a different folder that the `vscode` user can write to.
-
-```Dockerfile
-ENV PIP_TARGET=/usr/local/pip-global
-ENV PYTHONPATH=${PIP_TARGET}:${PYTHONPATH}
-ENV PATH=${PIP_TARGET}/bin:${PATH}
-RUN if ! cat /etc/group | grep -e "^pip-global:" > /dev/null 2>&1; then groupadd -r pip-global; fi \
-    && usermod -a -G pip-global vscode \
-    && umask 0002 && mkdir -p ${PIP_TARGET} \
-    && chown :pip-global ${PIP_TARGET} \
-    && ( [ ! -f "/etc/profile.d/00-restore-env.sh" ] || sed -i -e "s/export PATH=/export PATH=\/usr\/local\/pip-global:/" /etc/profile.d/00-restore-env.sh )
-```
 
 ---
 
