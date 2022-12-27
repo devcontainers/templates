@@ -13,7 +13,7 @@ Access your host's Docker install from inside a dev container. Installs Docker e
 | moby | Install OSS Moby build instead of Docker CE | boolean | true |
 | enableNonRootDocker | Enable non-root Docker access in container? | boolean | true |
 
-## Description
+## Using this template
 
 Dev containers can be useful for all types of applications including those that also deploy into a container based-environment. While you can directly build and run the application inside the dev container you create, you may also want to test it by deploying a built container image into your local Docker Desktop instance without affecting your dev container.
 
