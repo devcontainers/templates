@@ -9,7 +9,7 @@ Simple Alpine container with Git installed.
 |-----|-----|-----|-----|
 | imageVariant | Alpine version: | string | 3.17 |
 
-This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) with devcontainer.json metadata that will be automatically applied.
+This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 
 * **Image**: mcr.microsoft.com/devcontainers/base:alpine ([source](https://github.com/devcontainers/images/tree/main/src/base-alpine))
 * **Applies devcontainer.json contents from image**: Yes ([source](https://github.com/devcontainers/images/blob/main/src/base-alpine/.devcontainer/devcontainer.json))
