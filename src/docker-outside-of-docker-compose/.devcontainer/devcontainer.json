@@ -12,7 +12,7 @@
 	},
 
 	"features": {
-		"ghcr.io/devcontainers/features/docker-from-docker:1": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
 			"version": "${templateOption:dockerVersion}",
 			"enableNonRootDocker": "${templateOption:enableNonRootDocker}",
 			"moby": "${templateOption:moby}"
