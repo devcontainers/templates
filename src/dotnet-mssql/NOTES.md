@@ -5,7 +5,7 @@ This template references an image that was [pre-built](https://containers.dev/im
 
 ## Using this template
 
-This template creates two containers, one for C# (.NET) and one for PostgreSQL. You will be connected to the Go container, and from within that container the MS SQL container will be available on **`localhost`** port 1433. The .NET container also includes supporting scripts in the `.devcontainer/mssql` folder used to configure the database. 
+This template creates two containers, one for C# (.NET) and one for Microsoft SQL Server. You will be connected to the Ubuntu or Debian container, and from within that container the MS SQL container will be available on **`localhost`** port 1433. The .NET container also includes supporting scripts in the `.devcontainer/mssql` folder used to configure the database. 
 
 The MS SQL container is deployed from the latest developer edition of Microsoft SQL 2019. The database(s) are made available directly in the Codespace/VS Code through the MSSQL extension with a connection labeled "mssql-container".  The default `sa` user password is set to `P@ssw0rd`. The default SQL port is mapped to port `1433` in `.devcontainer/docker-compose.yml`.
 
