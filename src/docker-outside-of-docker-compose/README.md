@@ -47,6 +47,26 @@ Then reference the env var when running Docker commands from the terminal inside
 docker run -it --rm -v "${LOCAL_WORKSPACE_FOLDER//\\/\/}:/workspace" debian bash
 ```
 
+If anyway and like in Github Codespaces you want to be able to mount the local workspace folder into a container you create while running from inside the dev container **without** using [Docker in Docker](../docker-in-docker) to avoid a potential performance penalty you can use the **host**'s paths to mount the workspace folder **in the same place in the container that it is on the host,** so you can bind workspace contents as you would normally.
+
+Add the following to `.devcontainer.json`:
+
+```json
+"mounts": [
+    "source={localEnv:PWD},target={localEnv:PWD},type=bind,consistency=cached"
+],
+"workspaceFolder": "${localEnv:PWD}"
+```
+
+Note: This will work on Linux and MacOS and also Windows if you are using a **cygwin** like terminal that will set the `PWD` environment variable. 
+This workaround is needed on Windows where `"workspaceFolder": "${localWorkspaceFolder}"` does produce an error like *"${localWorkspaceFolder}" is not an absolut path*.
+
+After that you can see the content of your workspace in a new container from inside the dev container like this:
+
+```bash
+docker run -it --rm -v "${PWD}:${PWD}" -w "${PWD}" debian ls
+```
+
 ### Using the forwardPorts property
 
 By default, web frameworks and tools often only listen to localhost inside the container. As a result, we recommend using the `forwardPorts` property to make these ports available locally.
