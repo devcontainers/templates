@@ -1,0 +1,24 @@
+{
+    "id": "asdf",
+    "version": "1.0.0",
+    "name": "Asdf",
+    "description": "Develop applications in multiple languages with asdf.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/asdf",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Ubuntu Version",
+            "proposals": [
+				"0-ubuntu-22.04"
+            ],
+            "default": "0-ubuntu-22.04"
+        }
+    },
+    "platforms": [
+        "Ruby",
+		"PHP",
+		"Python"
+    ]
+}
