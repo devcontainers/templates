@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/dotnet:0-${templateOption:imageVariant}
 
+ENV PATH $PATH:/home/vscode/.dotnet:/home/vscode/.dotnet/tools
+
 # Install SQL Tools: SQLPackage and sqlcmd
 COPY mssql/installSQLtools.sh installSQLtools.sh
 RUN bash ./installSQLtools.sh \
