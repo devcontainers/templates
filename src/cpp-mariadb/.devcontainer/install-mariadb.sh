@@ -105,8 +105,13 @@ else
     tar -xvzf ${MARIADB_CONNECTOR}.tar.gz && cd ${MARIADB_CONNECTOR}
 
     SOURCE_INCLUDE_DIR="./include/mariadb"
-    SOURCE_LIB_DIR="lib/mariadb"
-    SOURCE_PLUGIN_DIR="lib/mariadb/plugin"
+    if [ $(getconf WORD_BIT) = '32' ] && [ $(getconf LONG_BIT) = '64' ] ; then
+        SOURCE_LIB_DIR="lib64/mariadb"
+        SOURCE_PLUGIN_DIR="lib64/mariadb/plugin"
+    else
+        SOURCE_LIB_DIR="lib/mariadb"
+        SOURCE_PLUGIN_DIR="lib/mariadb/plugin"
+    fi
 fi 
 
 install -d /usr/include/mariadb/conncpp/compat
