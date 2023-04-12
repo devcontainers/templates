@@ -105,7 +105,7 @@ else
     tar -xvzf ${MARIADB_CONNECTOR}.tar.gz && cd ${MARIADB_CONNECTOR}
 
     SOURCE_INCLUDE_DIR="./include/mariadb"
-    if [ $(getconf WORD_BIT) = '32' ] && [ $(getconf LONG_BIT) = '64' ] ; then
+    if [ -d "lib64/mariadb" ] ; then
         SOURCE_LIB_DIR="lib64/mariadb"
         SOURCE_PLUGIN_DIR="lib64/mariadb/plugin"
     else
