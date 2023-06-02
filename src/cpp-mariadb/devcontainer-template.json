@@ -1,6 +1,6 @@
 {
     "id": "cpp-mariadb",
-    "version": "1.0.6",
+    "version": "1.1.0",
     "name": "C++ & MariaDB",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp-mariadb",
@@ -9,13 +9,12 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon):",
+            "description": "Debian / Ubuntu version (use Debian 11, Ubuntu 22.04 on local arm64/Apple Silicon):",
             "proposals": [
                 "debian-11",
                 "debian-10",
                 "ubuntu-22.04",
-                "ubuntu-20.04",
-                "ubuntu-18.04"
+                "ubuntu-20.04"
             ],
             "default": "debian-11"
         },
