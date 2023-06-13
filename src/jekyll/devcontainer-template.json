@@ -1,6 +1,6 @@
 {
     "id": "jekyll",
-    "version": "3.0.0",
+    "version": "2.0.0",
     "name": "Jekyll",
     "description": "Develop static sites with Jekyll, includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/jekyll",
@@ -11,11 +11,10 @@
             "type": "string",
             "description": "Debian OS version (use bullseye on local arm64/Apple Silicon):",
             "proposals": [
-				"bookworm",
                 "bullseye",
                 "buster"
             ],
-            "default": "bookworm"
+            "default": "bullseye"
         }
     },
     "platforms": [

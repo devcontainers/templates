@@ -9,7 +9,7 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Debian version (use bullseye on local arm64/Apple Silicon):",
+            "description": "Debian version (use bookworm or bullseye on local arm64/Apple Silicon):",
             "proposals": [
 				"bookworm",
                 "bullseye",
