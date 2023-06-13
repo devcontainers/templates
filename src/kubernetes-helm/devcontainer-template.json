@@ -1,6 +1,6 @@
 {
     "id": "kubernetes-helm",
-    "version": "1.3.0",
+    "version": "2.0.0",
     "name": "Kubernetes - Local Configuration",
     "description": "Access a local (or remote) Kubernetes cluster from inside a dev container using your local config. Includes kubectl, Helm, and the Docker CLI.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm",

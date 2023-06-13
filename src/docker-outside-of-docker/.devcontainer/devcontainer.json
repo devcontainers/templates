@@ -3,7 +3,7 @@
 {
 	"name": "Docker outside of Docker",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
+	"image": "mcr.microsoft.com/devcontainers/base:bookworm",
 
 	"features": {
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
