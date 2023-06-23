@@ -1,6 +1,6 @@
 {
     "id": "javascript-node",
-    "version": "1.2.1",
+    "version": "2.0.0",
     "name": "Node.js & JavaScript",
     "description": "Develop Node.js based applications. Includes Node.js, eslint, nvm, and yarn.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node",
@@ -9,11 +9,11 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Node.js version (use -bullseye variants on local arm64/Apple Silicon):",
+            "description": "Node.js version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-				"20",
-                "18",
-                "16",
+				"20-bookworm",
+                "18-bookworm",
+                "16-bookworm",
 				"20-bullseye",
                 "18-bullseye",
                 "16-bullseye",
@@ -21,7 +21,7 @@
                 "18-buster",
                 "16-buster"
             ],
-            "default": "20"
+            "default": "20-bullseye"
         }
     },
     "platforms": [
