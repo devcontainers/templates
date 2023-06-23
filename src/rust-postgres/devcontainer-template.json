@@ -15,7 +15,7 @@
                 "buster",
                 "bullseye"
             ],
-            "default": "bookworm"
+            "default": "bullseye"
         }
     },
     "platforms": [
