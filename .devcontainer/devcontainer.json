@@ -1,5 +1,9 @@
 {
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bookworm",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
+	"postCreateCommand": "npm install -g @devcontainers/cli",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -8,10 +12,5 @@
 				"editorconfig.editorconfig"
 			]
 		}
-	},
-	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
-	},
-	"postCreateCommand": "npm install -g @devcontainers/cli",
-	"remoteUser": "node"
+	}
 }

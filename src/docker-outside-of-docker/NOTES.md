@@ -7,7 +7,7 @@ This example illustrates how you can do this by running CLI commands and using t
 The included `.devcontainer.json` can be altered to work with other Debian/Ubuntu-based container images such as `node` or `python`. For example, to use `mcr.microsoft.com/devcontainers/javascript-node`, update the `image` proprty as follows:
 
 ```json
-"image": "mcr.microsoft.com/devcontainers/javascript-node:18"
+"image": "mcr.microsoft.com/devcontainers/javascript-node:18-bookworm"
 ```
 
 ## Using bind mounts when working with Docker inside the container
