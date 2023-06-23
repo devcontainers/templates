@@ -1,6 +1,6 @@
 {
     "id": "python",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "name": "Python 3",
     "description": "Develop Python 3 applications.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/python",
