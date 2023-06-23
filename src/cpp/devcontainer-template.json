@@ -1,6 +1,6 @@
 {
     "id": "cpp",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "name": "C++",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp",
@@ -9,8 +9,9 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Debian / Ubuntu version (use Debian 11, Ubuntu 22.04 on local arm64/Apple Silicon):",
+            "description": "Debian / Ubuntu version (use Debian 12, Debian 11, Ubuntu 22.04 on local arm64/Apple Silicon):",
             "proposals": [
+				"debian-12",
                 "debian-11",
                 "debian-10",
                 "ubuntu-22.04",
