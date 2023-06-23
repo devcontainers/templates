@@ -30,7 +30,7 @@
                 "3.8-buster",
                 "3.7-buster"
             ],
-            "default": "3.11-bookworm"
+            "default": "3.11-bullseye"
         }
     },
     "platforms": [
