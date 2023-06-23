@@ -21,7 +21,7 @@
                 "11-buster",
                 "17-buster"
             ],
-            "default": "17-bookworm"
+            "default": "17-bullseye"
         },
         "installMaven": {
             "type": "boolean",

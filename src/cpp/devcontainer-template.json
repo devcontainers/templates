@@ -17,7 +17,7 @@
                 "ubuntu-22.04",
                 "ubuntu-20.04"
             ],
-            "default": "debian-12"
+            "default": "debian-11"
         },
         "reinstallCmakeVersionFromSource": {
             "type": "string",
