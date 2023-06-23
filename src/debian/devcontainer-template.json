@@ -1,6 +1,6 @@
 {
     "id": "debian",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "name": "Debian",
     "description": "Simple Debian container with Git installed.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/debian",
@@ -15,7 +15,7 @@
                 "bullseye",
                 "buster"
             ],
-            "default": "bookworm"
+            "default": "bullseye"
         }
     },
     "platforms": [
