@@ -7,7 +7,7 @@ This example illustrates how you can do this by running CLI commands and using t
 The included `.devcontainer/Dockerfile` can be altered to work with other Debian/Ubuntu-based container images such as `node` or `python`. 
 
 ```Dockerfile
-FROM mcr.microsoft.com/devcontainers/javascript-node:18-bookworm
+FROM mcr.microsoft.com/devcontainers/javascript-node:18-bullseye
 ```
 
 ## Using bind mounts when working with Docker inside the container

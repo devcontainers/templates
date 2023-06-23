@@ -21,7 +21,7 @@
                 "18-buster",
                 "16-buster"
             ],
-            "default": "20-bookworm"
+            "default": "20-bullseye"
         }
     },
     "platforms": [

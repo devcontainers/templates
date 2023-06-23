@@ -7,7 +7,7 @@ Dev containers can be useful for all types of applications including those that 
 The included `.devcontainer.json` can be altered to work with other Debian/Ubuntu-based container images such as `node` or `python`. For example, to use `mcr.microsoft.com/devcontainers/javascript-node`, update the `image` proprty as follows:
 
 ```json
-"image": "mcr.microsoft.com/devcontainers/javascript-node:18-bookworm"
+"image": "mcr.microsoft.com/devcontainers/javascript-node:18-bullseye"
 ```
 
 
