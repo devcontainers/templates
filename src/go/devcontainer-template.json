@@ -1,6 +1,6 @@
 {
     "id": "go",
-    "version": "1.2.1",
+    "version": "2.0.0",
     "name": "Go",
     "description": "Develop Go based applications. Includes appropriate runtime args, Go, common tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/go",
@@ -9,22 +9,19 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Go version (use -bullseye variants on local arm64/Apple Silicon):",
+            "description": "Go version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-                "1",
-                "1.20",
-                "1.19",
-                "1.18",
+                "1-bookworm",
+                "1.20-bookworm",
+                "1.19-bookworm",
                 "1-bullseye",
                 "1.20-bullseye",
                 "1.19-bullseye",
-                "1.18-bullseye",
                 "1-buster",
                 "1.20-buster",
-                "1.19-buster",
-                "1.18-buster"
+                "1.19-buster"
             ],
-            "default": "1-bullseye"
+            "default": "1.20-bullseye"
         }
     },
     "platforms": [
