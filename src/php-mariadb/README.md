@@ -7,7 +7,7 @@ Develop PHP applications with MariaDB (MySQL Compatible).
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | PHP version (use -bullseye variants on local arm64/Apple Silicon): | string | 8.2 |
+| imageVariant | PHP version (use -bookworm, -bullseye variants on local arm64/Apple Silicon): | string | 8.2-bullseye |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 
