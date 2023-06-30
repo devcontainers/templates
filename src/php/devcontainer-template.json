@@ -1,6 +1,6 @@
 {
     "id": "php",
-    "version": "1.2.1",
+    "version": "2.0.0",
     "name": "PHP",
     "description": "Develop PHP based applications. Includes needed tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php",
@@ -9,12 +9,11 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "PHP version (use -bullseye variants on local arm64/Apple Silicon):",
+            "description": "PHP version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-                "8",
-                "8.2",
-                "8.1",
-                "8.0",
+                "8-bookworm",
+                "8.2-bookworm",
+                "8.1-bookworm",
                 "8-bullseye",
                 "8.2-bullseye",
                 "8.1-bullseye",
@@ -24,7 +23,7 @@
                 "8.1-buster",
                 "8.0-buster"
             ],
-            "default": "8.2"
+            "default": "8.2-bullseye"
         }
     },
     "platforms": [
