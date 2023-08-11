@@ -9,7 +9,7 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Go version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
+            "description": "Go version:",
             "proposals": [
                 "1-bookworm",
                 "1.21-bookworm",
