@@ -18,7 +18,7 @@
                 "1.21-bullseye",
                 "1.20-bullseye"
             ],
-            "default": "1.20-bullseye"
+            "default": "1.21-bullseye"
         }
     },
     "platforms": [
