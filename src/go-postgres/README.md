@@ -7,7 +7,7 @@ Use and develop Go + Postgres applications. Includes appropriate runtime args, G
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Go version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon): | string | 1.20-bullseye |
+| imageVariant | Go version: | string | 1.21-bullseye |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 
