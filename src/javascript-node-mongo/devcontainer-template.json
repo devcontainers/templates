@@ -1,6 +1,6 @@
 {
     "id": "javascript-node-mongo",
-    "version": "1.2.1",
+    "version": "2.0.0",
     "name": "Node.js & Mongo DB",
     "description": "Develop applications in Node.js and Mongo DB. Includes Node.js, eslint, and yarn in a container linked to a Mongo DB.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo",
@@ -13,13 +13,10 @@
             "proposals": [
 				"20",
                 "18",
-                "16",
 				"20-bullseye",
                 "18-bullseye",
-                "16-bullseye",
 				"20-buster",
-                "18-buster",
-                "16-buster"
+                "18-buster"
             ],
             "default": "20"
         }
