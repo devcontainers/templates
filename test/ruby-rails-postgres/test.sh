@@ -10,5 +10,8 @@ fixTestProjectFolderPrivs
 # Run common tests
 checkCommon
 
+check "rails" rails --version
+check "user can install gems" gem install github_api &> /dev/null
+
 # Report result
 reportResults
