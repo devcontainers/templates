@@ -11,7 +11,7 @@ fixTestProjectFolderPrivs
 checkCommon
 
 check "rails" rails --version
-check "user can install gems" gem install github_api &> /dev/null
+check "user can install gems" gem install github-markup
 
 # Report result
 reportResults
