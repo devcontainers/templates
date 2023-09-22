@@ -10,6 +10,7 @@ fixTestProjectFolderPrivs
 # Run common tests
 checkCommon
 
+# Run devcontainer specific tests
 check "rails" rails --version
 check "user can install gems" gem install github-markup
 
