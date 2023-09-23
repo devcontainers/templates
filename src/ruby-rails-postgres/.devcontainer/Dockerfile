@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/ruby:1-${templateOption:imageVariant}
 
 # Install Rails
 RUN su vscode -c "gem install rails webdrivers"
-RUN rvm fix-permissions
+RUN su vscode -c "rvm fix-permissions"
 
 # Default value to allow debug server to serve content over GitHub Codespace's port forwarding service
 # The value is a comma-separated list of allowed domains 
