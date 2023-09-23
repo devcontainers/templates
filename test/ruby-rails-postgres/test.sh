@@ -3,6 +3,8 @@ cd $(dirname "$0")
 
 source test-utils.sh vscode
 
+whoami
+
 # Remote - Containers does not auto-sync UID/GID for Docker Compose,
 # so make sure test project prvs match the non-root user in the container.
 fixTestProjectFolderPrivs
