@@ -7,9 +7,10 @@ source test-utils.sh vscode
 # so make sure test project prvs match the non-root user in the container.
 fixTestProjectFolderPrivs
 
-ls -al /usr/local/rvm/gems
+check "logged in user" id
 
-ls -al /usr/local/rvm/gems/default
+check "RVM Gems" ls -al /usr/local/rvm/gems
+check "RVM Gems Default" ls -al /usr/local/rvm/gems/default
 
 # Run common tests
 checkCommon
