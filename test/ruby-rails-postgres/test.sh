@@ -10,5 +10,12 @@ fixTestProjectFolderPrivs
 # Run common tests
 checkCommon
 
+# Run devcontainer specific tests
+check "rails" rails --version
+check "rails installation path" gem which rails
+check "user has write permission to rvm gems" [ -w /usr/local/rvm/gems ]
+check "user has write permission to rvm gems default" [ -w /usr/local/rvm/gems/default ]
+check "user can install gems" gem install github-markup
+
 # Report result
 reportResults

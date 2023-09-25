@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/devcontainers/ruby:1-${templateOption:imageVariant}
 
 # Install Rails
-RUN gem install rails webdrivers 
+RUN su vscode -c "gem install rails webdrivers"
+RUN su vscode -c "/usr/local/rvm/bin/rvm fix-permissions"
 
 # Default value to allow debug server to serve content over GitHub Codespace's port forwarding service
 # The value is a comma-separated list of allowed domains 
@@ -12,7 +13,7 @@ ENV RAILS_DEVELOPMENT_HOSTS=".githubpreview.dev,.preview.app.github.dev,.app.git
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
 # [Optional] Uncomment this line to install additional gems.
-# RUN gem install <your-gem-names-here>
+# RUN su vscode -c "gem install <your-gem-names-here>"
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
