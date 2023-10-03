@@ -1,6 +1,6 @@
 {
     "id": "java",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "name": "Java",
     "description": "Develop Java applications. Includes the JDK and Java extensions.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java",
@@ -11,17 +11,20 @@
             "type": "string",
             "description": "Java version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-                "8-bookworm",
-                "11-bookworm",
+				"21-bookworm",
                 "17-bookworm",
-                "8-bullseye",
-                "11-bullseye",
+                "11-bookworm",
+                "8-bookworm",
+				"21-bullseye",
                 "17-bullseye",
-                "8-buster",
+                "11-bullseye",
+                "8-bullseye",
+				"21-buster",
+                "17-buster",
                 "11-buster",
-                "17-buster"
+                "8-buster"
             ],
-            "default": "17-bullseye"
+            "default": "21-bullseye"
         },
         "installMaven": {
             "type": "boolean",
