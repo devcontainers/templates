@@ -11,14 +11,12 @@
             "type": "string",
             "description": "Node.js version (use -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-				"20",
-                "18",
 				"20-bullseye",
                 "18-bullseye",
 				"20-buster",
                 "18-buster"
             ],
-            "default": "20"
+            "default": "20-bullseye"
         }
     },
     "platforms": [
