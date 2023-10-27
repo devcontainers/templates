@@ -1,6 +1,6 @@
 {
     "id": "dotnet-mssql",
-    "version": "1.2.6",
+    "version": "2.0.0",
     "name": "C# (.NET) and MS SQL",
     "description": "Develop C# and .NET Core based applications. Includes all needed SDKs, extensions, dependencies and an MS SQL container for parallel database development. Adds an additional MS SQL container to the C# (.NET Core) container definition and deploys any .dacpac files from the mssql .devcontainer folder.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet-mssql",
@@ -13,13 +13,15 @@
             "proposals": [
                 "7.0",
                 "6.0",
+                "7.0-bookworm",
+                "6.0-bookworm",
                 "7.0-bullseye",
                 "6.0-bullseye",
                 "7.0-jammy",
                 "6.0-jammy",
                 "6.0-focal"
             ],
-            "default": "7.0"
+            "default": "7.0-bullseye"
         }
     },
     "platforms": [
