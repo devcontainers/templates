@@ -1,6 +1,6 @@
 {
     "id": "python",
-    "version": "2.0.1",
+    "version": "3.0.0",
     "name": "Python 3",
     "description": "Develop Python 3 applications.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/python",
@@ -12,11 +12,13 @@
             "description": "Python version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
 				"3-bookworm",
+                "3.12-bookworm",
                 "3.11-bookworm",
                 "3.10-bookworm",
                 "3.9-bookworm",
                 "3.8-bookworm",
                 "3-bullseye",
+                "3.12-bullseye",
                 "3.11-bullseye",
                 "3.10-bullseye",
                 "3.9-bullseye",
@@ -27,7 +29,7 @@
                 "3.9-buster",
                 "3.8-buster"
             ],
-            "default": "3.11-bullseye"
+            "default": "3.12-bullseye"
         }
     },
     "platforms": [
