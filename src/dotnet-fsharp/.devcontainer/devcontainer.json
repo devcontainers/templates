@@ -16,8 +16,11 @@
 			"extensions": [
 				"Ionide.Ionide-fsharp",
 				"ms-dotnettools.csharp"
-			]
-		}
+			],
+                        "settings": {
+                                "FSharp.dotnetRoot": "/usr/share/dotnet"
+                        }
+		}    
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
