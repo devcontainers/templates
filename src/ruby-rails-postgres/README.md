@@ -7,7 +7,7 @@ Develop Ruby on Rails applications with Postgres. Includes a Rails application c
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Ruby version (use -bookworm, -bullseye variants on local arm64/Apple Silicon): | string | 3.2-bullseye |
+| imageVariant | Ruby version (use -bookworm, -bullseye variants on local arm64/Apple Silicon): | string | 3.3-bullseye |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 
