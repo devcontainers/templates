@@ -1,6 +1,6 @@
 {
     "id": "php-mariadb",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "name": "PHP & MariaDB",
     "description": "Develop PHP applications with MariaDB (MySQL Compatible).",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php-mariadb",
@@ -17,11 +17,9 @@
                 "8-bullseye",
                 "8.2-bullseye",
                 "8.1-bullseye",
-                "8.0-bullseye",
                 "8-buster",
                 "8.2-buster",
-                "8.1-buster",
-                "8.0-buster"
+                "8.1-buster"
             ],
             "default": "8.2-bullseye"
         }
