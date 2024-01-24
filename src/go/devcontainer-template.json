@@ -1,6 +1,6 @@
 {
     "id": "go",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "name": "Go",
     "description": "Develop Go based applications. Includes appropriate runtime args, Go, common tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/go",
