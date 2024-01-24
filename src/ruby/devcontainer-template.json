@@ -1,6 +1,6 @@
 {
     "id": "ruby",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "name": "Ruby",
     "description": "Develop Ruby based applications. includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ruby",
