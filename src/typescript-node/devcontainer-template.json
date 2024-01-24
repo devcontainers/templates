@@ -1,6 +1,6 @@
 {
     "id": "typescript-node",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "name": "Node.js & TypeScript",
     "description": "Develop Node.js based applications in TypeScript. Includes Node.js, eslint, nvm, yarn, and the TypeScript compiler.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/typescript-node",
