@@ -21,7 +21,7 @@ This repository contains a set of **Dev Container Templates** which are source f
 
 ## How can I use the Templates?
 
-### 1. Using Supporting tools
+### 1. Using supporting tools
 
 [Visual Studio Code](https://code.visualstudio.com/) and [GitHub Codespaces](https://docs.github.com/en/codespaces/overview) provide a user-friendly interface to configure the Templates hosted in this repository, as well as the [community-contributed Templates](https://containers.dev/templates). Additionally, you can customize your dev container with additional available [Features](https://containers.dev/features).
 
