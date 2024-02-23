@@ -27,7 +27,7 @@ A variety of tools and services [support](https://containers.dev/supporting) the
 
 For more information, please refer to the following documents for [VS Code](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_automate-dev-container-creation) and [Github Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-a-predefined-dev-container-configuration).
 
-### 2. Using Dev Container CLI
+### 2. Using the Dev Container CLI
 
 The [@devcontainers/cli](https://containers.dev/supporting#devcontainer-cli) offers a `devcontainer templates apply` command to apply a Template hosted in the supported OCI registry.
 
