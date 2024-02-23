@@ -19,6 +19,44 @@ This repository contains a set of **Dev Container Templates** which are source f
     `devcontainer-template.json` and a [devcontainer.json](https://containers.dev/implementors/json_reference/).
 -   [`test`](test) - Mirroring `src`, a folder-per-template with at least a `test.sh` script. These tests are executed by the [CI](https://github.com/devcontainers/templates/blob/main/.github/workflows/test-pr.yaml).
 
+## How to use the Templates?
+
+### 1. Using Supporting tools
+
+[Visual Studio Code](https://code.visualstudio.com/) and [GitHub Codespaces](https://docs.github.com/en/codespaces/overview) provide a user-friendly interface to configure the Templates hosted in this repository, as well as the [community-contributed Templates](https://containers.dev/templates). Additionally, you can customize your dev container with additional available [Features](https://containers.dev/features).
+
+For more information, please refer to the following documents for [VS Code](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_automate-dev-container-creation) and [Github Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-a-predefined-dev-container-configuration).
+
+### 2. Using Dev Container CLI
+
+The [@devcontainers/cli](https://containers.dev/supporting#devcontainer-cli) offers a `devcontainer templates apply` command to apply a Template hosted in the supported OCI registry.
+
+```
+devcontainer templates apply
+
+Apply a template to the project
+
+Options:
+      --help              Show help                                                                            [boolean]
+      --version           Show version number                                                                  [boolean]
+  -w, --workspace-folder  Target workspace folder to apply Template                   [string] [required] [default: "."]
+  -t, --template-id       Reference to a Template in a supported OCI registry                        [string] [required]
+  -a, --template-args     Arguments to replace within the provided Template, provided as JSON   [string] [default: "{}"]
+  -f, --features          Features to add to the provided Template, provided as JSON.           [string] [default: "[]"]
+      --log-level         Log level.                               [choices: "info", "debug", "trace"] [default: "info"]
+      --tmp-dir           Directory to use for temporary files. If not provided, the system default will be inferred.
+                                                                                                                [string]
+```
+
+#### Example
+
+```
+devcontainer templates apply --workspace-folder . \
+    --template-id ghcr.io/devcontainers/templates/cpp:latest \
+    --template-args '{ "imageVariant": "debian-12" }' \
+    --features '[{ "id": "ghcr.io/devcontainers/features/azure-cli:1", "options": { "version" : "1" } }]'
+```
+
 ## Contributions
 
 ### Creating your own collection of templates
