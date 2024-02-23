@@ -19,7 +19,7 @@ This repository contains a set of **Dev Container Templates** which are source f
     `devcontainer-template.json` and a [devcontainer.json](https://containers.dev/implementors/json_reference/).
 -   [`test`](test) - Mirroring `src`, a folder-per-template with at least a `test.sh` script. These tests are executed by the [CI](https://github.com/devcontainers/templates/blob/main/.github/workflows/test-pr.yaml).
 
-## How to use the Templates?
+## How can I use the Templates?
 
 ### 1. Using Supporting tools
 
