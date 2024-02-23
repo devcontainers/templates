@@ -23,7 +23,7 @@ This repository contains a set of **Dev Container Templates** which are source f
 
 ### 1. Using supporting tools
 
-[Visual Studio Code](https://code.visualstudio.com/) and [GitHub Codespaces](https://docs.github.com/en/codespaces/overview) provide a user-friendly interface to configure the Templates hosted in this repository, as well as the [community-contributed Templates](https://containers.dev/templates). Additionally, you can customize your dev container with additional available [Features](https://containers.dev/features).
+A variety of tools and services [support](https://containers.dev/supporting) the Dev Container Spec, and they may provide direct integrations with the Templates in this repo. For instance, [Visual Studio Code](https://code.visualstudio.com/) and [GitHub Codespaces](https://docs.github.com/en/codespaces/overview) provide a user-friendly interface to configure the Templates hosted in this repository, as well as the [community-contributed Templates](https://containers.dev/templates). Additionally, you can customize your dev container with additional available [Features](https://containers.dev/features).
 
 For more information, please refer to the following documents for [VS Code](https://code.visualstudio.com/docs/devcontainers/create-dev-container#_automate-dev-container-creation) and [Github Codespaces](https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#using-a-predefined-dev-container-configuration).
 
