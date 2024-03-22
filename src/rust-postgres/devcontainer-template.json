@@ -19,6 +19,7 @@
         }
     },
     "platforms": [
-        "Ruby"
+        "Rust",
+        "PostgreSQL DB"
     ]
 }
