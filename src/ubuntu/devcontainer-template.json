@@ -9,7 +9,7 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Ubuntu version (use ubuntu-22.04 on local arm64/Apple Silicon):",
+            "description": "Ubuntu version (use ubuntu-22.04 or ubuntu-24.04 on local arm64/Apple Silicon):",
             "proposals": [
 				"noble",
                 "jammy",
