@@ -1,6 +1,6 @@
 {
     "id": "javascript-node-mongo",
-    "version": "3.1.0",
+    "version": "3.1.1",
     "name": "Node.js & Mongo DB",
     "description": "Develop applications in Node.js and Mongo DB. Includes Node.js, eslint, and yarn in a container linked to a Mongo DB.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo",
@@ -11,6 +11,7 @@
             "type": "string",
             "description": "Node.js version (use -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
+				"22-bookworm",
 				"20-bullseye",
                 "18-bullseye",
 				"20-buster",
