@@ -1,6 +1,6 @@
 {
     "id": "ubuntu",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "name": "Ubuntu",
     "description": "A simple Ubuntu container with Git and other common utilities installed.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ubuntu",
@@ -9,8 +9,9 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Ubuntu version (use ubuntu-22.04 on local arm64/Apple Silicon):",
+            "description": "Ubuntu version (use ubuntu-22.04 or ubuntu-24.04 on local arm64/Apple Silicon):",
             "proposals": [
+				"noble",
                 "jammy",
                 "focal"
             ],
