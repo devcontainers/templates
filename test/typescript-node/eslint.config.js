@@ -1,4 +1,4 @@
-module.exports = {
+module.exports={
     "rules": {
         "no-console": 0,
         "eqeqeq":"warn",
@@ -6,5 +6,6 @@ module.exports = {
         "no-unused-vars": 1,
         "no-extra-semi": "warn",
         "semi": "warn"
-    }
+    },
+    ignorePatterns: ["**/node_modules/**"]
 };
