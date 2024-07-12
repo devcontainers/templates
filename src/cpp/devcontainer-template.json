@@ -13,7 +13,6 @@
             "proposals": [
 				"debian-12",
                 "debian-11",
-                "debian-10",
 				"ubuntu-24.04",
                 "ubuntu-22.04",
                 "ubuntu-20.04"
