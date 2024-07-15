@@ -1,6 +1,6 @@
 {
     "id": "java-postgres",
-    "version": "3.1.0",
+    "version": "4.0.0",
     "name": "Java & PostgreSQL",
     "description": "Develop applications with Java and PostgreSQL. Includes a Java application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java-postgres",
@@ -18,11 +18,7 @@
 				"21-bullseye",
                 "17-bullseye",
                 "11-bullseye",
-                "8-bullseye",
-				"21-buster",
-                "17-buster",
-                "11-buster",
-                "8-buster"
+                "8-bullseye"
             ],
             "default": "21-bullseye"
         },
