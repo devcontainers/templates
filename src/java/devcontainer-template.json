@@ -1,6 +1,6 @@
 {
     "id": "java",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "name": "Java",
     "description": "Develop Java applications. Includes the JDK and Java extensions.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java",
@@ -11,11 +11,11 @@
             "type": "string",
             "description": "Java version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-				"21-bookworm",
+                "21-bookworm",
                 "17-bookworm",
                 "11-bookworm",
                 "8-bookworm",
-				"21-bullseye",
+                "21-bullseye",
                 "17-bullseye",
                 "11-bullseye",
                 "8-bullseye"
@@ -35,5 +35,8 @@
     },
     "platforms": [
         "Java"
+    ],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

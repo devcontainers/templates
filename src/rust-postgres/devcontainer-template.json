@@ -1,6 +1,6 @@
 {
     "id": "rust-postgres",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "name": "Rust & PostgreSQL",
     "description": "Develop applications with Rust and PostgreSQL. Includes a Rust application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/rust-postgres",
@@ -11,7 +11,7 @@
             "type": "string",
             "description": "Debian OS version (use bookworm, or bullseye on local arm64/Apple Silicon):",
             "proposals": [
-				"bookworm",
+                "bookworm",
                 "bullseye"
             ],
             "default": "bullseye"
@@ -20,5 +20,8 @@
     "platforms": [
         "Rust",
         "PostgreSQL DB"
+    ],
+    "optionalPaths": [
+        ".github/*"
     ]
 }
