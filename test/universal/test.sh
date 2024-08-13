@@ -3,6 +3,13 @@ cd $(dirname "$0")
 
 source test-utils.sh codespace
 
+echo "JOSH 1"
+ls -la /home/codespace/
+ls -la /home/codespace/.dotnet
+ls -la /opt/
+ls -la /opt/dotnet/
+echo "whoami: $(whoami)"
+
 # Run common tests
 checkCommon
 
@@ -123,10 +130,24 @@ check "run-puppeteer" node puppeteer.js
 # Check Oryx
 check "oryx" oryx --version
 
+echo "JOSH 2"
+ls -la /home/codespace/
+ls -la /home/codespace/.dotnet
+ls -la /opt/
+ls -la /opt/dotnet/
+echo "whoami: $(whoami)"
+
 # Install platforms with oryx build tool
 check "oryx-install-dotnet-2.1" oryx prep --skip-detection --platforms-and-versions dotnet=2.1.30
 check "dotnet-2-installed-by-oryx" ls /opt/dotnet/ | grep 2.1
 check "dotnet-version-on-path-is-2.1.12" dotnet --version | grep 2.1
+
+echo "JOSH 3"
+ls -la /home/codespace/
+ls -la /home/codespace/.dotnet
+ls -la /opt/
+ls -la /opt/dotnet/
+echo "whoami: $(whoami)"
 
 check "oryx-install-nodejs-12.22.11" oryx prep --skip-detection --platforms-and-versions nodejs=12.22.11
 check "nodejs-12.22.11-installed-by-oryx" ls /opt/nodejs/ | grep 12.22.11
