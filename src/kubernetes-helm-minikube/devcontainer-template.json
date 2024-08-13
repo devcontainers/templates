@@ -1,6 +1,6 @@
 {
     "id": "kubernetes-helm-minikube",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "name": "Kubernetes - Minikube-in-Docker",
     "description": "Access an embedded minikube instance or remote a Kubernetes cluster from inside a dev container. Includes kubectl, Helm, minikube, and the Docker.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/kubernetes-helm-minikube",
@@ -8,5 +8,8 @@
     "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
     "platforms": [
         "Any"
+    ],
+    "optionalPaths": [
+        ".github/*"
     ]
 }
