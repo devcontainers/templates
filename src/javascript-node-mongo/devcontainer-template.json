@@ -1,6 +1,6 @@
 {
     "id": "javascript-node-mongo",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "name": "Node.js & Mongo DB",
     "description": "Develop applications in Node.js and Mongo DB. Includes Node.js, eslint, and yarn in a container linked to a Mongo DB.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo",
@@ -11,10 +11,10 @@
             "type": "string",
             "description": "Node.js version (use -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-				"22-bookworm",
-				"22-bullseye",
-				"20-bookworm",
-				"20-bullseye",
+                "22-bookworm",
+                "22-bullseye",
+                "20-bookworm",
+                "20-bullseye",
                 "18-bullseye"
             ],
             "default": "22-bookworm"
@@ -24,5 +24,8 @@
         "Node.js",
         "JavaScript",
         "Mongo DB"
+    ],
+    "optionalPaths": [
+        ".github/*"
     ]
 }
