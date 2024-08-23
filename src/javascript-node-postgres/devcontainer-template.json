@@ -1,6 +1,6 @@
 {
     "id": "javascript-node-postgres",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "name": "Node.js & PostgreSQL",
     "description": "Develop applications in Node.js and PostgreSQL. Includes Node.js, eslint, and yarn in a container linked to a Postgres DB container",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-postgres",
@@ -11,12 +11,12 @@
             "type": "string",
             "description": "Node.js version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-				"22-bookworm",
-				"22-bullseye",
-				"20-bookworm",
-				"20-bullseye",
+                "22-bookworm",
+                "22-bullseye",
+                "20-bookworm",
+                "20-bullseye",
                 "18-bookworm",
-				"20-bullseye",
+                "20-bullseye",
                 "18-bullseye"
             ],
             "default": "22-bookworm"
@@ -26,5 +26,8 @@
         "Node.js",
         "JavaScript",
         "PostgreSQL DB"
+    ],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

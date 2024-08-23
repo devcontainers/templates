@@ -1,6 +1,6 @@
 {
     "id": "postgres",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "name": "Python 3 & PostgreSQL",
     "description": "Develop applications with Python 3 and PostgreSQL. Includes a Python application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/postgres",
@@ -11,7 +11,7 @@
             "type": "string",
             "description": "Python version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-				"3-bookworm",
+                "3-bookworm",
                 "3.11-bookworm",
                 "3.10-bookworm",
                 "3.9-bookworm",
@@ -32,5 +32,8 @@
     },
     "platforms": [
         "Python"
+    ],
+    "optionalPaths": [
+        ".github/*"
     ]
 }
