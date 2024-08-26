@@ -1,6 +1,6 @@
 {
     "id": "javascript-node-mongo",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "name": "Node.js & Mongo DB",
     "description": "Develop applications in Node.js and Mongo DB. Includes Node.js, eslint, and yarn in a container linked to a Mongo DB.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo",

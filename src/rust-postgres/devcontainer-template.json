@@ -1,6 +1,6 @@
 {
     "id": "rust-postgres",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "name": "Rust & PostgreSQL",
     "description": "Develop applications with Rust and PostgreSQL. Includes a Rust application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/rust-postgres",

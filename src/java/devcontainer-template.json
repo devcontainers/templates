@@ -1,6 +1,6 @@
 {
     "id": "java",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "name": "Java",
     "description": "Develop Java applications. Includes the JDK and Java extensions.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java",
@@ -33,9 +33,7 @@
             "default": "false"
         }
     },
-    "platforms": [
-        "Java"
-    ],
+    "platforms": ["Java"],
     "optionalPaths": [
         ".github/*"
     ]

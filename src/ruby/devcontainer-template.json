@@ -1,6 +1,6 @@
 {
     "id": "ruby",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "name": "Ruby",
     "description": "Develop Ruby based applications. includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ruby",
@@ -23,9 +23,7 @@
             "default": "3.3-bullseye"
         }
     },
-    "platforms": [
-        "Ruby"
-    ],
+    "platforms": ["Ruby"],
     "optionalPaths": [
         ".github/*"
     ]
