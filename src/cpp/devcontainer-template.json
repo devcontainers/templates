@@ -1,6 +1,6 @@
 {
     "id": "cpp",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "name": "C++",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp",
@@ -30,9 +30,7 @@
             "default": "none"
         }
     },
-    "platforms": [
-        "C++"
-    ],
+    "platforms": ["C++"],
     "optionalPaths": [
         ".github/*"
     ]

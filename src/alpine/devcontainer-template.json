@@ -1,6 +1,6 @@
 {
     "id": "alpine",
-    "version": "3.2.1",
+    "version": "3.2.2",
     "name": "Alpine",
     "description": "Simple Alpine container with Git installed.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/alpine",
@@ -19,9 +19,7 @@
             "default": "3.20"
         }
     },
-    "platforms": [
-        "Any"
-    ],
+    "platforms": ["Any"],
     "optionalPaths": [
         ".github/*"
     ]
