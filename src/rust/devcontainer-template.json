@@ -1,6 +1,6 @@
 {
     "id": "rust",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "name": "Rust",
     "description": "Develop Rust based applications. Includes appropriate runtime args and everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/rust",
@@ -17,9 +17,7 @@
             "default": "bullseye"
         }
     },
-    "platforms": [
-        "Rust"
-    ],
+    "platforms": ["Rust"],
     "optionalPaths": [
         ".github/*"
     ]

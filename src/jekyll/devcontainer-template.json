@@ -1,6 +1,6 @@
 {
     "id": "jekyll",
-    "version": "2.2.1",
+    "version": "2.2.2",
     "name": "Jekyll",
     "description": "Develop static sites with Jekyll, includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/jekyll",

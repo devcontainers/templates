@@ -1,6 +1,6 @@
 {
     "id": "php",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "name": "PHP",
     "description": "Develop PHP based applications. Includes needed tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php",
@@ -21,9 +21,7 @@
             "default": "8.2-bullseye"
         }
     },
-    "platforms": [
-        "PHP"
-    ],
+    "platforms": ["PHP"],
     "optionalPaths": [
         ".github/*"
     ]
