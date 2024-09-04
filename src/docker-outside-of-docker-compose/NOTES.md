@@ -12,7 +12,7 @@ FROM mcr.microsoft.com/devcontainers/javascript-node:18-bullseye
 
 ## Using bind mounts when working with Docker inside the container
 
-> **Note:** If you need to mount folders within the dev container into your own containers using docker-outside-of-docker, so you may find [Docker in Docker](../docker-in-docker) meets your needs better in some cases (despite a potential performance penalty).
+> **Note:** If you need to mount folders within the dev container into your own containers using docker-outside-of-docker, you may find [Docker in Docker](../docker-in-docker) meets your needs better in some cases (despite a potential performance penalty).
 
 In some cases, you may want to be able to mount the local workspace folder into a container you create while running from inside the dev container (e.g. using `-v` from the Docker CLI). The issue is that, with "Docker outside of Docker", containers are always created on the host. So, when you bind mount a folder into any container, you'll need to use the **host**'s paths.
 
