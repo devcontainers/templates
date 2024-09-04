@@ -13,7 +13,7 @@ The included `.devcontainer.json` can be altered to work with other Debian/Ubunt
 
 ## A note on Minikube or otherwise using a local cluster
 
-While this definition works with Minikube in most cases, if you hit trouble, make sure that your `~/.kube/config` file and Minikube certs reference your host's IP rather than `127.0.0.1` or `localhost` (since `localhost` resolve to the container itself rather than your local machine where Minikube is running).
+While this definition works with Minikube in most cases, if you hit trouble, make sure that your `~/.kube/config` file and Minikube certs reference your host's IP rather than `127.0.0.1` or `localhost` (since `localhost` resolves to the container itself rather than your local machine where Minikube is running).
 
 This should happen by default on Linux. On macOS and Windows, we recommend using the Kubernetes install that comes with Docker Desktop instead of Minikube to avoid these kinds of issues.
 
