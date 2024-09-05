@@ -1,6 +1,6 @@
 {
     "id": "go-postgres",
-    "version": "4.0.3",
+    "version": "4.1.0",
     "name": "Go & PostgreSQL",
     "description": "Use and develop Go + Postgres applications. Includes appropriate runtime args, Go, common tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/go-postgres",
