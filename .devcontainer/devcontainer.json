@@ -1,7 +1,7 @@
 {
 	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
 	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {20}
 	},
 	"postCreateCommand": "npm install -g @devcontainers/cli",
 	"customizations": {
