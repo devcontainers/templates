@@ -7,7 +7,7 @@ Develop Go based applications. Includes appropriate runtime args, Go, common too
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Go version: | string | 1.22-bookworm |
+| imageVariant | Go version: | string | 1.23-bookworm |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 
