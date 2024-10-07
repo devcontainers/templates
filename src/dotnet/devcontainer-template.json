@@ -18,8 +18,8 @@
                 "8.0-bookworm",
                 "6.0-bookworm",
                 "6.0-bullseye",
+				"9.0-noble",
                 "8.0-noble",
-				"9.0-jammy",
 				"8.0-jammy",
                 "6.0-jammy",
                 "6.0-focal"
