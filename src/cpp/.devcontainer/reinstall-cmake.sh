@@ -42,7 +42,16 @@ case "${architecture}" in
         ;;
 esac
 
-CMAKE_BINARY_NAME="cmake-${CMAKE_VERSION}-linux-${ARCH}.sh"
+# Kitware OS naming:
+#     CMake version <  3.20, the OS names begin with an uppercase letter
+#     CMake version >= 3.20, the OS names begin with a lowercase letter
+if [[ "${CMAKE_VERSION}" > "3.20" ]]; then
+    OS_NAME="Linux"
+else
+    OS_NAME="linux"
+fi
+
+CMAKE_BINARY_NAME="cmake-${CMAKE_VERSION}-${OS_NAME}-${ARCH}.sh"
 CMAKE_CHECKSUM_NAME="cmake-${CMAKE_VERSION}-SHA-256.txt"
 TMP_DIR=$(mktemp -d -t cmake-XXXXXXXXXX)
 
