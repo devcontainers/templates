@@ -7,7 +7,7 @@ Develop C# and .NET based applications. Includes all needed SDKs, extensions, an
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | .NET version: | string | 8.0-bookworm |
+| imageVariant | .NET version: | string | 9.0-bookworm |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 
