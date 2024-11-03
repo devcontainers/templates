@@ -8,7 +8,7 @@ jobs:
     outputs:
       templates: ${{ steps.filter.outputs.changes }}
     steps:
-      - uses: dorny/paths-filter@v2
+      - uses: dorny/paths-filter@v3
         id: filter
         with:
           filters: |
@@ -58,7 +58,7 @@ jobs:
       matrix:
         templates: ${{ fromJSON(needs.detect-changes.outputs.templates) }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: "Install latest devcontainer CLI"
         run: npm install -g @devcontainers/cli
@@ -74,7 +74,7 @@ jobs:
           # Configure templates only if `devcontainer-template.json` contains the `options` property.
           optionProp=( $(jq -r '.options' devcontainer-template.json) )
 
-          if [ "${optionProp}" != "" ] && [ "${optionProp}" != "null" ] ; then  
+          if [ "${optionProp}" != "" ] && [ "${optionProp}" != "null" ] ; then
             options=( $(jq -r '.options | keys[]' devcontainer-template.json) )
 
             if [ "${options[0]}" != "" ] && [ "${options[0]}" != "null" ] ; then
@@ -101,7 +101,7 @@ jobs:
           template_id="${{ matrix.templates }}"
           src_dir="test/${template_id}"
 
-          if [ ! -d "$(pwd)/${src_dir}" ] ; then  
+          if [ ! -d "$(pwd)/${src_dir}" ] ; then
             echo "Template '${{ matrix.templates }}' is missing a test folder"
             exit 1
           fi
@@ -119,11 +119,11 @@ jobs:
           # Fake out existence of extensions, VS Code Server to validate extensions
           echo "(*) Stubbing out extensions and VS Code Server..."
 
-          # Configuring path for 'devcontainer.json' 
+          # Configuring path for 'devcontainer.json'
           dev_container_relative_path="src/${template_id}"
           dev_container_json_name=".devcontainer.json"
 
-          if [ -d "$(pwd)/${dev_container_relative_path}/.devcontainer" ] ; then  
+          if [ -d "$(pwd)/${dev_container_relative_path}/.devcontainer" ] ; then
             dev_container_relative_path="${dev_container_relative_path}/.devcontainer"
             dev_container_json_name="devcontainer.json"
           fi
@@ -136,7 +136,7 @@ jobs:
           # Fetching extensions list defined in 'devcontainer.json'
           extensions="$(jq '.extensions' --compact-output "${dev_container_tmp}" | tr -d '[' | tr -d ']' | tr ',' '\n' 2>/dev/null || echo -n '')"
 
-          # Stubbing extensions list for the tests validation with checkExtension() 
+          # Stubbing extensions list for the tests validation with checkExtension()
           devcontainer exec --workspace-folder "src/${template_id}/" --id-label ${id_label} /bin/sh -c "\
               mkdir -p \$HOME/.vscode-server/bin \$HOME/.vscode-server/extensions \
               && cd \$HOME/.vscode-server/extensions \
