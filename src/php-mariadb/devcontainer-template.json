@@ -13,10 +13,8 @@
             "proposals": [
                 "8-bookworm",
                 "8.2-bookworm",
-                "8.1-bookworm",
                 "8-bullseye",
-                "8.2-bullseye",
-                "8.1-bullseye"
+                "8.2-bullseye"
             ],
             "default": "8.2-bookworm"
         }
