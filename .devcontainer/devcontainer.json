@@ -5,15 +5,15 @@
 	},
 	"postCreateCommand": "npm install -g @devcontainers/cli",
 	"customizations": {
-		"settings": {
-			"editor.trimAutoWhitespace": true
-		},
 		"vscode": {
 			"extensions": [
 				"mads-hartmann.bash-ide-vscode",
 				"dbaeumer.vscode-eslint",
 				"editorconfig.editorconfig"
-			]
+			],
+			"settings": {
+				"editor.trimAutoWhitespace": true
+			}
 		}
 	}
 }
