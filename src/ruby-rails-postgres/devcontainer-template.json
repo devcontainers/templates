@@ -12,15 +12,17 @@
             "description": "Ruby version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
                 "3-bookworm",
+                "3.4-bookworm",
                 "3.3-bookworm",
                 "3.2-bookworm",
                 "3.1-bookworm",
                 "3-bullseye",
+                "3.4-bullseye",				
                 "3.3-bullseye",
                 "3.2-bullseye",
                 "3.1-bullseye"
             ],
-            "default": "3.3-bullseye"
+            "default": "3.4-bullseye"
         }
     },
     "platforms": ["Ruby"],
