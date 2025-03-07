@@ -13,10 +13,8 @@
             "proposals": [
                 "1-bookworm",
 				"1.23-bookworm",
-                "1.22-bookworm",
                 "1-bullseye",
-				"1.23-bullseye",
-                "1.22-bullseye"
+				"1.23-bullseye"
             ],
             "default": "1.23-bookworm"
         }
