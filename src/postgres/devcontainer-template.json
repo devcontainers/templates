@@ -1,6 +1,6 @@
 {
     "id": "postgres",
-    "version": "2.1.2",
+    "version": "2.2.0",
     "name": "Python 3 & PostgreSQL",
     "description": "Develop applications with Python 3 and PostgreSQL. Includes a Python application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/postgres",
@@ -15,17 +15,14 @@
                 "3.11-bookworm",
                 "3.10-bookworm",
                 "3.9-bookworm",
-                "3.8-bookworm",
                 "3-bullseye",
                 "3.11-bullseye",
                 "3.10-bullseye",
                 "3.9-bullseye",
-                "3.8-bullseye",
                 "3-buster",
                 "3.11-buster",
                 "3.10-buster",
-                "3.9-buster",
-                "3.8-buster"
+                "3.9-buster"
             ],
             "default": "3.11-bullseye"
         }
