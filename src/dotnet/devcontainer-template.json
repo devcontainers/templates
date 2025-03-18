@@ -1,6 +1,6 @@
 {
     "id": "dotnet",
-    "version": "3.3.0",
+    "version": "3.4.0",
     "name": "C# (.NET)",
     "description": "Develop C# and .NET based applications. Includes all needed SDKs, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet",
