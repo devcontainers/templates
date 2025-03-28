@@ -14,10 +14,8 @@
 		"vscode": {			
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"yzhang.markdown-all-in-one",
 				"streetsidesoftware.code-spell-checker",
 				"DavidAnson.vscode-markdownlint",
-				"shd101wyy.markdown-preview-enhanced",
 				"bierner.github-markdown-preview"
 			]
 		}
