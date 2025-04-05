@@ -10,7 +10,10 @@
 				"mads-hartmann.bash-ide-vscode",
 				"dbaeumer.vscode-eslint",
 				"editorconfig.editorconfig"
-			]
+			],
+			"settings": {
+				"editor.trimAutoWhitespace": true
+			}
 		}
 	}
 }
