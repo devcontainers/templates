@@ -1,6 +1,6 @@
 {
     "id": "ruby",
-    "version": "4.1.0",
+    "version": "4.2.0",
     "name": "Ruby",
     "description": "Develop Ruby based applications. includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ruby",
@@ -15,14 +15,12 @@
                 "3.4-bookworm",				
                 "3.3-bookworm",
                 "3.2-bookworm",
-                "3.1-bookworm",
                 "3-bullseye",
                 "3.4-bullseye",				
                 "3.3-bullseye",
-                "3.2-bullseye",
-                "3.1-bullseye"
+                "3.2-bullseye"
             ],
-            "default": "3.3-bullseye"
+            "default": "3.4-bullseye"
         }
     },
     "platforms": ["Ruby"],

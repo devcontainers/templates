@@ -1,6 +1,6 @@
 {
     "id": "ruby-rails-postgres",
-    "version": "4.1.0",
+    "version": "4.2.0",
     "name": "Ruby on Rails & Postgres",
     "description": "Develop Ruby on Rails applications with Postgres. Includes a Rails application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ruby-rails-postgres",
@@ -15,14 +15,12 @@
                 "3.4-bookworm",
                 "3.3-bookworm",
                 "3.2-bookworm",
-                "3.1-bookworm",
                 "3-bullseye",
                 "3.4-bullseye",				
                 "3.3-bullseye",
-                "3.2-bullseye",
-                "3.1-bullseye"
+                "3.2-bullseye"
             ],
-            "default": "3.3-bullseye"
+            "default": "3.4-bullseye"
         }
     },
     "platforms": ["Ruby"],
