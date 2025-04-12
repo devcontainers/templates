@@ -1,3 +1,4 @@
+[![PR - Test Updated Templates](https://github.com/devcontainers/templates/actions/workflows/test-pr.yaml/badge.svg)](https://github.com/devcontainers/templates/actions/workflows/test-pr.yaml)
 name: "Update Documentation"
 on:
   push:
