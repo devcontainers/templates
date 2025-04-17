@@ -1,5 +1,15 @@
 FROM mcr.microsoft.com/devcontainers/cpp:1-${templateOption:imageVariant}
 
+ARG REINSTALL_GCC_VERSION_FROM_SOURCE="${templateOption:reinstallGccVersionFromSource}"
+
+# Optionally install the gcc from source & override the default version
+COPY ./reinstall-gcc.sh /tmp/
+
+RUN if [ "${REINSTALL_GCC_VERSION_FROM_SOURCE}" != "none" ]; then \
+        chmod +x /tmp/reinstall-gcc.sh && /tmp/reinstall-gcc.sh ${REINSTALL_GCC_VERSION_FROM_SOURCE}; \
+    fi \
+    && rm -f /tmp/reinstall-gcc.sh
+
 ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="${templateOption:reinstallCmakeVersionFromSource}"
 
 # Optionally install the cmake for vcpkg

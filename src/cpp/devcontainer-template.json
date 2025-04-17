@@ -28,6 +28,17 @@
                 "3.22.2"
             ],
             "default": "none"
+        },
+        "reinstallGccVersionFromSource": {
+            "type": "string",
+            "description": "Install CMake version different from what base image has already installed.",
+            "proposals": [
+                "none",
+                "14.2.0",
+                "14.1.0",
+				"13.3.0"
+            ],
+            "default": "none"
         }
     },
     "platforms": ["C++"],
