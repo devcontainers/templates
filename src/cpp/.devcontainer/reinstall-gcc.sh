@@ -58,6 +58,35 @@ fetch_gcc() {
     exit 1
 }
 
+# Function to robustly download files with retries
+robust_wget() {
+    local url="$1"
+    local output="$2"
+    local retries=5
+    local wait_seconds=5
+
+    for ((i=1; i<=retries; i++)); do
+        if wget -O "$output" "$url"; then
+            return 0
+        else
+            echo "Attempt $i failed for $url. Retrying in $wait_seconds seconds..."
+            sleep "$wait_seconds"
+        fi
+    done
+
+    echo "Failed to download $url after $retries attempts."
+    exit 1
+}
+
+cleanup() {
+    echo "Cleaning up temporary files..."
+    rm -rf "${build_dir:-}" "${GCC_SRC_DIR:-}"
+    sudo apt-get clean
+}
+
+# Trap EXIT signal to ensure cleanup runs
+trap cleanup EXIT
+
 # Download GCC source and signature
 fetch_gcc "gcc-${GCC_VERSION}.tar.xz"
 fetch_gcc "gcc-${GCC_VERSION}.tar.xz.sig"
@@ -79,7 +108,8 @@ rm "gcc-${GCC_VERSION}.tar.xz" "gcc-${GCC_VERSION}.tar.xz.sig"
 cd "${GCC_SRC_DIR}"
 ./contrib/download_prerequisites
 for f in config.guess config.sub; do
-    wget -O "$f" "https://git.savannah.gnu.org/cgit/config.git/plain/$f?id=7d3d27baf8107b630586c962c057e22149653deb"
+    #wget -O "$f" "https://git.savannah.gnu.org/cgit/config.git/plain/$f?id=7d3d27baf8107b630586c962c057e22149653deb"
+    robust_wget "https://git.savannah.gnu.org/cgit/config.git/plain/$f?id=7d3d27baf8107b630586c962c057e22149653deb" "$f"
     find -mindepth 2 -name "$f" -exec cp -v "$f" '{}' ';'
 done
 
@@ -103,9 +133,6 @@ sudo update-alternatives --install /usr/bin/gcov gcov ${GCC_INSTALL_DIR}/bin/gco
 sudo update-alternatives --install /usr/bin/gcov-dump gcov-dump ${GCC_INSTALL_DIR}/bin/gcov-dump 999
 sudo update-alternatives --install /usr/bin/gcov-tool gcov-tool ${GCC_INSTALL_DIR}/bin/gcov-tool 999
 
-# Cleanup
-rm -rf "$build_dir" "${GCC_SRC_DIR}"
-sudo apt-get clean
 
 # Verify installation
 echo "Verifying GCC installation..."
