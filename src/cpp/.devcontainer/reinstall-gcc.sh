@@ -4,7 +4,7 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 #
-set -euox pipefail
+set -euo pipefail
 
 # Default GCC version
 GCC_VERSION="${1:-12.2.0}"
@@ -108,7 +108,6 @@ rm "gcc-${GCC_VERSION}.tar.xz" "gcc-${GCC_VERSION}.tar.xz.sig"
 cd "${GCC_SRC_DIR}"
 ./contrib/download_prerequisites
 for f in config.guess config.sub; do
-    #wget -O "$f" "https://git.savannah.gnu.org/cgit/config.git/plain/$f?id=7d3d27baf8107b630586c962c057e22149653deb"
     robust_wget "https://git.savannah.gnu.org/cgit/config.git/plain/$f?id=7d3d27baf8107b630586c962c057e22149653deb" "$f"
     find -mindepth 2 -name "$f" -exec cp -v "$f" '{}' ';'
 done
