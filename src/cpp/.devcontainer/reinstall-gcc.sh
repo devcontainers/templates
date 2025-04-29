@@ -14,13 +14,24 @@ GCC_SRC_DIR="/usr/local/src/gcc-${GCC_VERSION}"
 GCC_INSTALL_DIR="/usr/local/gcc-${GCC_VERSION}"
 
 # Define GPG keys for verification
+# Source: https://gcc.gnu.org/releases.html
+# The gnu mirros sites and GPG keys https://gcc.gnu.org/mirrors.html
+# Note: The keys are subject to change, please verify from the official source as given above.
+# The keys are used to verify the downloaded GCC tarball.
 GCC_KEYS=(
+    # 1024D/745C015A 1999-11-09 Gerald Pfeifer <gerald@pfeifer.com>
     "B215C1633BCA0477615F1B35A5B3A004745C015A"
+    # 1024D/B75C61B8 2003-04-10 Mark Mitchell <mark@codesourcery.com>
     "B3C42148A44E6983B3E4CC0793FA9B1AB75C61B8"
+    # 1024D/902C9419 2004-12-06 Gabriel Dos Reis <gdr@acm.org>
     "90AA470469D3965A87A5DCB494D03953902C9419"
+    # 1024D/F71EDF1C 2000-02-13 Joseph Samuel Myers <jsm@polyomino.org.uk>
     "80F98B2E0DAB6C8281BDF541A7C8C3B2F71EDF1C"
+    # 2048R/FC26A641 2005-09-13 Richard Guenther <richard.guenther@gmail.com>
     "7F74F97C103468EE5D750B583AB00996FC26A641"
+    # 1024D/C3C45C06 2004-04-21 Jakub Jelinek <jakub@redhat.com>
     "33C235A34C46AA3FFB293709A328C3A2C3C45C06"
+    # 4096R/09B5FA62 2020-05-28 Jakub Jelinek <jakub@redhat.com>
     "D3A93CAD751C2AF4F8C7AD516C35B99309B5FA62"
 )
 GCC_MIRRORS=(
@@ -41,9 +52,20 @@ if command -v gcc &>/dev/null; then
     fi
 fi
 
+# Executes the provided command with 'sudo' if the current user is not root; otherwise, runs the command directly.
+sudo_if() {
+    COMMAND="$*"
+
+    if [ "$(id -u)" -ne 0 ]; then
+        sudo $COMMAND
+    else
+        $COMMAND
+    fi
+}
+
 # Install required dependencies
-sudo apt-get update
-sudo apt-get install -y \
+sudo_if apt-get update
+sudo_if apt-get install -y \
     dpkg-dev flex gnupg build-essential wget curl
 
 # Function to fetch GCC source and signature
@@ -81,7 +103,7 @@ robust_wget() {
 cleanup() {
     echo "Cleaning up temporary files..."
     rm -rf "${build_dir:-}" "${GCC_SRC_DIR:-}"
-    sudo apt-get clean
+    sudo_if apt-get clean
 }
 
 # Trap EXIT signal to ensure cleanup runs
@@ -100,8 +122,8 @@ gpg --batch --verify "gcc-${GCC_VERSION}.tar.xz.sig" "gcc-${GCC_VERSION}.tar.xz"
 rm -rf "$GNUPGHOME"
 
 # Extract GCC source
-sudo mkdir -p "${GCC_SRC_DIR}"
-sudo tar -xf "gcc-${GCC_VERSION}.tar.xz" -C "${GCC_SRC_DIR}" --strip-components=1
+sudo_if mkdir -p "${GCC_SRC_DIR}"
+sudo_if tar -xf "gcc-${GCC_VERSION}.tar.xz" -C "${GCC_SRC_DIR}" --strip-components=1
 rm "gcc-${GCC_VERSION}.tar.xz" "gcc-${GCC_VERSION}.tar.xz.sig"
 
 # Prepare GCC source
@@ -120,17 +142,17 @@ cd "$build_dir"
     --disable-multilib \
     --enable-languages=c,c++
 make -j "$(nproc)"
-sudo make install-strip
+sudo_if make install-strip
 
 # Update alternatives to use the new GCC version as the default version.
-sudo update-alternatives --install /usr/bin/gcc gcc ${GCC_INSTALL_DIR}/bin/gcc 999
-sudo update-alternatives --install /usr/bin/g++ g++ ${GCC_INSTALL_DIR}/bin/g++ 999
-sudo update-alternatives --install /usr/bin/gcc-ar gcc-ar ${GCC_INSTALL_DIR}/bin/gcc-ar 999
-sudo update-alternatives --install /usr/bin/gcc-nm gcc-nm ${GCC_INSTALL_DIR}/bin/gcc-nm 999
-sudo update-alternatives --install /usr/bin/gcc-ranlib gcc-ranlib ${GCC_INSTALL_DIR}/bin/gcc-ranlib 999
-sudo update-alternatives --install /usr/bin/gcov gcov ${GCC_INSTALL_DIR}/bin/gcov 999
-sudo update-alternatives --install /usr/bin/gcov-dump gcov-dump ${GCC_INSTALL_DIR}/bin/gcov-dump 999
-sudo update-alternatives --install /usr/bin/gcov-tool gcov-tool ${GCC_INSTALL_DIR}/bin/gcov-tool 999
+sudo_if update-alternatives --install /usr/bin/gcc gcc ${GCC_INSTALL_DIR}/bin/gcc 999
+sudo_if update-alternatives --install /usr/bin/g++ g++ ${GCC_INSTALL_DIR}/bin/g++ 999
+sudo_if update-alternatives --install /usr/bin/gcc-ar gcc-ar ${GCC_INSTALL_DIR}/bin/gcc-ar 999
+sudo_if update-alternatives --install /usr/bin/gcc-nm gcc-nm ${GCC_INSTALL_DIR}/bin/gcc-nm 999
+sudo_if update-alternatives --install /usr/bin/gcc-ranlib gcc-ranlib ${GCC_INSTALL_DIR}/bin/gcc-ranlib 999
+sudo_if update-alternatives --install /usr/bin/gcov gcov ${GCC_INSTALL_DIR}/bin/gcov 999
+sudo_if update-alternatives --install /usr/bin/gcov-dump gcov-dump ${GCC_INSTALL_DIR}/bin/gcov-dump 999
+sudo_if update-alternatives --install /usr/bin/gcov-tool gcov-tool ${GCC_INSTALL_DIR}/bin/gcov-tool 999
 
 
 # Verify installation
