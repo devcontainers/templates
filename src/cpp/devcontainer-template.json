@@ -31,7 +31,7 @@
         },
         "reinstallGccVersionFromSource": {
             "type": "string",
-            "description": "Install CMake version different from what base image has already installed.",
+            "description": "Install GCC version different from what base image has already installed.",
             "proposals": [
                 "none",
 				"15.1.0",
