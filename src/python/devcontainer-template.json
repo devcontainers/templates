@@ -1,6 +1,6 @@
 {
     "id": "python",
-    "version": "4.0.2",
+    "version": "4.1.0",
     "name": "Python 3",
     "description": "Develop Python 3 applications.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/python",
@@ -16,13 +16,11 @@
                 "3.11-bookworm",
                 "3.10-bookworm",
                 "3.9-bookworm",
-                "3.8-bookworm",
                 "3-bullseye",
                 "3.12-bullseye",
                 "3.11-bullseye",
                 "3.10-bullseye",
-                "3.9-bullseye",
-                "3.8-bullseye"
+                "3.9-bullseye"
             ],
             "default": "3.12-bullseye"
         }
