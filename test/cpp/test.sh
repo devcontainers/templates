@@ -11,7 +11,7 @@ checkCommon
 
 # Run template specific tests
 checkExtension "ms-vscode.cpptools"
-checkOSPackages "command-line-tools" build-essential cmake cppcheck valgrind clang lldb llvm gdb
+checkOSPackages "command-line-tools" build-essential cppcheck valgrind clang lldb llvm gdb
 checkOSPackages "tools-for-vcpkg" tar curl zip unzip pkg-config bash-completion ninja-build
 VCPKG_UNSUPPORTED_ARM64_VERSION_CODENAMES="stretch bionic"
 if [ "$(dpkg --print-architecture)" = "amd64" ] || [[ ! "${VCPKG_UNSUPPORTED_ARM64_VERSION_CODENAMES}" = *"${VERSION_CODENAME}"* ]]; then
@@ -21,6 +21,7 @@ if [ "$(dpkg --print-architecture)" = "amd64" ] || [[ ! "${VCPKG_UNSUPPORTED_ARM
     VCPKG_FORCE_SYSTEM_BINARIES=1 check "vcpkg-from-bin" vcpkg --version
 fi 
 check "g++"  g++ -g main.cpp -o main.out
+check "g++ version" g++ --version
 rm main.out
 mkdir -p build
 cd build
