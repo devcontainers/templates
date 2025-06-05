@@ -1,6 +1,6 @@
 {
     "id": "miniconda",
-    "version": "1.2.0",
+    "version": "2.0.2",
     "name": "Miniconda (Python 3)",
     "description": "Develop Miniconda applications in Python 3. Installs dependencies from your environment.yml file and the Python extension.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/miniconda",
@@ -10,5 +10,8 @@
         "Python",
         "Anaconda",
         "Miniconda"
+    ],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

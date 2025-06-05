@@ -1,6 +1,6 @@
 {
     "id": "jekyll",
-    "version": "2.2.0",
+    "version": "2.2.2",
     "name": "Jekyll",
     "description": "Develop static sites with Jekyll, includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/jekyll",
@@ -11,7 +11,7 @@
             "type": "string",
             "description": "Debian OS version (use bookworm, or bullseye on local arm64/Apple Silicon):",
             "proposals": [
-				"bookworm",
+                "bookworm",
                 "bullseye",
                 "buster"
             ],
@@ -21,5 +21,8 @@
     "platforms": [
         "Ruby",
         "Jekyll"
+    ],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

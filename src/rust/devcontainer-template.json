@@ -1,6 +1,6 @@
 {
     "id": "rust",
-    "version": "2.1.0",
+    "version": "4.0.2",
     "name": "Rust",
     "description": "Develop Rust based applications. Includes appropriate runtime args and everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/rust",
@@ -11,14 +11,14 @@
             "type": "string",
             "description": "Debian OS version (use bookworm, or bullseye on local arm64/Apple Silicon):",
             "proposals": [
-				"bookworm",
-                "buster",
+                "bookworm",
                 "bullseye"
             ],
             "default": "bullseye"
         }
     },
-    "platforms": [
-        "Rust"
+    "platforms": ["Rust"],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

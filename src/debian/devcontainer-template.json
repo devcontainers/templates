@@ -1,6 +1,6 @@
 {
     "id": "debian",
-    "version": "2.2.0",
+    "version": "3.0.2",
     "name": "Debian",
     "description": "Simple Debian container with Git installed.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/debian",
@@ -11,14 +11,14 @@
             "type": "string",
             "description": "Debian version (use bookworm or bullseye on local arm64/Apple Silicon):",
             "proposals": [
-				"bookworm",
-                "bullseye",
-                "buster"
+                "bookworm",
+                "bullseye"
             ],
             "default": "bullseye"
         }
     },
-    "platforms": [
-        "Any"
+    "platforms": ["Any"],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

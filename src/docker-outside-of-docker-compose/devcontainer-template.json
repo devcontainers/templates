@@ -1,6 +1,6 @@
 {
     "id": "docker-outside-of-docker-compose",
-    "version": "2.3.0",
+    "version": "2.3.2",
     "name": "Docker outside of Docker Compose",
     "description": "Access your host's Docker install from inside a container when using Docker Compose. Installs Docker extension in the container along with needed CLIs.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/docker-outside-of-docker-compose",
@@ -38,7 +38,8 @@
             "default": "true"
         }
     },
-    "platforms": [
-        "Any"
+    "platforms": ["Any"],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

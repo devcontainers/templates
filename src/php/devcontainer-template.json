@@ -1,6 +1,6 @@
 {
     "id": "php",
-    "version": "3.1.0",
+    "version": "4.2.0",
     "name": "PHP",
     "description": "Develop PHP based applications. Includes needed tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php",
@@ -13,18 +13,18 @@
             "proposals": [
                 "8-bookworm",
                 "8.2-bookworm",
-                "8.1-bookworm",
+                "8.3-bookworm",
+                "8.4-bookworm",				
                 "8-bullseye",
                 "8.2-bullseye",
-                "8.1-bullseye",
-                "8-buster",
-                "8.2-buster",
-                "8.1-buster"
+                "8.3-bullseye",
+                "8.4-bullseye"				
             ],
             "default": "8.2-bullseye"
         }
     },
-    "platforms": [
-        "PHP"
+    "platforms": ["PHP"],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

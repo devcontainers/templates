@@ -1,6 +1,6 @@
 {
     "id": "java-postgres",
-    "version": "3.1.0",
+    "version": "4.0.2",
     "name": "Java & PostgreSQL",
     "description": "Develop applications with Java and PostgreSQL. Includes a Java application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/java-postgres",
@@ -11,18 +11,14 @@
             "type": "string",
             "description": "Java version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-				"21-bookworm",
+                "21-bookworm",
                 "17-bookworm",
                 "11-bookworm",
                 "8-bookworm",
-				"21-bullseye",
+                "21-bullseye",
                 "17-bullseye",
                 "11-bullseye",
-                "8-bullseye",
-				"21-buster",
-                "17-buster",
-                "11-buster",
-                "8-buster"
+                "8-bullseye"
             ],
             "default": "21-bullseye"
         },
@@ -37,7 +33,8 @@
             "default": "false"
         }
     },
-    "platforms": [
-        "Java"
+    "platforms": ["Java"],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

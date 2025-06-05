@@ -1,6 +1,6 @@
 {
     "id": "go-postgres",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "name": "Go & PostgreSQL",
     "description": "Use and develop Go + Postgres applications. Includes appropriate runtime args, Go, common tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/go-postgres",
@@ -12,16 +12,17 @@
             "description": "Go version:",
             "proposals": [
                 "1-bookworm",
-				"1.22-bookworm",
-                "1.21-bookworm",
+				"1.23-bookworm",
+                "1.22-bookworm",
                 "1-bullseye",
-				"1.22-bullseye",
-                "1.21-bullseye"
+				"1.23-bullseye",
+                "1.22-bullseye"
             ],
-            "default": "1.22-bookworm"
+            "default": "1.23-bookworm"
         }
     },
-    "platforms": [
-        "Go"
+    "platforms": ["Go"],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

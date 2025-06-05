@@ -1,6 +1,6 @@
 {
     "id": "anaconda-postgres",
-    "version": "1.2.0",
+    "version": "2.0.2",
     "name": "Anaconda (Python 3) & PostgreSQL",
     "description": "Develop Anaconda & PostgreSQL applications in Python3. Installs dependencies from your environment.yml file and the Python extension.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/anaconda-postgres",
@@ -9,5 +9,8 @@
     "platforms": [
         "Python",
         "Anaconda"
+    ],
+    "optionalPaths": [
+        ".github/*"
     ]
 }

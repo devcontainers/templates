@@ -1,7 +1,7 @@
 
 # Kubernetes - Minikube-in-Docker (kubernetes-helm-minikube)
 
-Access an embedded minikube instance or remote a Kubernetes cluster from inside a dev container. Includes kubectl, Helm, minikube, and the Docker.
+Access an embedded minikube instance from inside a dev container. Includes kubectl, Helm, minikube, and the Docker.
 
 
 
@@ -11,7 +11,7 @@ Dev containers can be useful for all types of applications including those that 
 
 This example illustrates how you can do this by using CLIs ([kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), [Helm](https://helm.sh), Docker), the [Kubernetes extension](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools), and the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) right from inside your dev container.  This definition builds up from the [docker-in-docker](../docker-in-docker) container definition along with a [minikube](https://minikube.sigs.k8s.io/docs/) installation that can run right inside the container. It installs the Docker and Kubernetes extensions inside the container so you can use its full feature set with your project.
 
-The included `.devcontainer.json` can be altered to work with other Debian/Ubuntu-based container images such as `node` or `python`. For example, to use `mcr.microsoft.com/devcontainers/javascript-node`, update the `image` proprty as follows:
+The included `.devcontainer.json` can be altered to work with other Debian/Ubuntu-based container images such as `node` or `python`. For example, to use `mcr.microsoft.com/devcontainers/javascript-node`, update the `image` property as follows:
 
 ```json
 "image": "mcr.microsoft.com/devcontainers/javascript-node:18-bullseye"
@@ -21,6 +21,7 @@ The included `.devcontainer.json` can be altered to work with other Debian/Ubunt
 ## Ingress and port forwarding
 
 When configuring [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) for your Kubernetes cluster, note that by default Kubernetes will bind to a specific interface's IP rather than localhost or all interfaces. This is why you need to use the Kubernetes Node's IP when connecting - even if there's only one Node as in the case of Minikube.
+
 
 ---
 

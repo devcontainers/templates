@@ -1,12 +1,13 @@
 {
     "id": "markdown",
-    "version": "1.1.0",
+    "version": "1.1.2",
     "name": "Markdown",
     "description": "A simple container for editing markdown.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/markdown",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
-    "platforms": [
-        "Markdown"
+    "platforms": ["Markdown"],
+    "optionalPaths": [
+        ".github/*"
     ]
 }
