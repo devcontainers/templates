@@ -1,5 +1,6 @@
+---
 name: "Update Documentation"
-on:
+"on":
   push:
     branches:
       - main
