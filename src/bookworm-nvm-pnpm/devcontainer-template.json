@@ -1,0 +1,15 @@
+{
+    "id": "bookworm-nvm-pnpm",
+    "version": "1.0.0",
+    "name": "Bookworm NVM PNPM",
+    "description": "A development container with Debian Bookworm, NVM, Git, and PNPM",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/bookworm-nvm-pnpm",
+    "publisher": "Your GitHub Username",
+    "platforms": [
+        "Linux"
+    ],
+    "categories": [
+        "Languages and Frameworks",
+        "Node.js"
+    ]
+}
