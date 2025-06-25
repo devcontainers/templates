@@ -44,13 +44,13 @@ GCC_MIRRORS=(
 )
 
 # Check if input GCC_VERSION is greater than installed GCC version
-if command -v gcc &>/dev/null; then
-    installed_version=$(gcc -dumpfullversion)
-    if [ "$(printf '%s\n' "$installed_version" "$GCC_VERSION" | sort -V | tail -n1)" = "$installed_version" ]; then
-        echo "Installed GCC version ($installed_version) is equal or newer than requested version ($GCC_VERSION). Skipping installation."
-        exit 0
-    fi
-fi
+#if command -v gcc &>/dev/null; then
+#    installed_version=$(gcc -dumpfullversion)
+#    if [ "$(printf '%s\n' "$installed_version" "$GCC_VERSION" | sort -V | tail -n1)" = "$installed_version" ]; then
+#        echo "Installed GCC version ($installed_version) is equal or newer than requested version ($GCC_VERSION). Skipping installation."
+#        exit 0
+#    fi
+#fi
 
 # Executes the provided command with 'sudo' if the current user is not root; otherwise, runs the command directly.
 sudo_if() {
