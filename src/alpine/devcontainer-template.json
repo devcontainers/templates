@@ -11,12 +11,11 @@
             "type": "string",
             "description": "Alpine version:",
             "proposals": [
-				"3.22",
                 "3.21",
                 "3.20",
                 "3.19"
             ],
-            "default": "3.22"
+            "default": "3.20"
         }
     },
     "platforms": ["Any"],
