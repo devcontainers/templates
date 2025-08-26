@@ -7,7 +7,7 @@ Develop Node.js based applications. Includes Node.js, eslint, nvm, and yarn.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Node.js version (use -bookworm, -bullseye variants on local arm64/Apple Silicon): | string | 22-bookworm |
+| imageVariant | Node.js version (use -trixie, -bookworm, -bullseye variants on local arm64/Apple Silicon): | string | 24-trixie |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 

@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:1-${templateOption:imageVariant}
+FROM mcr.microsoft.com/devcontainers/javascript-node:4-${templateOption:imageVariant}
 
 # Install MongoDB command line tools - though mongo-database-tools not available on arm64
 ARG MONGO_TOOLS_VERSION=6.0
