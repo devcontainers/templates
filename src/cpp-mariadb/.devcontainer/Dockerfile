@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/cpp:1-${templateOption:imageVariant}
+FROM mcr.microsoft.com/devcontainers/cpp:2-${templateOption:imageVariant}
 
 # Everything below this is needed for installing MariaDB
 # Instructions are copied and modified from: https://mariadb.com/docs/clients/mariadb-connectors/connector-cpp/install/
