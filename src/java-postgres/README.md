@@ -7,7 +7,7 @@ Develop applications with Java and PostgreSQL. Includes a Java application conta
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Java version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon): | string | 21-bullseye |
+| imageVariant | Java version (use -trixie, or -bookworm variants on local arm64/Apple Silicon): | string | 21-trixie |
 | installMaven | Install Maven, a management tool for Java | boolean | false |
 | installGradle | Install Gradle, a build automation tool for multi-language software development | boolean | false |
 
