@@ -9,7 +9,7 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Java version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
+            "description": "Java version (use -trixie, or -bookworm,  variants on local arm64/Apple Silicon):",
             "proposals": [
 				"21-trixie",
 				"17-trixie",
@@ -17,11 +17,7 @@
                 "21-bookworm",
                 "17-bookworm",
                 "11-bookworm",
-                "8-bookworm",
-                "21-bullseye",
-                "17-bullseye",
-                "11-bullseye",
-                "8-bullseye"
+                "8-bookworm"
             ],
             "default": "21-trixie"
         },
