@@ -2,7 +2,7 @@
     "id": "php",
     "version": "5.0.0",
     "name": "PHP",
-    "description": "Develop PHP based applications. Includes needed tools, extensions, and dependencies.",
+    "description": "Develop PHP based applications. Includes needed tools, extensions and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php",
     "publisher": "Dev Container Spec Maintainers",
     "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
