@@ -1,6 +1,6 @@
 {
     "id": "php-mariadb",
-    "version": "4.2.0",
+    "version": "5.0.0",
     "name": "PHP & MariaDB",
     "description": "Develop PHP applications with MariaDB (MySQL Compatible).",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/php-mariadb",
@@ -11,6 +11,10 @@
             "type": "string",
             "description": "PHP version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
+                "8-trixie",
+                "8.2-trixie",
+                "8.3-trixie",
+                "8.4-trixie",				
                 "8-bookworm",
                 "8.2-bookworm",
                 "8.3-bookworm",
@@ -20,7 +24,7 @@
                 "8.3-bullseye",
                 "8.4-bullseye"				
             ],
-            "default": "8.2-bookworm"
+            "default": "8.4-trixie"
         }
     },
     "platforms": [
