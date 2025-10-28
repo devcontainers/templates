@@ -12,25 +12,28 @@
             "description": "Python version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
                 "3-trixie",
+                "3.14-trixie",
                 "3.13-trixie",				
                 "3.12-trixie",
                 "3.11-trixie",
                 "3.10-trixie",
                 "3.9-trixie",				
                 "3-bookworm",
+                "3.14-bookworm",
                 "3.13-bookworm",				
                 "3.12-bookworm",
                 "3.11-bookworm",
                 "3.10-bookworm",
                 "3.9-bookworm",
                 "3-bullseye",
+                "3.14-bullseye",
                 "3.13-bullseye",
                 "3.12-bullseye",
                 "3.11-bullseye",
                 "3.10-bullseye",
                 "3.9-bullseye"
             ],
-            "default": "3.13-trixie"
+            "default": "3.14-trixie"
         }
     },
     "platforms": ["Python"],
