@@ -7,7 +7,7 @@ Develop Rust based applications. Includes appropriate runtime args and everythin
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Debian OS version (use bookworm, or bullseye on local arm64/Apple Silicon): | string | bullseye |
+| imageVariant | Debian OS version (use trixie, bookworm, or bullseye on local arm64/Apple Silicon): | string | trixie |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 
