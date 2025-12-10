@@ -1,40 +1,45 @@
 
-name: Build & Publish Devcontainer
+name: Build & Publish Devcontainer (universal)
 
 on:
   push:
     branches: [ "main" ]
+
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Set image name and tags
+      - name: Prepare image name and tags
+        id: prep
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository }}/universal-devcontainer
           SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
-          echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
-          echo "TAG_LATEST=$IMAGE_NAME:latest" >> $GITHUB_ENV
-          echo "TAG_SHA=$IMAGE_NAME:$SHORT_SHA" >> $GITHUB_ENV
-          echo "TAG_BRANCH=$IMAGE_NAME:${GITHUB_REF_NAME}" >> $GITHUB_ENV
+          BRANCH_TAG=${GITHUB_REF_NAME//\//-}   # evita slash nei tag
+          echo "image_name=$IMAGE_NAME" >> $GITHUB_OUTPUT
+          echo "tag_latest=$IMAGE_NAME:latest" >> $GITHUB_OUTPUT
+          echo "tag_sha=$IMAGE_NAME:$SHORT_SHA" >> $GITHUB_OUTPUT
+          echo "tag_branch=$IMAGE_NAME:$BRANCH_TAG" >> $GITHUB_OUTPUT
 
-      - name: Build multi-stage Docker image
-        run: |
-          docker build \
-            -f src/universal/.devcontainer/Dockerfile \
-            -t $TAG_LATEST \
-            -t $TAG_SHA \
-            -t $TAG_BRANCH \
-            src/universal
+      - name: Build & Push via Dev Containers CI
+        uses: devcontainers/ci@v0.3
+        with:
+          configFile: src/universal/.devcontainer/devcontainer.json
 
-      - name: Push all tags
-        run: |
-          docker push $TAG_LATEST
-          docker push $TAG_SHA
-          docker push $TAG_BRANCH
+          imageName: ${{ steps.prep.outputs.image_name }}
+
+          tags: |
+            ${{ steps.prep.outputs.tag_latest }}
+            ${{ steps.prep.outputs.tag_sha }}
+            ${{ steps.prep.outputs.tag_branch }}
+
+          push: always
