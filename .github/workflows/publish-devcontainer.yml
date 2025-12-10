@@ -1,0 +1,40 @@
+
+name: Build & Publish Devcontainer
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Set image name and tags
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository }}/universal-devcontainer
+          SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
+          echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
+          echo "TAG_LATEST=$IMAGE_NAME:latest" >> $GITHUB_ENV
+          echo "TAG_SHA=$IMAGE_NAME:$SHORT_SHA" >> $GITHUB_ENV
+          echo "TAG_BRANCH=$IMAGE_NAME:${GITHUB_REF_NAME}" >> $GITHUB_ENV
+
+      - name: Build multi-stage Docker image
+        run: |
+          docker build \
+            -f src/universal/.devcontainer/Dockerfile \
+            -t $TAG_LATEST \
+            -t $TAG_SHA \
+            -t $TAG_BRANCH \
+            src/universal
+
+      - name: Push all tags
+        run: |
+          docker push $TAG_LATEST
+          docker push $TAG_SHA
+          docker push $TAG_BRANCH
