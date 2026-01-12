@@ -1,6 +1,6 @@
 {
     "id": "ruby",
-    "version": "5.0.0",
+    "version": "6.0.0",
     "name": "Ruby",
     "description": "Develop Ruby based applications. includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ruby",
@@ -11,20 +11,20 @@
             "type": "string",
             "description": "Ruby version (use -trixie, -bookworm, -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-                "3-trixie",
+                "4-trixie",
                 "3.4-trixie",				
                 "3.3-trixie",
                 "3.2-trixie",				
-                "3-bookworm",
+                "4-bookworm",
                 "3.4-bookworm",				
                 "3.3-bookworm",
                 "3.2-bookworm",
-                "3-bullseye",
+                "4-bullseye",
                 "3.4-bullseye",				
                 "3.3-bullseye",
                 "3.2-bullseye"
             ],
-            "default": "3.4-trixie"
+            "default": "4-trixie"
         }
     },
     "platforms": ["Ruby"],
