@@ -1,6 +1,6 @@
 {
     "id": "cpp-mariadb",
-    "version": "3.0.3",
+    "version": "3.1.0",
     "name": "C++ & MariaDB",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp-mariadb",
@@ -11,12 +11,12 @@
             "type": "string",
             "description": "Debian / Ubuntu version (use Debian 12, Debian 11, Ubuntu 24.04, and Ubuntu 22.04 on local arm64/Apple Silicon):",
             "proposals": [
-                "debian-12",
-                "debian-11",
-                "ubuntu-24.04",
-                "ubuntu-22.04"
+                "debian12",
+                "debian11",
+                "ubuntu24.04",
+                "ubuntu22.04"
             ],
-            "default": "debian-11"
+            "default": "debian12"
         },
         "reinstallCmakeVersionFromSource": {
             "type": "string",
