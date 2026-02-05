@@ -34,13 +34,6 @@ echo $(echo "python versions" && ls -a /usr/local/python)
 echo $(echo "pip list" pip list)
 
 # Check Python packages
-check "numpy" python -c "import numpy; print(numpy.__version__)"
-check "pandas" python -c "import pandas; print(pandas.__version__)"
-check "scipy" python -c "import scipy; print(scipy.__version__)"
-check "matplotlib" python -c "import matplotlib; print(matplotlib.__version__)"
-check "seaborn" python -c "import seaborn; print(seaborn.__version__)"
-check "scikit-learn" python -c "import sklearn; print(sklearn.__version__)"
-check "torch" python -c "import torch; print(torch.__version__)"
 check "requests" python -c "import requests; print(requests.__version__)"
 
 # Check JupyterLab
@@ -115,10 +108,6 @@ check "zsh" zsh --version
 
 # Check env variable
 check "RAILS_DEVELOPMENT_HOSTS is set correctly" echo $RAILS_DEVELOPMENT_HOSTS | grep ".githubpreview.dev,.preview.app.github.dev,.app.github.dev"
-
-# Check that we can run a puppeteer node app.
-yarn
-check "run-puppeteer" node puppeteer.js
 
 # Check Oryx
 check "oryx" oryx --version

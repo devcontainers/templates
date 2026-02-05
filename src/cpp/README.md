@@ -7,7 +7,7 @@ Develop C++ applications on Linux. Includes Debian C++ build tools.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Debian / Ubuntu version (use Debian 12, Debian 11, Ubuntu 24.04, and Ubuntu 22.04 on local arm64/Apple Silicon): | string | debian-11 |
+| imageVariant | Debian / Ubuntu version (use debian12, debian11, ubuntu24.04, and ubuntu22.04 on local arm64/Apple Silicon): | string | debian12 |
 | reinstallCmakeVersionFromSource | Install CMake version different from what base image has already installed. | string | none |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.

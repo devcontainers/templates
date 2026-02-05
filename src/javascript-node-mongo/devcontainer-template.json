@@ -11,13 +11,15 @@
             "type": "string",
             "description": "Node.js version (use -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
+                "24-bookworm",
+                "24-bullseye",
                 "22-bookworm",
                 "22-bullseye",
                 "20-bookworm",
                 "20-bullseye",
                 "18-bullseye"
             ],
-            "default": "22-bookworm"
+            "default": "24-bookworm"
         }
     },
     "platforms": [
