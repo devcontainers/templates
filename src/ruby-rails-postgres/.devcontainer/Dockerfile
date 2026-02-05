@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/ruby:3-${templateOption:imageVariant}
+FROM mcr.microsoft.com/devcontainers/ruby:4-${templateOption:imageVariant}
 
 # Install Rails
 RUN su vscode -c "gem install rails webdrivers"
