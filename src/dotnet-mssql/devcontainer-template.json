@@ -1,37 +1,36 @@
 {
-    "id": "dotnet-mssql",
-    "version": "3.6.0",
-    "name": "C# (.NET) and MS SQL",
-    "description": "Develop C# and .NET Core based applications. Includes all needed SDKs, extensions, dependencies and an MS SQL container for parallel database development. Adds an additional MS SQL container to the C# (.NET Core) container definition and deploys any .dacpac files from the mssql .devcontainer folder.",
-    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet-mssql",
-    "publisher": "Dev Container Spec Maintainers",
-    "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
-    "options": {
-        "imageVariant": {
-            "type": "string",
-            "description": ".NET version:",
-            "proposals": [
-				"10.0-preview",
+	"id": "dotnet-mssql",
+	"version": "3.6.0",
+	"name": "C# (.NET) and MS SQL",
+	"description": "Develop C# and .NET Core based applications. Includes all needed SDKs, extensions, dependencies and an MS SQL container for parallel database development. Adds an additional MS SQL container to the C# (.NET Core) container definition and deploys any .dacpac files from the mssql .devcontainer folder.",
+	"documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet-mssql",
+	"publisher": "Dev Container Spec Maintainers",
+	"licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
+	"options": {
+		"imageVariant": {
+			"type": "string",
+			"description": ".NET version:",
+			"proposals": [
+				"10.0",
 				"9.0",
-                "8.0",
-				"10.0-preview-trixie",
+				"8.0",
 				"9.0-bookworm",
-                "8.0-bookworm",
-				"10.0-preview-noble",
-                "9.0-noble",
+				"8.0-bookworm",
+				"10.0-noble",
+				"9.0-noble",
 				"8.0-noble",
-                "8.0-jammy"
-            ],
-            "default": "9.0-bookworm"
-        }
-    },
-    "platforms": [
-        ".NET",
-        ".NET Core",
-        "C#",
-        "Microsoft SQL"
-    ],
-    "optionalPaths": [
-        ".github/*"
-    ]
+				"8.0-jammy"
+			],
+			"default": "10.0"
+		}
+	},
+	"platforms": [
+		".NET",
+		".NET Core",
+		"C#",
+		"Microsoft SQL"
+	],
+	"optionalPaths": [
+		".github/*"
+	]
 }
