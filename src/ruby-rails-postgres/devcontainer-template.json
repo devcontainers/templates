@@ -24,7 +24,7 @@
                 "3.3-bullseye",
                 "3.2-bullseye"
             ],
-            "default": "3.4-trixie"
+            "default": "4-trixie"
         }
     },
     "platforms": ["Ruby"],
