@@ -7,7 +7,7 @@ Develop C# and .NET Core based applications. Includes all needed SDKs, extension
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | .NET version: | string | 9.0-bookworm |
+| imageVariant | .NET version: | string | 10.0-noble |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 

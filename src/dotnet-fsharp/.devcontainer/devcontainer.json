@@ -3,7 +3,7 @@
 {
 	"name": "F# (.NET)",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm",
+	"image": "mcr.microsoft.com/devcontainers/dotnet:2-10.0-noble",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
