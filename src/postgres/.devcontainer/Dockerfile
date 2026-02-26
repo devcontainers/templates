@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/python:1-${templateOption:imageVariant}
+FROM mcr.microsoft.com/devcontainers/python:3-${templateOption:imageVariant}
 
 ENV PYTHONUNBUFFERED 1
 

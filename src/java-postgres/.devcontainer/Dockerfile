@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/java:1-${templateOption:imageVariant}
+FROM mcr.microsoft.com/devcontainers/java:3-${templateOption:imageVariant}
 
 ARG INSTALL_MAVEN="${templateOption:installMaven}"
 ARG MAVEN_VERSION=""
