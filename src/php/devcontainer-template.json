@@ -13,13 +13,13 @@
             "proposals": [
                 "8.5-trixie",
                 "8.5-bookworm",
-                "8.5-bullseye",
-                "8-bookworm",
+                "8.4-trixie",
+                "8.4-bookworm",
+                "8.3-trixie",
                 "8.3-bookworm",
-                "8.4-bookworm",				
-                "8-bullseye",
-                "8.3-bullseye",
-                "8.4-bullseye"				
+                "8.2-trixie",
+                "8.2-bookworm",
+                "8-bookworm"
             ],
             "default": "8.5-trixie"
         }

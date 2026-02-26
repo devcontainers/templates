@@ -12,8 +12,7 @@
             "description": "Debian OS version (use bookworm, or bullseye on local arm64/Apple Silicon):",
             "proposals": [
                 "bookworm",
-                "bullseye",
-                "buster"
+                "bullseye"
             ],
             "default": "bullseye"
         }
