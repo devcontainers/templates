@@ -1,6 +1,6 @@
 {
     "id": "postgres",
-    "version": "2.2.0",
+    "version": "3.0.0",
     "name": "Python 3 & PostgreSQL",
     "description": "Develop applications with Python 3 and PostgreSQL. Includes a Python application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/postgres",
@@ -9,22 +9,20 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Python version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
+            "description": "Python version (use -trixie, -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
-                "3-bookworm",
+                "3.14-trixie",
+                "3.13-trixie",
+                "3.12-trixie",
+                "3.11-trixie",
+                "3.10-trixie",
+                "3.14-bookworm",
+                "3.13-bookworm",
+                "3.12-bookworm",
                 "3.11-bookworm",
-                "3.10-bookworm",
-                "3.9-bookworm",
-                "3-bullseye",
-                "3.11-bullseye",
-                "3.10-bullseye",
-                "3.9-bullseye",
-                "3-buster",
-                "3.11-buster",
-                "3.10-buster",
-                "3.9-buster"
+                "3.10-bookworm"
             ],
-            "default": "3.11-bullseye"
+            "default": "3.14-trixie"
         }
     },
     "platforms": ["Python"],

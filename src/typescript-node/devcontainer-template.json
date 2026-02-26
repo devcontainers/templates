@@ -1,6 +1,6 @@
 {
     "id": "typescript-node",
-    "version": "4.0.2",
+    "version": "5.0.0",
     "name": "Node.js & TypeScript",
     "description": "Develop Node.js based applications in TypeScript. Includes Node.js, eslint, nvm, yarn, and the TypeScript compiler.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/typescript-node",
@@ -9,18 +9,19 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Node.js version (use -bookworm, -bullseye variants on local arm64/Apple Silicon):",
+            "description": "Node.js version (use -trixie, -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
             "proposals": [
+                "24-trixie",
+                "22-trixie",
+                "20-trixie",
                 "24-bookworm",
-                "24-bullseye",
                 "22-bookworm",
-                "22-bullseye",
                 "20-bookworm",
-                "18-bookworm",
-                "20-bullseye",
-                "18-bullseye"
+                "24-bullseye",
+                "22-bullseye",
+                "20-bullseye"
             ],
-            "default": "24-bookworm"
+            "default": "24-trixie"
         }
     },
     "platforms": [

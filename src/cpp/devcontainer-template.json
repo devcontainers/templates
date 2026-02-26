@@ -1,6 +1,6 @@
 {
     "id": "cpp",
-    "version": "3.1.0",
+    "version": "4.0.0",
     "name": "C++",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp",
@@ -9,14 +9,14 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Debian / Ubuntu version (use Debian 12, Debian 11, Ubuntu 24.04, and Ubuntu 22.04 on local arm64/Apple Silicon):",
+            "description": "Debian / Ubuntu version (use Debian 13, Debian 12, Ubuntu 24.04, and Ubuntu 22.04 on local arm64/Apple Silicon):",
             "proposals": [
+                "debian13",
                 "debian12",
-                "debian11",
                 "ubuntu24.04",
                 "ubuntu22.04"
             ],
-            "default": "debian12"
+            "default": "debian13"
         },
         "reinstallCmakeVersionFromSource": {
             "type": "string",
