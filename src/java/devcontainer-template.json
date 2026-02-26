@@ -15,10 +15,12 @@
                 "21-trixie",
                 "17-trixie",
                 "11-trixie",
+                "8-trixie",
                 "25-bookworm",
                 "21-bookworm",
                 "17-bookworm",
-                "11-bookworm"
+                "11-bookworm",
+                "8-bookworm"
             ],
             "default": "25-trixie"
         },
