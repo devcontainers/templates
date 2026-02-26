@@ -6,27 +6,22 @@ source test-utils.sh vscode
 # Run common tests
 checkCommon
 
-# Prep - Download Maven for building (network_mode fix enables outbound access)
-echo -e "\nResolving Maven..."
-MAVEN_VERSION="3.9.9"
-MAVEN_DIR="apache-maven-${MAVEN_VERSION}"
-
-if command -v mvn >/dev/null 2>&1; then
-    MVN_CMD="mvn"
-else
-    echo "mvn not found, downloading Apache Maven ${MAVEN_VERSION}..."
-    curl -fsSL "https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/${MAVEN_DIR}-bin.tar.gz" | tar -xzf -
-    MVN_CMD="$(pwd)/${MAVEN_DIR}/bin/mvn"
-fi
+# Prep
+echo -e "\nGetting Maven wrapper..."
+curl -sSL https://github.com/takari/maven-wrapper/archive/maven-wrapper-0.5.5.tar.gz| tar -xzf - 
+mv maven-wrapper-maven-wrapper-0.5.5/mvnw mvnw
+mv maven-wrapper-maven-wrapper-0.5.5/.mvn .mvn
+rm -rf maven-wrapper-maven-wrapper-0.5.5
 
 # template specific tests
 checkExtension "vscjava.vscode-java-pack"
 check "java" java -version
-check "build-and-test-jar" "$MVN_CMD" -q package
+check "build-and-test-jar" ./mvnw -q package
 check "test-project" java -jar target/my-app-1.0-SNAPSHOT.jar
 
 # Clean up
-rm -rf "${MAVEN_DIR}"
+rm -f mvnw
+rm -rf .mvn
 
 # Report result
 reportResults
