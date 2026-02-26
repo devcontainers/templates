@@ -11,8 +11,8 @@
             "type": "string",
             "description": "Debian / Ubuntu version (use Debian 12, Debian 11, Ubuntu 24.04, and Ubuntu 22.04 on local arm64/Apple Silicon):",
             "proposals": [
+                "debian13",
                 "debian12",
-                "debian11",
                 "ubuntu24.04",
                 "ubuntu22.04"
             ],

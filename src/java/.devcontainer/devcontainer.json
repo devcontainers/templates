@@ -3,7 +3,7 @@
 {
 	"name": "Java",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/java:1-${templateOption:imageVariant}",
+	"image": "mcr.microsoft.com/devcontainers/java:3-${templateOption:imageVariant}",
 
 	"features": {
 		"ghcr.io/devcontainers/features/java:1": {
