@@ -7,7 +7,7 @@ Develop Ruby based applications. includes everything you need to get up and runn
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Ruby version (use -trixie, -bookworm, -bullseye variants on local arm64/Apple Silicon) : | string | 3.4-trixie |
+| imageVariant | Ruby version (use -trixie, -bookworm, -bullseye variants on local arm64/Apple Silicon) : | string |4-trixie |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 

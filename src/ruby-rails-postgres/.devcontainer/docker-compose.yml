@@ -1,4 +1,5 @@
-version: '3'
+# Dev Container Docker Compose Configuration for Ruby on Rails with PostgreSQL
+# This configuration has been optimized for reliability in automated and remote environments
 
 services:
   app:
@@ -12,17 +13,36 @@ services:
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
-    # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
-    network_mode: service:db
+    # Database connection string for Rails applications
+    # Provides a standard way to connect to the PostgreSQL database
+    environment:
+      DATABASE_URL: "postgresql://postgres:postgres@db:5432/postgres"
 
+   # Use proper Docker networking (not network_mode) to avoid namespace issues and ensure reliable container startup across environments
+    depends_on:
+      db:
+        condition: service_healthy # Wait for PostgreSQL to be ready before starting the app
+    networks:
+      - app-network # Connect to custom bridge network for service communication
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
     image: postgres:latest
     restart: unless-stopped
+    networks:
+      - app-network # Connect to the same network as the app container
+
+    # Health check ensures PostgreSQL is ready before dependent services start
+    # This is critical for depends_on with condition: service_healthy to work properly
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s # Check every 10 seconds
+      timeout: 5s # Wait up to 5 seconds for response
+      retries: 5 # Retry 5 times before marking as unhealthy
+      start_period: 30s # Give PostgreSQL 30 seconds to start before health checks begin
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql
       - ./create-db-user.sql:/docker-entrypoint-initdb.d/create-db-user.sql
     environment:
       POSTGRES_USER: postgres
@@ -53,5 +73,15 @@ services:
     # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
+# Persistent storage for PostgreSQL data
 volumes:
   postgres-data:
+    # Named volume ensures data persists across container restarts
+    # Located at /var/lib/postgresql/data inside the container
+
+# Custom bridge network for service communication  
+# Replaces the problematic network_mode: service:db approach
+networks:
+  app-network:
+    driver: bridge # Standard bridge driver for container-to-container communication
+    # Services on this network can communicate using service names (app -> db)
