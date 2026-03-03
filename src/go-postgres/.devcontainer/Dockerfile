@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/go:2-${templateOption:imageVariant}
+FROM mcr.microsoft.com/devcontainers/go:3-${templateOption:imageVariant}
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
