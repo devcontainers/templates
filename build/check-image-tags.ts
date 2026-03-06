@@ -9,15 +9,12 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { IMAGE_REF_PATTERN, TEMPLATE_OPTION_PATTERN, TemplateJson, findFiles } from './utils';
 
 const RED = '\x1b[0;31m';
 const GREEN = '\x1b[0;32m';
 const YELLOW = '\x1b[0;33m';
 const NC = '\x1b[0m';
-
-const MCR_PREFIX = 'mcr.microsoft.com/devcontainers/';
-const IMAGE_REF_PATTERN = /mcr\.microsoft\.com\/devcontainers\/([^"]+)/g;
-const TEMPLATE_OPTION_PATTERN = /\$\{templateOption:([^}]+)\}/;
 
 interface ImageManifest {
 	version: string;
@@ -26,13 +23,6 @@ interface ImageManifest {
 		tags?: string[];
 		variantTags?: Record<string, string[]>;
 	};
-}
-
-interface TemplateJson {
-	options?: Record<string, {
-		default?: string;
-		proposals?: string[];
-	}>;
 }
 
 interface TemplateTag {
@@ -109,22 +99,6 @@ function computeImageTags(imagesRepo: string): Set<string> {
 }
 
 // --- Step 2: Compute all tags that templates would produce ---
-
-function findFiles(dir: string, names: string[]): string[] {
-	const results: string[] = [];
-	function walk(d: string) {
-		for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
-			const full = path.join(d, entry.name);
-			if (entry.isDirectory()) {
-				walk(full);
-			} else if (names.includes(entry.name) || names.some(n => n.startsWith('*.') && entry.name.endsWith(n.slice(1)))) {
-				results.push(full);
-			}
-		}
-	}
-	walk(dir);
-	return results;
-}
 
 function computeTemplateTags(templatesDir: string): TemplateTag[] {
 	const results: TemplateTag[] = [];
