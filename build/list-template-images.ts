@@ -7,33 +7,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-
-const MCR_PREFIX = 'mcr.microsoft.com/devcontainers/';
-const IMAGE_REF_PATTERN = /mcr\.microsoft\.com\/devcontainers\/([^"]+)/g;
-const TEMPLATE_OPTION_PATTERN = /\$\{templateOption:([^}]+)\}/;
-
-interface TemplateJson {
-	options?: Record<string, {
-		default?: string;
-		proposals?: string[];
-	}>;
-}
-
-function findFiles(dir: string, names: string[]): string[] {
-	const results: string[] = [];
-	function walk(d: string) {
-		for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
-			const full = path.join(d, entry.name);
-			if (entry.isDirectory()) {
-				walk(full);
-			} else if (names.includes(entry.name) || names.some(n => n.startsWith('*.') && entry.name.endsWith(n.slice(1)))) {
-				results.push(full);
-			}
-		}
-	}
-	walk(dir);
-	return results;
-}
+import { MCR_PREFIX, IMAGE_REF_PATTERN, TEMPLATE_OPTION_PATTERN, TemplateJson, findFiles } from './utils';
 
 function main() {
 	const templatesDir = path.resolve(__dirname, '..', 'src');
