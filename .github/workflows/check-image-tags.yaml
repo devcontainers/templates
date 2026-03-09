@@ -1,0 +1,56 @@
+name: "Compare Templates against Images"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 2 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-image-tags:
+    name: Check Image Tags (Last Release)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: List template images
+        run: npx tsx build/list-template-images.ts
+
+      - uses: actions/checkout@v5
+        with:
+          repository: devcontainers/images
+          fetch-depth: 0
+          path: images
+
+      - name: Check out last release tag
+        run: |
+          cd images
+          tag=$(git describe --tags --abbrev=0)
+          echo "Checking out tag: $tag"
+          git checkout "$tag"
+
+      - name: Check image tags (last release)
+        run: npx tsx build/check-image-tags.ts images
+
+  check-image-tags-latest:
+    name: Check Image Tags (Latest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/checkout@v5
+        with:
+          repository: devcontainers/images
+          path: images
+
+      - name: Check image tags (latest)
+        run: |
+          if ! npx tsx build/check-image-tags.ts images; then
+            echo "::warning::Image tag check against latest images failed - upcoming release may break templates"
+          fi
