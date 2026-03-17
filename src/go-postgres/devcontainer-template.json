@@ -14,7 +14,7 @@
 				"1.26-trixie",
 				"1.25-trixie",
 				"1.26-bookworm",
-				"1.25-bookworm",
+				"1.25-bookworm"
             ],
             "default": "1.26-trixie"
         }
