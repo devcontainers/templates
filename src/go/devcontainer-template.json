@@ -12,13 +12,9 @@
             "description": "Go version:",
             "proposals": [
 				"1.26-trixie",
-				"1-trixie",
-				"1.24-trixie",
 				"1.25-trixie",
 				"1.26-bookworm",
-                "1.25-bookworm",
-                "1.24-bookworm",
-                "1.24-bullseye"
+                "1.25-bookworm"
             ],
             "default": "1.26-trixie"
         }
