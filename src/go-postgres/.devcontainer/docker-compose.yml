@@ -3,15 +3,14 @@ version: '3.8'
 volumes:
   postgres-data:
 
-
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
     env_file:
-      # Ensure that the variables in .env match the same variables in devcontainer.json
-      - .env
+       # Ensure that the variables in .env match the same variables in devcontainer.json
+       - .env
 
     volumes:
       - ../..:/workspaces:cached
