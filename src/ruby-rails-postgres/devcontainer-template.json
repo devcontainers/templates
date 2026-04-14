@@ -13,15 +13,12 @@
             "proposals": [
                 "4-trixie",
                 "3.4-trixie",
-                "3.3-trixie",
-                "3.2-trixie",				
+                "3.3-trixie",				
                 "4-bookworm",
                 "3.4-bookworm",
                 "3.3-bookworm",
-                "3.2-bookworm",
                 "3.4-bullseye",				
-                "3.3-bullseye",
-                "3.2-bullseye"
+                "3.3-bullseye"
             ],
 			"default": "4-trixie"
         }	
