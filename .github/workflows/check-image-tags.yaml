@@ -40,6 +40,7 @@ jobs:
           if ! npx tsx build/check-image-tags.ts images; then
             echo "::warning::Image tag check against last release failed - templates may reference newer images not yet released"
           fi
+          exit 0
 
   check-image-tags-latest:
     name: Check Image Tags (Latest)
