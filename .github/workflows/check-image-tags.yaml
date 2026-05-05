@@ -36,7 +36,10 @@ jobs:
           git checkout "$tag"
 
       - name: Check image tags (last release)
-        run: npx tsx build/check-image-tags.ts images
+        run: |
+          if ! npx tsx build/check-image-tags.ts images; then
+            echo "::warning::Image tag check against last release failed - templates may reference newer images not yet released"
+          fi
 
   check-image-tags-latest:
     name: Check Image Tags (Latest)
