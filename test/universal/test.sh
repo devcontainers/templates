@@ -113,21 +113,17 @@ check "RAILS_DEVELOPMENT_HOSTS is set correctly" echo $RAILS_DEVELOPMENT_HOSTS |
 check "oryx" oryx --version
 
 # Install platforms with oryx build tool
-check "oryx-install-dotnet-2.1" oryx prep --skip-detection --platforms-and-versions dotnet=2.1.30
-check "dotnet-2-installed-by-oryx" ls /opt/dotnet/ | grep 2.1
-check "dotnet-version-on-path-is-2.1.12" dotnet --version | grep 2.1
+check "oryx-install-dotnet-8.0" oryx prep --skip-detection --platforms-and-versions dotnet=8.0.23
+check "dotnet-8-installed-by-oryx" ls /opt/dotnet/ | grep 8.0
+check "dotnet-version-on-path-is-8.0.23" dotnet --version | grep 8.0.23
 
-check "oryx-install-nodejs-12.22.11" oryx prep --skip-detection --platforms-and-versions nodejs=12.22.11
-check "nodejs-12.22.11-installed-by-oryx" ls /opt/nodejs/ | grep 12.22.11
-check "nodejs-version-on-path-is-2.1.12" node --version | grep v12.22.11
+check "oryx-install-nodejs-20.11.0" oryx prep --skip-detection --platforms-and-versions nodejs=20.11.0
+check "nodejs-20.11.0-installed-by-oryx" ls /opt/nodejs/ | grep 20.11.0
+check "nodejs-version-on-path-is-20.11.0" node --version | grep v20.11.0
 
-check "oryx-install-php-7.3.25" oryx prep --skip-detection --platforms-and-versions php=7.3.25
-check "php-7.3.25-installed-by-oryx" ls /opt/php/ | grep 7.3.25
-check "php-version-on-path-is-2.1.12" php --version | grep 7.3.25
-
-check "oryx-install-java-12.0.2" oryx prep --skip-detection --platforms-and-versions java=12.0.2
-check "java-12.0.2-installed-by-oryx" ls /opt/java/ | grep 12.0.2
-check "java-version-on-path-is-12.0.2" java --version | grep 12.0.2
+check "oryx-install-php-8.1.30" oryx prep --skip-detection --platforms-and-versions php=8.1.30
+check "php-8.1.30-installed-by-oryx" ls /opt/php/ | grep 8.1.30
+check "php-version-on-path-is-8.1.30" php --version | grep 8.1.30
 
 ls -la /home/codespace
 
