@@ -1,5 +1,3 @@
-version: '3.8'
-
 volumes:
   postgres-data:
 
@@ -26,8 +24,6 @@ services:
   db:
     image: postgres:latest
     restart: unless-stopped
-    networks:
-      - app-network # Connect to the same network as the app container
 
     # Health check ensures PostgreSQL is ready before dependent services start
     # This is critical for depends_on with condition: service_healthy to work properly
