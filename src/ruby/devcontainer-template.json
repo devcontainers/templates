@@ -1,6 +1,6 @@
 {
     "id": "ruby",
-    "version": "6.0.0",
+    "version": "6.0.1",
     "name": "Ruby",
     "description": "Develop Ruby based applications. includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ruby",
@@ -13,7 +13,7 @@
             "proposals": [
                 "4-trixie",
                 "3.4-trixie",				
-                "3.3-trixie",			
+                "3.3-trixie",
                 "4-bookworm",
                 "3.4-bookworm",				
                 "3.3-bookworm",
