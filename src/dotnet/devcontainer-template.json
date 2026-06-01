@@ -11,6 +11,7 @@
             "type": "string",
             "description": ".NET version:",
             "proposals": [
+				"11.0-preview",
 				"10.0",
                 "9.0",
                 "8.0",
@@ -19,6 +20,7 @@
 				"10.0-noble",
                 "9.0-noble",
                 "8.0-noble",
+				"11.0-preview-resolute",
                 "8.0-jammy"
             ],
             "default": "10.0-noble"

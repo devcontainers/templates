@@ -1,6 +1,6 @@
 {
     "id": "go",
-    "version": "5.0.0",
+    "version": "6.0.0",
     "name": "Go",
     "description": "Develop Go based applications. Includes appropriate runtime args, Go, common tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/go",
@@ -11,14 +11,12 @@
             "type": "string",
             "description": "Go version:",
             "proposals": [
-				"1-trixie",
-				"1.24-trixie",
+				"1.26-trixie",
 				"1.25-trixie",
-                "1.25-bookworm",
-                "1.24-bookworm",
-                "1.24-bullseye"
+				"1.26-bookworm",
+                "1.25-bookworm"
             ],
-            "default": "1.25-trixie"
+            "default": "1.26-trixie"
         }
     },
     "platforms": ["Go"],
