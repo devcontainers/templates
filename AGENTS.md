@@ -71,7 +71,9 @@ containing the output of `build/check-image-tags.ts`, which classifies tags as:
 
 - **MISSING** — referenced by a template but **no longer published** by images.
   → Action: **remove** that variant from the matching template's
-  `options.imageVariant.proposals`. Authoritative, low-noise signal — act on every one.
+  `options.imageVariant.proposals`. Low-noise signal, but see the caveat below: a tag can be
+  published by a **differently-named image directory**, so confirm it is genuinely gone from
+  the images repo before removing it.
 - **UNUSED** — published by images but **not referenced** by any template.
   → Mostly intentional (aliases, floating/OS-only tags). **Only add** an entry when it is
   a genuinely new `{version}-{os}` variant that matches the template's existing naming
@@ -83,8 +85,19 @@ containing the output of `build/check-image-tags.ts`, which classifies tags as:
 1. **Identify the template** from the tag's image name (the part before `:`). Map the tag
    back to a template by finding the `src/*/.devcontainer/*` file whose image reference
    shares that prefix. Some templates map to several images (e.g. `php` and `php-mariadb`).
-2. **Removals (MISSING):** delete the obsolete value from `proposals`. If `default` equals
-   a removed value, set `default` to the new newest variant (see ordering below).
+   - **A single image tag may be published from more than one image directory.** The image
+     name (before `:`) does **not** always match the images-repo directory that publishes
+     the tag. Notably, the `java` template's `8-trixie` / `8-bookworm` variants produce
+     `java:3-8-trixie` / `java:3-8-bookworm`, which are published by the **separate
+     `src/java-8` image directory** — not by `src/java`. Do **not** remove these variants
+     just because they are absent from `src/java/manifest.json`; verify against
+     `src/java-8/manifest.json` first. The same applies to `java-postgres`, which builds on
+     the same `java` image.
+2. **Removals (MISSING):** delete the obsolete value from `proposals` **only after** you have
+   confirmed the tag is not published by any image directory (grep every `src/*/manifest.json`
+   in the images repo for the tag, not just the one whose name matches the image prefix). If
+   `default` equals a removed value, set `default` to the new newest variant (see ordering
+   below).
 3. **Additions (UNUSED, only genuine new variants):** insert the new value into `proposals`
    in the correct position (see ordering below).
    - If **every** variant for an image is reported MISSING, the image's pinned major in the

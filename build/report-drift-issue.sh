@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
-# Creates (or refreshes) a single tracking issue describing the drift between the
-# templates in this repo and the images published by devcontainers/images, then assigns
-# it to the GitHub Copilot coding agent so it can prepare the fix.
+# Creates a single tracking issue describing the drift between the templates in this repo
+# and the images published by devcontainers/images, then assigns it to the GitHub Copilot
+# coding agent so it can prepare the fix. A new issue is only created when a similar
+# tracking issue isn't already open.
 #
 # Input:  a plain-text report produced by `npx tsx build/check-image-tags.ts <images>`
 #         (ANSI colour codes already stripped).
@@ -81,28 +82,28 @@ body_file="$(mktemp)"
     echo "</details>"
     echo
     echo "---"
-    echo "_Generated automatically by \`.github/workflows/check-image-tags.yaml\`. This issue is"
-    echo "refreshed on each scheduled run until the drift is resolved._"
+    echo "_Generated automatically by \`.github/workflows/check-image-tags.yaml\`. A new issue is"
+    echo "opened only when no similar tracking issue is already open._"
 } >"$body_file"
 
 # --- Ensure the tracking label exists ------------------------------------------------
 gh label create "$LABEL" --repo "$REPO" \
     --color "1d76db" --description "Automated templates/images variant sync" 2>/dev/null || true
 
-# --- Create or update a single open tracking issue -----------------------------------
+# --- Create a single open tracking issue (only if one isn't already open) ------------
 existing="$(gh issue list --repo "$REPO" --state open --label "$LABEL" \
     --json number --jq '.[0].number // empty' || true)"
 
 if [ -n "$existing" ]; then
-    echo "Refreshing existing issue #${existing}"
-    gh issue edit "$existing" --repo "$REPO" --body-file "$body_file" >/dev/null
-    issue_number="$existing"
-else
-    echo "Creating new tracking issue"
-    issue_url="$(gh issue create --repo "$REPO" --title "$TITLE" \
-        --label "$LABEL" --body-file "$body_file")"
-    issue_number="${issue_url##*/}"
+    echo "An open tracking issue already exists (#${existing}); nothing to do."
+    echo "Issue #${existing}: https://github.com/${REPO}/issues/${existing}"
+    exit 0
 fi
+
+echo "Creating new tracking issue"
+issue_url="$(gh issue create --repo "$REPO" --title "$TITLE" \
+    --label "$LABEL" --body-file "$body_file")"
+issue_number="${issue_url##*/}"
 echo "Issue #${issue_number}: https://github.com/${REPO}/issues/${issue_number}"
 
 # --- Assign to the Copilot coding agent ----------------------------------------------
