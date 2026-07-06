@@ -1,7 +1,6 @@
 {
     "id": "cpp",
-    "version": "4.0.0",
-    "name": "C++",
+    "version": "4.1.0",
     "description": "Develop C++ applications on Linux. Includes Debian C++ build tools.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/cpp",
     "publisher": "Dev Container Spec Maintainers",

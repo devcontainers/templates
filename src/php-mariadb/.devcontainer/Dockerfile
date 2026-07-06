@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/php:3-${templateOption:imageVariant}
+FROM mcr.microsoft.com/devcontainers/php:4-${templateOption:imageVariant}
 
 # Install MariaDB client
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
