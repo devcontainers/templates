@@ -8,7 +8,6 @@
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"version": "${templateOption:dockerVersion}",
-			"enableNonRootDocker": "${templateOption:enableNonRootDocker}",
 			"moby": "${templateOption:moby}"
 		}
 	}
