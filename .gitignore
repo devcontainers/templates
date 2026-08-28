@@ -1,3 +1,5 @@
 *.DS_Store
 Thumbs.db
 node_modules
+# Local clone of devcontainers/images used by build/check-image-tags.ts
+/images/
