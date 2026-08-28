@@ -1,0 +1,36 @@
+{
+    "id": "ubi",
+    "version": "1.0.0",
+    "name": "Red Hat Universal Base Image (UBI)",
+    "description": "Red Hat UBI container for enterprise development. Freely redistributable RHEL-compatible base.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ubi",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "UBI version (RHEL version):",
+            "proposals": [
+                "10",
+                "9",
+                "8"
+            ],
+            "default": "10"
+        },
+        "variant": {
+            "type": "string",
+            "description": "UBI variant:",
+            "proposals": [
+                "ubi",
+                "ubi-minimal",
+                "ubi-init"
+            ],
+            "default": "ubi"
+        }
+    },
+    "platforms": ["Any"],
+    "optionalPaths": [
+        ".github/*"
+    ]
+}
+
