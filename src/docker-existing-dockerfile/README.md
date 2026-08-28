@@ -1,7 +1,7 @@
 
 # Existing Dockerfile (docker-existing-dockerfile)
 
-Sample illustrating reuse of an existing Dockefile.
+Sample illustrating reuse of an existing Dockerfile.
 
 
 
