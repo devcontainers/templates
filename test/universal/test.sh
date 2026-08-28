@@ -54,7 +54,6 @@ echo $(echo "java versions" && ls -a /usr/local/sdkman/candidates/java)
 # Check Ruby tools
 check "ruby" ruby --version
 check "ruby-build" ruby-build --version
-check "rbenv" bash -c 'eval "$(rbenv init -)" && rbenv --version'
 check "gems" gem --version
 check "rake" rake --version
 check "jekyll" jekyll --version
@@ -67,7 +66,6 @@ echo $(echo "ruby versions" && ls -a /usr/local/rubies)
 # Node.js
 check "node" node --version
 check "nvm" bash -c ". /usr/local/share/nvm/nvm.sh && nvm --version"
-check "nvs" bash -c ". /usr/local/nvs/nvs.sh && nvs --version"
 check "yarn" yarn --version
 check "npm" npm --version
 count=$(ls /usr/local/share/nvm/versions/node | wc -l)
