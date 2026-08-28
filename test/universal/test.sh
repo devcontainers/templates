@@ -53,15 +53,16 @@ echo $(echo "java versions" && ls -a /usr/local/sdkman/candidates/java)
 
 # Check Ruby tools
 check "ruby" ruby --version
-check "rvm" bash -c ". /usr/local/rvm/scripts/rvm && rvm --version"
+check "ruby-build" ruby-build --version
 check "rbenv" bash -c 'eval "$(rbenv init -)" && rbenv --version'
 check "gems" gem --version
 check "rake" rake --version
 check "jekyll" jekyll --version
-count=$(ls /usr/local/rvm/gems | wc -l)
-expectedCount=6 # 2 version folders + 2 global folders for each version + 1 default folder which links to either one of the version + 1 cache folder
+check "ruby gems are writable" test -w "$(gem env gemdir)"
+count=$(find /usr/local/rubies -mindepth 1 -maxdepth 1 -type d | wc -l)
+expectedCount=2
 checkVersionCount "two versions of ruby are present" $count $expectedCount
-echo $(echo "ruby versions" && ls -a /usr/local/rvm/rubies)
+echo $(echo "ruby versions" && ls -a /usr/local/rubies)
 
 # Node.js
 check "node" node --version
