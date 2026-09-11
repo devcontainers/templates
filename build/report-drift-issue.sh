@@ -116,8 +116,9 @@ echo "Issue #${issue_number}: https://github.com/${REPO}/issues/${issue_number}"
 # --- Assign the issue (best-effort) --------------------------------------------------
 # Assign to the configured GitHub user, or the Copilot coding agent by default. The
 # assignee (bot or user) must be assignable in the repo; it then appears as a suggested
-# actor. Assignment must never fail the run: the issue is already created above, so any
-# error here is downgraded to a warning and the script still exits successfully.
+# actor. Assignment must never fail the run and must not surface any error/warning: the
+# issue is already created above, so if the actor id is invalid or the assignment fails
+# we just log an informational note and the script still exits successfully.
 assign_issue() {
     local login="$1"
     local actor_id issue_id
@@ -132,7 +133,7 @@ assign_issue() {
         }' --jq ".data.repository.suggestedActors.nodes[] | select(.login==\"${login}\") | .id" 2>/dev/null || true)"
 
     if [ -z "$actor_id" ]; then
-        echo "::warning::'${login}' is not assignable in ${REPO}. Issue #${issue_number} left unassigned." >&2
+        echo "'${login}' is not assignable in ${REPO}; leaving issue #${issue_number} unassigned."
         return 1
     fi
 
@@ -142,7 +143,7 @@ assign_issue() {
         }' --jq '.data.repository.issue.id' 2>/dev/null || true)"
 
     if [ -z "$issue_id" ]; then
-        echo "::warning::Could not resolve issue #${issue_number} id. Issue left unassigned." >&2
+        echo "Could not resolve issue #${issue_number} id; leaving it unassigned."
         return 1
     fi
 
@@ -152,15 +153,18 @@ assign_issue() {
                 assignable { ... on Issue { number assignees(first:5){nodes{login}} } }
             }
         }' >/dev/null 2>&1; then
-        echo "::warning::Failed to assign issue #${issue_number} to '${login}'. Issue left unassigned." >&2
+        echo "Assignment of issue #${issue_number} to '${login}' did not succeed; leaving it unassigned."
         return 1
     fi
 
     return 0
 }
 
+# Never let assignment affect the exit status: guard the call so a failure is ignored.
 if assign_issue "$TARGET_ASSIGNEE"; then
     echo "Assigned issue #${issue_number} to '${TARGET_ASSIGNEE}'."
 fi
+
+exit 0
 
 exit 0
