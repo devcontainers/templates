@@ -12,8 +12,9 @@
 #         GITHUB_REPOSITORY        - owner/name (defaults to devcontainers/templates)
 #         ASSIGNEE_LOGIN           - optional GitHub username to assign the issue to.
 #                                    When empty, defaults to the Copilot coding agent.
-#                                    Assignment is best-effort: if it fails, the issue is
-#                                    still created (just left unassigned).
+#                                    Assignment is best-effort: if it fails, a warning is
+#                                    emitted and the script still exits 0 (issue is left
+#                                    unassigned but creation is never affected).
 set -euo pipefail
 
 REPORT_FILE="${1:?Usage: report-drift-issue.sh <report-file>}"
@@ -116,55 +117,37 @@ echo "Issue #${issue_number}: https://github.com/${REPO}/issues/${issue_number}"
 # --- Assign the issue (best-effort) --------------------------------------------------
 # Assign to the configured GitHub user, or the Copilot coding agent by default. The
 # assignee (bot or user) must be assignable in the repo; it then appears as a suggested
-# actor. Assignment must never fail the run and must not surface any error/warning: the
-# issue is already created above, so if the actor id is invalid or the assignment fails
-# we just log an informational note and the script still exits successfully.
-assign_issue() {
-    local login="$1"
-    local actor_id issue_id
-
-    actor_id="$(gh api graphql -f owner="$OWNER" -f name="$NAME" -f query='
-        query($owner:String!, $name:String!) {
-            repository(owner:$owner, name:$name) {
-                suggestedActors(capabilities:[CAN_BE_ASSIGNED], first:100) {
-                    nodes { login __typename ... on Bot { id } ... on User { id } }
-                }
+# actor. Assignment is best-effort: the issue is already created above, so if the actor
+# id can't be resolved or the assignment fails we warn and `exit 0` rather than error.
+actor_id="$(gh api graphql -f owner="$OWNER" -f name="$NAME" -f query='
+    query($owner:String!, $name:String!) {
+        repository(owner:$owner, name:$name) {
+            suggestedActors(capabilities:[CAN_BE_ASSIGNED], first:100) {
+                nodes { login __typename ... on Bot { id } ... on User { id } }
             }
-        }' --jq ".data.repository.suggestedActors.nodes[] | select(.login==\"${login}\") | .id" 2>/dev/null || true)"
+        }
+    }' --jq ".data.repository.suggestedActors.nodes[] | select(.login==\"${TARGET_ASSIGNEE}\") | .id" || true)"
 
-    if [ -z "$actor_id" ]; then
-        echo "'${login}' is not assignable in ${REPO}; leaving issue #${issue_number} unassigned."
-        return 1
-    fi
-
-    issue_id="$(gh api graphql -f owner="$OWNER" -f name="$NAME" -F number="$issue_number" -f query='
-        query($owner:String!, $name:String!, $number:Int!) {
-            repository(owner:$owner, name:$name) { issue(number:$number) { id } }
-        }' --jq '.data.repository.issue.id' 2>/dev/null || true)"
-
-    if [ -z "$issue_id" ]; then
-        echo "Could not resolve issue #${issue_number} id; leaving it unassigned."
-        return 1
-    fi
-
-    if ! gh api graphql -f assignableId="$issue_id" -f actorId="$actor_id" -f query='
-        mutation($assignableId:ID!, $actorId:ID!) {
-            replaceActorsForAssignable(input:{assignableId:$assignableId, actorIds:[$actorId]}) {
-                assignable { ... on Issue { number assignees(first:5){nodes{login}} } }
-            }
-        }' >/dev/null 2>&1; then
-        echo "Assignment of issue #${issue_number} to '${login}' did not succeed; leaving it unassigned."
-        return 1
-    fi
-
-    return 0
-}
-
-# Never let assignment affect the exit status: guard the call so a failure is ignored.
-if assign_issue "$TARGET_ASSIGNEE"; then
-    echo "Assigned issue #${issue_number} to '${TARGET_ASSIGNEE}'."
+if [ -z "$actor_id" ]; then
+    echo "::warning::'${TARGET_ASSIGNEE}' is not assignable in ${REPO}. Issue #${issue_number} left unassigned."
+    exit 0
 fi
 
-exit 0
+issue_id="$(gh api graphql -f owner="$OWNER" -f name="$NAME" -F number="$issue_number" -f query='
+    query($owner:String!, $name:String!, $number:Int!) {
+        repository(owner:$owner, name:$name) { issue(number:$number) { id } }
+    }' --jq '.data.repository.issue.id')"
+
+if ! gh api graphql -f assignableId="$issue_id" -f actorId="$actor_id" -f query='
+    mutation($assignableId:ID!, $actorId:ID!) {
+        replaceActorsForAssignable(input:{assignableId:$assignableId, actorIds:[$actorId]}) {
+            assignable { ... on Issue { number assignees(first:5){nodes{login}} } }
+        }
+    }' >/dev/null; then
+    echo "::warning::Failed to assign issue #${issue_number} to '${TARGET_ASSIGNEE}'. Issue left unassigned."
+    exit 0
+fi
+
+echo "Assigned issue #${issue_number} to '${TARGET_ASSIGNEE}'."
 
 exit 0
