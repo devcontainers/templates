@@ -8,6 +8,12 @@ on:
   schedule:
     - cron: '0 2 * * 1-5'
   workflow_dispatch:
+    inputs:
+      assignee:
+        description: "GitHub username to assign the drift tracking issue to. Leave empty to assign to the Copilot coding agent (default)."
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -57,9 +63,9 @@ jobs:
 
   report-drift-issue:
     name: Report Drift and Assign to Copilot
-    # Only run for scheduled syncs and manual runs - never on PRs/pushes, so we don't
-    # open issues for in-flight changes.
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    # Only run on manual dispatch - never on schedule/PRs/pushes, so we don't open
+    # issues automatically. Scheduled runs skip this job.
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -108,8 +114,9 @@ jobs:
             echo "has_drift=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Create or refresh tracking issue and assign to Copilot
+      - name: Create or refresh tracking issue and assign
         if: steps.compare.outputs.has_drift == 'true'
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          ASSIGNEE_LOGIN: ${{ github.event.inputs.assignee }}
         run: bash build/report-drift-issue.sh report.txt
