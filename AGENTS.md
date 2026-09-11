@@ -99,7 +99,8 @@ change") and keep iterating until **zero** MISSING tags remain across **all** te
 
 When [devcontainers/images](https://github.com/devcontainers/images) adds or removes an
 image variant, the affected templates must be updated. The scheduled
-"Compare Templates against Images" workflow opens an issue (assigned to the coding agent)
+"Compare Templates against Images" workflow only runs the checks; a maintainer must trigger
+it manually (`workflow_dispatch`) to open a tracking issue (assigned to the coding agent)
 containing the output of `build/check-image-tags.ts`, which classifies tags as:
 
 - **MISSING** — referenced by a template but **no longer published** by images.

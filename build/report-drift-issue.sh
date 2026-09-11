@@ -44,9 +44,11 @@ body_file="$(mktemp)"
 {
     echo "## Templates ↔ images drift detected"
     echo
-    echo "The scheduled **Compare Templates against Images** workflow detected differences"
-    echo "between the image tags referenced by templates in this repo and the tags published"
-    echo "by [devcontainers/images](https://github.com/devcontainers/images)."
+    echo "This issue was opened manually (\`workflow_dispatch\`) from the **Compare Templates"
+    echo "against Images** workflow, whose scheduled runs only detect drift without opening an"
+    echo "issue. The comparison below found differences between the image tags referenced by"
+    echo "templates in this repo and the tags published by"
+    echo "[devcontainers/images](https://github.com/devcontainers/images)."
     echo
     echo "Please follow the rules in [AGENTS.md](https://github.com/${REPO}/blob/main/AGENTS.md)"
     echo "(section *“Keeping templates in sync with devcontainers/images”*) to update the"
