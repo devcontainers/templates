@@ -1,6 +1,6 @@
 {
     "id": "go-postgres",
-    "version": "6.0.0",
+    "version": "6.0.1",
     "name": "Go & PostgreSQL",
     "description": "Use and develop Go + Postgres applications. Includes appropriate runtime args, Go, common tools, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/go-postgres",
@@ -11,12 +11,14 @@
             "type": "string",
             "description": "Go version:",
             "proposals": [
-				"1.26-trixie",
-				"1.25-trixie",
-				"1.26-bookworm",
-				"1.25-bookworm"
+                "1.27-trixie",
+                "1.26-trixie",
+                "1.25-trixie",
+                "1.27-bookworm",
+                "1.26-bookworm",
+                "1.25-bookworm"
             ],
-            "default": "1.26-trixie"
+            "default": "1.27-trixie"
         }
     },
     "platforms": ["Go"],

@@ -1,6 +1,6 @@
 {
     "id": "ruby",
-    "version": "6.0.2",
+    "version": "6.0.3",
     "name": "Ruby",
     "description": "Develop Ruby based applications. includes everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ruby",
@@ -16,9 +16,7 @@
                 "3.3-trixie",
                 "4.0-bookworm",
                 "3.4-bookworm",
-                "3.3-bookworm",
-                "3.4-bullseye",
-                "3.3-bullseye"
+                "3.3-bookworm"
             ],
             "default": "4.0-trixie"
         }
