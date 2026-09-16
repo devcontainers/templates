@@ -66,11 +66,41 @@ subset of `{version}-{os}` variants — it intentionally does **not** list every
 images repo publishes (floating tags such as `java:3-25`, OS-only tags such as
 `java:3-trixie`, JDK/`-jdk` aliases, etc. are deliberately omitted).
 
+### One image change fans out to several templates
+
+The checker scans **every** `devcontainer.json`, `Dockerfile`, and compose file for image
+references, so a single image's variant change can surface as MISSING/UNUSED tags in more
+than one template. Before concluding you are done, account for **all** three ways a template
+can reference an image:
+
+1. **Primary templates** — expose the variants via their own `options.imageVariant.proposals`
+   (e.g. `javascript-node`, `rust`, `ruby`, `go`, `debian`, `jekyll`).
+2. **Dependent templates** — build `FROM mcr.microsoft.com/devcontainers/<image>:...-${templateOption:imageVariant}`
+   in their `Dockerfile`, tracking the **same** base image's variants. These have their **own**
+   `imageVariant` option that must be edited in lockstep with the primary template. Known
+   dependents (non-exhaustive — always re-derive from the checker output):
+    - `javascript-node-mongo`, `javascript-node-postgres` build `FROM devcontainers/javascript-node`.
+    - `rust-postgres` builds `FROM devcontainers/rust`.
+    - `ruby-rails-postgres` builds `FROM devcontainers/ruby`.
+3. **Hardcoded / static pins** — pin a fixed tag with **no** `imageVariant` option, usually
+   `base:<os>` in `devcontainer.json` or a `FROM devcontainers/base:<os>` in a `Dockerfile`.
+   When that OS tag stops being published, repoint the **literal** tag (e.g. `base:bullseye`
+   → `base:bookworm`); there are no `proposals` to edit. Known base-pinned templates
+   (non-exhaustive): `docker-in-docker`, `docker-outside-of-docker`,
+   `docker-outside-of-docker-compose`, `kubernetes-helm`, `kubernetes-helm-minikube`,
+   `markdown`.
+
+Do not stop after editing only the primary templates. A variant that disappears from
+`javascript-node` also disappears from `javascript-node-mongo`/`-postgres`; a `base` OS tag
+that disappears affects every hardcoded pin above. Re-run the checker (see "Validating your
+change") and keep iterating until **zero** MISSING tags remain across **all** templates.
+
 ## Keeping templates in sync with devcontainers/images
 
 When [devcontainers/images](https://github.com/devcontainers/images) adds or removes an
 image variant, the affected templates must be updated. The scheduled
-"Compare Templates against Images" workflow opens an issue (assigned to the coding agent)
+"Compare Templates against Images" workflow only runs the checks; a maintainer must trigger
+it manually (`workflow_dispatch`) to open a tracking issue (assigned to the coding agent)
 containing the output of `build/check-image-tags.ts`, which classifies tags as:
 
 - **MISSING** — referenced by a template but **no longer published** by images.
@@ -79,24 +109,31 @@ containing the output of `build/check-image-tags.ts`, which classifies tags as:
   published by a **differently-named image directory**, so confirm it is genuinely gone from
   the images repo before removing it.
 - **UNUSED** — published by images but **not referenced** by any template.
-  → Mostly intentional (aliases, floating/OS-only tags). **Only add** an entry when it is
-  a genuinely new `{version}-{os}` variant that matches the template's existing naming
-  convention (cross-check the image's `src/<image>/manifest.json` `variants` array in the
-  images repo). Ignore floating/alias tags.
+  → Mostly intentional (aliases, floating/OS-only tags), **but do not blanket-dismiss the
+  whole list.** Scan it for a genuinely new **concrete** `{version}-{os}` variant — typically
+  a newly released major/minor (e.g. Go `1.27-trixie` / `1.27-bookworm`) that matches the
+  template's existing naming convention. Such a variant **must be added**. Distinguish it from
+  aliases by cross-checking the image's `src/<image>/manifest.json` in the images repo: a
+  genuine new version appears in the `variants` array (and is often the new `latest`), whereas
+  floating majors (`3-trixie`), OS-only tags (`3-bookworm`), and `-jdk`/language aliases are
+  not new versions. When in doubt, add concrete `{version}-{os}` tags and ignore the rest.
 
 ### Editing rules
 
-1. **Identify the template** from the tag's image name (the part before `:`). Map the tag
+1. **Identify the template(s)** from the tag's image name (the part before `:`). Map the tag
    back to a template by finding the `src/*/.devcontainer/*` file whose image reference
-   shares that prefix. Some templates map to several images (e.g. `php` and `php-mariadb`).
-   - **A single image tag may be published from more than one image directory.** The image
-     name (before `:`) does **not** always match the images-repo directory that publishes
-     the tag. Notably, the `java` template's `8-trixie` / `8-bookworm` variants produce
-     `java:3-8-trixie` / `java:3-8-bookworm`, which are published by the **separate
-     `src/java-8` image directory** — not by `src/java`. Do **not** remove these variants
-     just because they are absent from `src/java/manifest.json`; verify against
-     `src/java-8/manifest.json` first. The same applies to `java-postgres`, which builds on
-     the same `java` image.
+   shares that prefix. **A single tag often maps to several templates** — the primary
+   template plus its dependents and any hardcoded pins (see "One image change fans out to
+   several templates" above). Some templates map to several images (e.g. `php` and
+   `php-mariadb`).
+    - **A single image tag may be published from more than one image directory.** The image
+      name (before `:`) does **not** always match the images-repo directory that publishes
+      the tag. Notably, the `java` template's `8-trixie` / `8-bookworm` variants produce
+      `java:3-8-trixie` / `java:3-8-bookworm`, which are published by the **separate
+      `src/java-8` image directory** — not by `src/java`. Do **not** remove these variants
+      just because they are absent from `src/java/manifest.json`; verify against
+      `src/java-8/manifest.json` first. The same applies to `java-postgres`, which builds on
+      the same `java` image.
 2. **Removals (MISSING):** delete the obsolete value from `proposals` **only after** you have
    confirmed the tag is not published by any image directory (grep every `src/*/manifest.json`
    in the images repo for the tag, not just the one whose name matches the image prefix). If
@@ -104,24 +141,24 @@ containing the output of `build/check-image-tags.ts`, which classifies tags as:
    below).
 3. **Additions (UNUSED, only genuine new variants):** insert the new value into `proposals`
    in the correct position (see ordering below).
-   - If **every** variant for an image is reported MISSING, the image's pinned major in the
-     `.devcontainer` image reference has changed (e.g. `php:3-` → `php:4-`). Update that
-     prefix in the template's `devcontainer.json` / `Dockerfile` as well, then re-derive
-     the `proposals`.
+    - If **every** variant for an image is reported MISSING, the image's pinned major in the
+      `.devcontainer` image reference has changed (e.g. `php:3-` → `php:4-`). Update that
+      prefix in the template's `devcontainer.json` / `Dockerfile` as well, then re-derive
+      the `proposals`.
 4. **Proposals ordering convention** (match the existing files exactly):
-   - Group by OS, newest OS first. Observed priority: `trixie` → `bookworm` → `bullseye`
-     (Debian); for OS-named variants, Debian newest→oldest then Ubuntu newest→oldest
-     (e.g. `debian13`, `debian12`, `ubuntu24.04`, `ubuntu22.04`).
-   - Within an OS group, list versions **descending** (newest first).
-   - A floating major (e.g. Python's `3-trixie`) comes first within its OS group.
+    - Group by OS, newest OS first. Observed priority: `trixie` → `bookworm` → `bullseye`
+      (Debian); for OS-named variants, Debian newest→oldest then Ubuntu newest→oldest
+      (e.g. `debian13`, `debian12`, `ubuntu24.04`, `ubuntu22.04`).
+    - Within an OS group, list versions **descending** (newest first).
+    - A floating major (e.g. Python's `3-trixie`) comes first within its OS group.
 5. **Default convention:** the newest **concrete** version on the newest OS
    (e.g. `25-trixie`, `1.26-trixie`; Python uses the concrete `3.14-trixie`, not the
    floating `3-trixie`).
 6. **Do not touch options that are not image variants** (e.g. cpp's
    `reinstallCmakeVersionFromSource`, boolean feature toggles).
 7. **Preserve required metadata:** image synchronization must not remove or rewrite the
-  top-level `id` or `name`. Confirm that `id`, `version`, and `name` remain present as
-  non-empty strings in every edited `devcontainer-template.json`.
+   top-level `id` or `name`. Confirm that `id`, `version`, and `name` remain present as
+   non-empty strings in every edited `devcontainer-template.json`.
 8. **Bump `version`** (patch) in each edited `devcontainer-template.json`.
 
 ### Validating your change
@@ -135,5 +172,8 @@ npx tsx build/check-image-tags.ts ../images
 ```
 
 A successful sync produces **zero MISSING** tags. Remaining UNUSED tags are expected and
-acceptable (they are mostly intentional aliases). Finish by running
-`npx prettier --write src/**/devcontainer-template.json`.
+acceptable (they are mostly intentional aliases) — but first confirm none of them is a
+genuinely new concrete `{version}-{os}` variant that should have been added. If the checker
+still reports MISSING tags, you have not covered every referencing template yet (commonly a
+missed dependent or hardcoded pin); fix those and **re-run until MISSING is empty**. Finish
+by running `npx prettier --write src/**/devcontainer-template.json`.

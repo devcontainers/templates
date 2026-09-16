@@ -2,15 +2,19 @@
 #
 # Creates a single tracking issue describing the drift between the templates in this repo
 # and the images published by devcontainers/images, then assigns it to the GitHub Copilot
-# coding agent so it can prepare the fix. A new issue is only created when a similar
-# tracking issue isn't already open.
+# coding agent (or a configurable GitHub user) so it can prepare the fix. A new issue is
+# only created when a similar tracking issue isn't already open.
 #
 # Input:  a plain-text report produced by `npx tsx build/check-image-tags.ts <images>`
 #         (ANSI colour codes already stripped).
 # Usage:  build/report-drift-issue.sh <report-file>
 # Env:    GH_TOKEN / GITHUB_TOKEN  - token with `issues: write`
 #         GITHUB_REPOSITORY        - owner/name (defaults to devcontainers/templates)
-#
+#         ASSIGNEE_LOGIN           - optional GitHub username to assign the issue to.
+#                                    When empty, defaults to the Copilot coding agent.
+#                                    Assignment is best-effort: if it fails, a warning is
+#                                    emitted and the script still exits 0 (issue is left
+#                                    unassigned but creation is never affected).
 set -euo pipefail
 
 REPORT_FILE="${1:?Usage: report-drift-issue.sh <report-file>}"
@@ -19,8 +23,12 @@ OWNER="${REPO%%/*}"
 NAME="${REPO##*/}"
 LABEL="automated-image-sync"
 TITLE="Sync template image variants with devcontainers/images"
-# Login of the Copilot coding agent actor (shows up as "Copilot" in the UI).
+# Login of the Copilot coding agent actor (shows up as "Copilot" in the UI). Used as the
+# default assignee when ASSIGNEE_LOGIN is not provided.
 COPILOT_LOGIN="copilot-swe-agent"
+# Optional override: assign the issue to this GitHub user instead of the Copilot agent.
+ASSIGNEE_LOGIN="${ASSIGNEE_LOGIN:-}"
+TARGET_ASSIGNEE="${ASSIGNEE_LOGIN:-$COPILOT_LOGIN}"
 
 # --- Extract the actionable signals from the report ---------------------------------
 missing="$(grep -E '^[[:space:]]*MISSING' "$REPORT_FILE" | sed -E 's/^[[:space:]]*MISSING[[:space:]]+//' | sort -u || true)"
@@ -36,9 +44,11 @@ body_file="$(mktemp)"
 {
     echo "## Templates ↔ images drift detected"
     echo
-    echo "The scheduled **Compare Templates against Images** workflow detected differences"
-    echo "between the image tags referenced by templates in this repo and the tags published"
-    echo "by [devcontainers/images](https://github.com/devcontainers/images)."
+    echo "This issue was opened manually (\`workflow_dispatch\`) from the **Compare Templates"
+    echo "against Images** workflow, whose scheduled runs only detect drift without opening an"
+    echo "issue. The comparison below found differences between the image tags referenced by"
+    echo "templates in this repo and the tags published by"
+    echo "[devcontainers/images](https://github.com/devcontainers/images)."
     echo
     echo "Please follow the rules in [AGENTS.md](https://github.com/${REPO}/blob/main/AGENTS.md)"
     echo "(section *“Keeping templates in sync with devcontainers/images”*) to update the"
@@ -106,20 +116,22 @@ issue_url="$(gh issue create --repo "$REPO" --title "$TITLE" \
 issue_number="${issue_url##*/}"
 echo "Issue #${issue_number}: https://github.com/${REPO}/issues/${issue_number}"
 
-# --- Assign to the Copilot coding agent ----------------------------------------------
-# The agent must be enabled for the repo; it then appears as an assignable actor.
-bot_id="$(gh api graphql -f owner="$OWNER" -f name="$NAME" -f query='
+# --- Assign the issue (best-effort) --------------------------------------------------
+# Assign to the configured GitHub user, or the Copilot coding agent by default. The
+# assignee (bot or user) must be assignable in the repo; it then appears as a suggested
+# actor. Assignment is best-effort: the issue is already created above, so if the actor
+# id can't be resolved or the assignment fails we warn and `exit 0` rather than error.
+actor_id="$(gh api graphql -f owner="$OWNER" -f name="$NAME" -f query='
     query($owner:String!, $name:String!) {
         repository(owner:$owner, name:$name) {
             suggestedActors(capabilities:[CAN_BE_ASSIGNED], first:100) {
                 nodes { login __typename ... on Bot { id } ... on User { id } }
             }
         }
-    }' --jq ".data.repository.suggestedActors.nodes[] | select(.login==\"${COPILOT_LOGIN}\") | .id" || true)"
+    }' --jq ".data.repository.suggestedActors.nodes[] | select(.login==\"${TARGET_ASSIGNEE}\") | .id" || true)"
 
-if [ -z "$bot_id" ]; then
-    echo "::warning::Copilot coding agent ('${COPILOT_LOGIN}') is not assignable in ${REPO}. " \
-        "Enable the Copilot coding agent for the repository. Issue left unassigned."
+if [ -z "$actor_id" ]; then
+    echo "::warning::'${TARGET_ASSIGNEE}' is not assignable in ${REPO}. Issue #${issue_number} left unassigned."
     exit 0
 fi
 
@@ -128,11 +140,16 @@ issue_id="$(gh api graphql -f owner="$OWNER" -f name="$NAME" -F number="$issue_n
         repository(owner:$owner, name:$name) { issue(number:$number) { id } }
     }' --jq '.data.repository.issue.id')"
 
-gh api graphql -f assignableId="$issue_id" -f actorId="$bot_id" -f query='
+if ! gh api graphql -f assignableId="$issue_id" -f actorId="$actor_id" -f query='
     mutation($assignableId:ID!, $actorId:ID!) {
         replaceActorsForAssignable(input:{assignableId:$assignableId, actorIds:[$actorId]}) {
             assignable { ... on Issue { number assignees(first:5){nodes{login}} } }
         }
-    }' >/dev/null
+    }' >/dev/null; then
+    echo "::warning::Failed to assign issue #${issue_number} to '${TARGET_ASSIGNEE}'. Issue left unassigned."
+    exit 0
+fi
 
-echo "Assigned issue #${issue_number} to the Copilot coding agent."
+echo "Assigned issue #${issue_number} to '${TARGET_ASSIGNEE}'."
+
+exit 0
