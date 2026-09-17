@@ -1,6 +1,6 @@
 {
     "id": "rust",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "name": "Rust",
     "description": "Develop Rust based applications. Includes appropriate runtime args and everything you need to get up and running.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/rust",
@@ -9,7 +9,7 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Debian OS version (use trixie, bookworm, or bullseye on local arm64/Apple Silicon):",
+            "description": "Debian OS version (use trixie or bookworm on local arm64/Apple Silicon):",
             "proposals": [
                 "trixie",
                 "bookworm"

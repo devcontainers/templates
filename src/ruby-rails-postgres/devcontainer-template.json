@@ -1,6 +1,6 @@
 {
     "id": "ruby-rails-postgres",
-    "version": "6.0.3",
+    "version": "6.0.4",
     "name": "Ruby on Rails & Postgres",
     "description": "Develop Ruby on Rails applications with Postgres. Includes a Rails application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/ruby-rails-postgres",
@@ -9,7 +9,7 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Ruby version (use - trixie, -bookworm, -bullseye variants on local arm64/Apple Silicon):",
+            "description": "Ruby version (use -trixie or -bookworm variants on local arm64/Apple Silicon):",
             "proposals": [
                 "4.0-trixie",
                 "3.4-trixie",
