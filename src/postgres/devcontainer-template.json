@@ -1,6 +1,6 @@
 {
     "id": "postgres",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "name": "Python 3 & PostgreSQL",
     "description": "Develop applications with Python 3 and PostgreSQL. Includes a Python application container and PostgreSQL server.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/postgres",
@@ -9,7 +9,7 @@
     "options": {
         "imageVariant": {
             "type": "string",
-            "description": "Python version (use -trixie, -bookworm, or -bullseye variants on local arm64/Apple Silicon):",
+            "description": "Python version (use -trixie or -bookworm variants on local arm64/Apple Silicon):",
             "proposals": [
                 "3.14-trixie",
                 "3.13-trixie",

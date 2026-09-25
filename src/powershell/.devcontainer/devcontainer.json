@@ -3,7 +3,7 @@
 {
 	"name": "PowerShell",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/powershell:lts-debian-11",
+	"image": "mcr.microsoft.com/powershell:lts-debian-12",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": "true",
