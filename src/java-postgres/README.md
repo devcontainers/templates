@@ -7,7 +7,7 @@ Develop applications with Java and PostgreSQL. Includes a Java application conta
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Java version (use -bookworm, or -bullseye variants on local arm64/Apple Silicon): | string | 21-bullseye |
+| imageVariant | Java version (use -trixie, or -bookworm variants on local arm64/Apple Silicon): | string | 25-trixie |
 | installMaven | Install Maven, a management tool for Java | boolean | false |
 | installGradle | Install Gradle, a build automation tool for multi-language software development | boolean | false |
 
@@ -18,7 +18,7 @@ This template references an image that was [pre-built](https://containers.dev/im
 
 ## Using this template
 
-This template creates two containers, one for Java and one for PostgreSQL. You will be connected to the Java container, and from within that container the PostgreSQL container will be available on **`localhost`** port 5432. The default database is named `postgres` with a user of `postgres` whose password is `postgres`, and if desired this may be changed in `.devcontainer/docker-compose.yml`. Data is stored in a volume named `postgres-data`.
+This template creates two containers, one for Java and one for PostgreSQL. You will be connected to the Java container, and from within that container the PostgreSQL container will be available on the hostname **`db`** port 5432. The default database is named `postgres` with a user of `postgres` whose password is `postgres`, and if desired this may be changed in `.devcontainer/docker-compose.yml`. Data is stored in a volume named `postgres-data`.
 
 While the template itself works unmodified, it uses the `mcr.microsoft.com/devcontainers/java` image which includes `git`, a non-root `vscode` user with `sudo` access, and a set of common dependencies and Java tools for development.
 
@@ -41,12 +41,7 @@ If needed, you can use `postCreateCommand` to run commands after the container i
 
 ### Adding another service
 
-You can add other services to your `.devcontainer/docker-compose.yml` file [as described in Docker's documentation](https://docs.docker.com/compose/compose-file/#service-configuration-reference). However, if you want anything running in this service to be available in the container on localhost, or want to forward the service locally, be sure to add this line to the service config:
-
-```yaml
-# Runs the service on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
-network_mode: service:db
-```
+You can add other services to your `.devcontainer/docker-compose.yml` file [as described in Docker's documentation](https://docs.docker.com/compose/compose-file/#service-configuration-reference). For inter-service communication, attach new services to the `app-network` bridge network configured in the compose file.
 
 ### Using the forwardPorts property
 
