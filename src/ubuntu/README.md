@@ -7,7 +7,7 @@ A simple Ubuntu container with Git and other common utilities installed.
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Ubuntu version (use ubuntu 26.04 or ubuntu24.04 or ubuntu22.04 on local arm64/Apple Silicon): | string | resolute | noble | jammy
+| imageVariant | Ubuntu version (use ubuntu-26.04 or ubuntu-24.04 or ubuntu-22.04 on local arm64/Apple Silicon): | string | resolute |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 
