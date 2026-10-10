@@ -1,0 +1,65 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/podman-in-podman
+{
+	"name": "Podman in Podman",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"VARIANT": "${templateOption:imageVariant}",
+			"PODMAN_TAG": "${templateOption:imageVariant}",
+			"INSTALL_BUILDAH": "${templateOption:installBuildah}",
+			"INSTALL_SKOPEO": "${templateOption:installSkopeo}"
+		}
+	},
+
+	// Required for nested container operations
+	"runArgs": [
+		"--privileged",
+		"--security-opt", "label=disable"
+	],
+
+	// Persistent storage for container images
+	"mounts": [
+		{
+			"source": "devcontainer-podman-var-lib-${devcontainerId}",
+			"target": "/var/lib/containers",
+			"type": "volume"
+		}
+	],
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// Note: Using UID/GID 1001 to avoid conflicts with podman user in official image
+	// Zsh is installed but Bash remains the default shell (matching official templates)
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"installOhMyZsh": true,
+			"username": "vscode",
+			"userUid": "1001",
+			"userGid": "1001",
+			"upgradePackages": true
+		},
+		"ghcr.io/devcontainers/features/git:1": {}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Verify Podman is working (run as root for nested container operations)
+	"postCreateCommand": "sudo podman --version && sudo podman info --format '{{.Host.OCIRuntime.Name}}'",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"redhat.vscode-yaml"
+			]
+		}
+	},
+
+	// Using root for nested container operations to avoid user namespace issues
+	// This is common for Podman-in-Podman scenarios
+	"remoteUser": "root"
+}
+
+
