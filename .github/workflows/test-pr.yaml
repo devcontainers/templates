@@ -24,6 +24,9 @@ jobs:
             docker-outside-of-docker: ./**/docker-outside-of-docker/**
             docker-outside-of-docker-compose: ./**/docker-outside-of-docker-compose/**
             docker-in-docker: ./**/docker-in-docker/**
+            fedora: ./**/fedora/**
+            ubi: ./**/ubi/**
+            podman-in-podman: ./**/podman-in-podman/**
             dotnet: ./**/dotnet/**
             dotnet-fsharp: ./**/dotnet-fsharp/**
             dotnet-mssql: ./**/dotnet-mssql/**
