@@ -1,6 +1,6 @@
 {
     "id": "typescript-node",
-    "version": "6.0.2",
+    "version": "6.0.3",
     "name": "Node.js & TypeScript",
     "description": "Develop Node.js based applications in TypeScript. Includes Node.js, eslint, nvm, yarn, and the TypeScript compiler.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/typescript-node",
@@ -11,12 +11,14 @@
             "type": "string",
             "description": "Node.js version (use -trixie or -bookworm variants on local arm64/Apple Silicon):",
             "proposals": [
+                "26-trixie",
                 "24-trixie",
                 "22-trixie",
+                "26-bookworm",
                 "24-bookworm",
                 "22-bookworm"
             ],
-            "default": "24-trixie"
+            "default": "26-trixie"
         }
     },
     "platforms": [
