@@ -3,7 +3,7 @@ cd $(dirname "$0")
 
 source test-utils.sh node
 
-sudo corepack enable && corepack prepare yarn@4.9.4 --activate
+sudo npm install --global corepack@0.36.0 && sudo corepack enable && corepack prepare yarn@4.9.4 --activate
 check "yarn_version_new" yarn --version
 
 # Run common tests
