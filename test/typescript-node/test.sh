@@ -14,6 +14,7 @@ checkCommon
 checkExtension "dbaeumer.vscode-eslint"
 check "node" node --version
 sudo rm -f yarn.lock
+touch yarn.lock
 check "yarn" yarn install
 sudo rm -f package-lock.json
 check "eslint" eslint --no-warn-ignored src/server.ts
