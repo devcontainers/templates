@@ -99,6 +99,8 @@ jobs:
             fi
           fi
 
+      - uses: ./.github/actions/setup-compose
+
       - name: Run Smoke Test
         run: |
           template_id="${{ matrix.templates }}"
