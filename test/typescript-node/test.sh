@@ -4,6 +4,7 @@ cd $(dirname "$0")
 source test-utils.sh node
 
 sudo npm install --global --force corepack@0.36.0 && sudo corepack enable && corepack prepare yarn@4.9.4 --activate
+export YARN_NODE_LINKER=node-modules
 check "yarn_version_new" yarn --version
 
 # Run common tests
