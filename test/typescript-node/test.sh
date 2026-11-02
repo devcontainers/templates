@@ -3,7 +3,7 @@ cd $(dirname "$0")
 
 source test-utils.sh node
 
-check "corepack_setup" bash -c 'sudo npm install --global --force corepack@0.36.0 && corepack_path=$(command -v corepack) && sudo "$corepack_path" enable && "$corepack_path" prepare yarn@4.9.4 --activate'
+check "corepack_setup" bash -c 'sudo npm install --global --force corepack@0.36.0 && corepack_path=$(command -v corepack) && sudo env "PATH=$PATH" "$corepack_path" enable && "$corepack_path" prepare yarn@4.9.4 --activate'
 export YARN_NODE_LINKER=node-modules
 check "yarn_version_new" yarn --version
 
