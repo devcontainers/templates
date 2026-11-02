@@ -3,6 +3,10 @@ cd $(dirname "$0")
 
 source test-utils.sh node
 
+check "yarn_version" yarn --version
+sudo corepack enable && corepack prepare yarn@4.9.4 --activate
+check "yarn_version_new" yarn --version
+
 # Run common tests
 checkCommon
 
