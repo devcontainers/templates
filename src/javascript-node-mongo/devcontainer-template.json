@@ -1,6 +1,6 @@
 {
     "id": "javascript-node-mongo",
-    "version": "6.0.2",
+    "version": "6.0.3",
     "name": "Node.js & Mongo DB",
     "description": "Develop applications in Node.js and Mongo DB. Includes Node.js, eslint, and yarn in a container linked to a Mongo DB.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/javascript-node-mongo",
@@ -11,10 +11,11 @@
             "type": "string",
             "description": "Node.js version (use -bookworm variants on local arm64/Apple Silicon):",
             "proposals": [
+                "26-bookworm",
                 "24-bookworm",
                 "22-bookworm"
             ],
-            "default": "24-bookworm"
+            "default": "26-bookworm"
         }
     },
     "platforms": [

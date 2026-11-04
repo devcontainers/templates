@@ -3,6 +3,9 @@ cd $(dirname "$0")
 
 source test-utils.sh node
 
+check "corepack_setup" bash -c 'sudo npm install --global --force corepack@0.36.0 && corepack_path=$(command -v corepack) && sudo env "PATH=$PATH" "$corepack_path" enable && "$corepack_path" prepare yarn@4.9.4 --activate'
+check "yarn_version_new" yarn --version
+
 # Run common tests
 checkCommon
 
@@ -10,6 +13,7 @@ checkCommon
 checkExtension "dbaeumer.vscode-eslint"
 check "node" node --version
 sudo rm -f yarn.lock
+touch yarn.lock
 check "yarn" yarn install
 sudo rm -f package-lock.json
 check "npm" npm install
