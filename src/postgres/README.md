@@ -7,7 +7,7 @@ Develop applications with Python 3 and PostgreSQL. Includes a Python application
 
 | Options Id | Description | Type | Default Value |
 |-----|-----|-----|-----|
-| imageVariant | Python version (use -trixie or -bookworm variants on local arm64/Apple Silicon): | string | 3.14-trixie |
+| imageVariant | Python version (use -trixie or -bookworm variants on local arm64/Apple Silicon): | string | 3.15-trixie |
 
 This template references an image that was [pre-built](https://containers.dev/implementors/reference/#prebuilding) to automatically include needed devcontainer.json metadata.
 
