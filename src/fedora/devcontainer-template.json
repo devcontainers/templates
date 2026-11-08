@@ -1,0 +1,28 @@
+{
+    "id": "fedora",
+    "version": "1.0.0",
+    "name": "Fedora",
+    "description": "Simple Fedora container with Git and common utilities installed.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/fedora",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Fedora version:",
+            "proposals": [
+                "43",
+                "42",
+                "41",
+                "latest",
+                "rawhide"
+            ],
+            "default": "43"
+        }
+    },
+    "platforms": ["Any"],
+    "optionalPaths": [
+        ".github/*"
+    ]
+}
+

@@ -1,0 +1,33 @@
+{
+    "id": "podman-in-podman",
+    "version": "1.0.0",
+    "name": "Podman in Podman",
+    "description": "Create child containers inside a container using Podman. Daemonless alternative to Docker-in-Docker.",
+    "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/podman-in-podman",
+    "publisher": "Dev Container Spec Maintainers",
+    "licenseURL": "https://github.com/devcontainers/templates/blob/main/LICENSE",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Podman version tag from quay.io/podman/stable. Use 'latest' or any version (e.g., '5.7.1', '5.7', '5', 'v5.7.1'). The 'v' prefix is optional and will be added automatically:",
+            "proposals": [
+                "latest"
+            ],
+            "default": "latest"
+        },
+        "installBuildah": {
+            "type": "boolean",
+            "description": "Install Buildah for building container images?",
+            "default": "true"
+        },
+        "installSkopeo": {
+            "type": "boolean",
+            "description": "Install Skopeo for image management?",
+            "default": "true"
+        }
+    },
+    "platforms": ["Any"],
+    "optionalPaths": [
+        ".github/*"
+    ]
+}
