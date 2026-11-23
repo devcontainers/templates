@@ -1,6 +1,6 @@
 {
     "id": "dotnet",
-    "version": "3.6.1",
+    "version": "3.6.3",
     "name": "C# (.NET)",
     "description": "Develop C# and .NET based applications. Includes all needed SDKs, extensions, and dependencies.",
     "documentationURL": "https://github.com/devcontainers/templates/tree/main/src/dotnet",
@@ -14,16 +14,10 @@
                 "11.0",
                 "11.0-resolute",
                 "10.0",
-                "9.0",
-                "8.0",
-                "9.0-bookworm",
-                "8.0-bookworm",
-                "10.0-noble",
-                "9.0-noble",
-                "8.0-noble",
-                "8.0-jammy"
+                "10.0-resolute",
+                "10.0-noble"
             ],
-            "default": "10.0-noble"
+            "default": "11.0-resolute"
         }
     },
     "platforms": [
